@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -51,21 +51,29 @@ public class dbConnector {
         }
         
         
-        public void updateData(String sql){
-            try{
-                PreparedStatement pst = connect.prepareStatement(sql);
-                    int rowsUpdated = pst.executeUpdate();
-                        if(rowsUpdated > 0){
-                            JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
-                        }else{
-                            System.out.println("Data Update Failed!");
-                        }
-                        pst.close();
-            }catch(SQLException ex){
-                System.out.println("Connection Error: "+ex);
+        public void updateData(String sql) {
+        try {
+            if (connect == null) {
+                throw new SQLException("Database connection is null.");
             }
-        
+            PreparedStatement pst = connect.prepareStatement(sql);
+            int rowsUpdated = pst.executeUpdate();
+            if (rowsUpdated > 0) {
+                JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
+            } else {
+                System.out.println("Data Update Failed!");
+            }
+            pst.close();
+        } catch (SQLException ex) {
+            System.out.println("Connection Error: " + ex);
         }
+    }
+         public Connection getConnection() {
+        return connect;
+        
+         }
+
+   
         
     
 }

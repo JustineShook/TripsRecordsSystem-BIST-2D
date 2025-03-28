@@ -100,7 +100,7 @@ public class accountDetails extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 351, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -114,7 +114,7 @@ public class accountDetails extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 30));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 30));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -144,31 +144,31 @@ public class accountDetails extends javax.swing.JFrame {
             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 40));
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 130, 40));
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Current User :");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 70, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 70, -1));
 
         UserID.setBackground(new java.awt.Color(0, 0, 0));
         UserID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         UserID.setForeground(new java.awt.Color(255, 255, 255));
         UserID.setText("ID");
-        jPanel3.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 30, -1));
+        jPanel3.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 20, -1));
 
         UserCompleteName.setBackground(new java.awt.Color(255, 255, 255));
         UserCompleteName.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         UserCompleteName.setForeground(new java.awt.Color(255, 255, 255));
         UserCompleteName.setText("USER");
-        jPanel3.add(UserCompleteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 110, 10));
+        jPanel3.add(UserCompleteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 110, 10));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 240));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 210));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 150, 250));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 190, 210));
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -176,36 +176,36 @@ public class accountDetails extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Complete Name");
-        jPanel12.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 90, 10));
+        jPanel12.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 90, 10));
 
         uname.setBackground(new java.awt.Color(215, 215, 215));
-        jPanel12.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 140, 30));
+        jPanel12.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 140, 30));
 
         cnumber.setBackground(new java.awt.Color(215, 215, 215));
-        jPanel12.add(cnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 140, 30));
+        jPanel12.add(cnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 140, 30));
 
         email1.setBackground(new java.awt.Color(215, 215, 215));
-        jPanel12.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 140, 30));
+        jPanel12.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 140, 30));
 
         CompleteName.setBackground(new java.awt.Color(215, 215, 215));
-        jPanel12.add(CompleteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 140, 30));
+        jPanel12.add(CompleteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Email");
-        jPanel12.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 30, 10));
+        jPanel12.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 30, 10));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Contact Number");
-        jPanel12.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 90, 10));
+        jPanel12.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 90, 10));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Username");
-        jPanel12.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, 10));
+        jPanel12.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 10));
 
-        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 450, 240));
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 360, 210));
 
         pack();
         setLocationRelativeTo(null);

@@ -5,9 +5,9 @@ import config.dbConnector;
 import config.passwordHasher;
 import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 
@@ -23,38 +23,70 @@ public class regForm extends javax.swing.JFrame {
     public static String dbemail, dbusername;
     
     
-    public boolean duplicateCheck(){
-        dbConnector dbc = new dbConnector();
+   public boolean duplicateCheck() {
+    dbConnector dbc = new dbConnector();
+    
+    // Get the email from the input field
+    String email = email1.getText();
+    String contactnumber = cnumber.getText();
+    
+    // Validate that the email ends with @gmail.com
+    if (!email.endsWith("@gmail.com")) {
+        JOptionPane.showMessageDialog(null, "Email must end with @gmail.com");
+        email1.setText(""); // Clear the email field
+        return true; // Return true to indicate a validation error
+    }
+    if (!isValidContactNumber(contactnumber)) {
+        JOptionPane.showMessageDialog(null, "Contact number must be an integer and only 11 digits.");
+        cnumber.setText(""); // Clear the contact number field
+       return true; // Return true to indicate a validation error
+    }
+    
+    
+    try {
+        String query = "SELECT * FROM tbl_user WHERE u_username = ? OR u_email = ?";
+        PreparedStatement preparedStatement = dbc.getConnection().prepareStatement(query);
+        preparedStatement.setString(1, uname.getText());
+        preparedStatement.setString(2, email);
         
-        try{
-            String query="SELECT*FROM tbl_user  WHERE u_username ='"+uname.getText()+"'OR u_email = '"+email1.getText()+"'";
-            ResultSet resultSet = dbc.getData(query);
-            
-             
-            if(resultSet.next()){
-                dbemail = resultSet.getString("u_email");
-                if(dbemail.equals(email1.getText())){
-                    JOptionPane.showMessageDialog(null, "Email is already Used!");
-                    email1.setText("");
-                }
-               
-                
-               
-                dbusername = resultSet.getString("u_username");
-                if(dbusername.equals(uname.getText())){
-                    JOptionPane.showMessageDialog(null, "Username is already Used!");
-                    uname.setText("");  
-                 }  
-                return true;  
-            }else{
-                return false;
+        ResultSet resultSet = preparedStatement.executeQuery();
+        
+        if (resultSet.next()) {
+            // Check for email duplication
+            dbemail = resultSet.getString("u_email");
+            if (dbemail.equals(email)) {
+                JOptionPane.showMessageDialog(null, "Email is already Used!");
+                email1.setText(""); // Clear the email field
+                return true; // Return true to indicate a duplicate was found
             }
             
-        }catch(SQLException ex){
-            System.out.println(""+ex);
-            return false;
+            // Check for username duplication
+            dbusername = resultSet.getString("u_username");
+            if (dbusername.equals(uname.getText())) {
+                JOptionPane.showMessageDialog(null, "Username is already Used!");
+                uname.setText(""); // Clear the username field
+                return true; // Return true to indicate a duplicate was found
+            }
+        }
+        
+        return false; // No duplicates found
+    } catch (SQLException ex) {
+        System.out.println("" + ex);
+        return false; // Return false in case of an exception
+    }
+}
+   private boolean isValidContactNumber(String cnumber) {
+    // Check if the contact number is a valid integer and has more than 11 digits
+     if (cnumber.length() == 11) {
+        try {
+            Long.parseLong(cnumber); // This will throw an exception if cnumber is not a valid long
+            return true; // Valid contact number
+        } catch (NumberFormatException e) {
+            return false; // Not a valid integer
         }
     }
+    return false;
+}
 
    
     @SuppressWarnings("unchecked")
@@ -137,7 +169,7 @@ public class regForm extends javax.swing.JFrame {
 
         jUserType.setBackground(new java.awt.Color(255, 51, 51));
         jUserType.setForeground(new java.awt.Color(255, 255, 255));
-        jUserType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USER", "ADMIN", " ", " " }));
+        jUserType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USER", "ADMIN" }));
         jUserType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jUserTypeActionPerformed(evt);
@@ -275,6 +307,12 @@ public class regForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Passwords do not match.");
             pword.setText("");
             pword2.setText("");
+        }
+        
+        
+        else if(duplicateCheck()){
+            System.out.println("Duplicate Exist");
+
         }
 
         else{

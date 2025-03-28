@@ -2,7 +2,9 @@
 package admin;
 
 import config.dbConnector;
+import config.passwordHasher;
 import java.awt.Color;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -29,6 +31,22 @@ public class CreateUserForm extends javax.swing.JFrame {
     public boolean duplicateCheck(){
         dbConnector dbc = new dbConnector();
         
+        String emaill = email.getText();
+        String contactnumber = cnumber.getText();
+    
+    // Validate that the email ends with @gmail.com
+    if (!emaill.endsWith("@gmail.com")) {
+        JOptionPane.showMessageDialog(null, "Email must end with @gmail.com");
+        email.setText(""); // Clear the email field
+        return true; // Return true to indicate a validation error
+    }
+    if (!isValidContactNumber(contactnumber)) {
+        JOptionPane.showMessageDialog(null, "Contact number must be an integer and only 11 digits.");
+        cnumber.setText(""); // Clear the contact number field
+       return true; // Return true to indicate a validation error
+    }
+    
+        
         try{
             String query="SELECT*FROM tbl_user  WHERE u_username ='"+uname.getText()+"'OR u_email = '"+email.getText()+"'";
             ResultSet resultSet = dbc.getData(query);
@@ -38,6 +56,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 if(dbemail.equals(email.getText())){
                     JOptionPane.showMessageDialog(null, "Email is already Used!");
                     email.setText("");
+                    
                 }
                 
                
@@ -60,6 +79,22 @@ public class CreateUserForm extends javax.swing.JFrame {
     
     public boolean updateCheck(){
         dbConnector dbc = new dbConnector();
+        
+        String emaill = email.getText();
+        String contactnumber = cnumber.getText();
+        
+        if (!emaill.endsWith("@gmail.com")) {
+        JOptionPane.showMessageDialog(null, "Email must end with @gmail.com");
+        email.setText(""); // Clear the email field
+        return true;
+        
+        }if (!isValidContactNumber(contactnumber)) {
+        JOptionPane.showMessageDialog(null, "Contact number must be an integer and only 11 digits.");
+        cnumber.setText(""); // Clear the contact number field
+        return true; // Return true to indicate a validation error
+        }
+        
+        
         try{
             String query="SELECT*FROM tbl_user  WHERE (u_username ='"+uname.getText()+"'OR u_email = '"+email.getText()+"')AND u_id != '"+uID.getText()+"'";
             ResultSet resultSet = dbc.getData(query);
@@ -84,6 +119,18 @@ public class CreateUserForm extends javax.swing.JFrame {
             return false;
         }
     }
+   private boolean isValidContactNumber(String cnumber) {
+    
+     if (cnumber.length() == 11) {
+        try {
+            Long.parseLong(cnumber);
+            return true; 
+        } catch (NumberFormatException e) {
+            return false; 
+        }
+    }
+    return false;
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -101,7 +148,6 @@ public class CreateUserForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         addB = new javax.swing.JButton();
         jUserType = new javax.swing.JComboBox<>();
-        pword = new javax.swing.JTextField();
         uname = new javax.swing.JTextField();
         cnumber = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
@@ -123,8 +169,9 @@ public class CreateUserForm extends javax.swing.JFrame {
         DeleteB = new javax.swing.JButton();
         UpdateB = new javax.swing.JButton();
         Refresh = new javax.swing.JButton();
-        pword1 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
+        pword = new javax.swing.JPasswordField();
+        pword1 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -175,16 +222,13 @@ public class CreateUserForm extends javax.swing.JFrame {
 
         jUserType.setBackground(new java.awt.Color(255, 51, 51));
         jUserType.setForeground(new java.awt.Color(255, 255, 255));
-        jUserType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USER", "ADMIN", " ", " " }));
+        jUserType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USER", "ADMIN" }));
         jUserType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jUserTypeActionPerformed(evt);
             }
         });
         jPanel2.add(jUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 140, 30));
-
-        pword.setBackground(new java.awt.Color(215, 215, 215));
-        jPanel2.add(pword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 140, 30));
 
         uname.setBackground(new java.awt.Color(215, 215, 215));
         jPanel2.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 140, 30));
@@ -354,13 +398,16 @@ public class CreateUserForm extends javax.swing.JFrame {
         });
         jPanel2.add(Refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 80, -1));
 
-        pword1.setBackground(new java.awt.Color(215, 215, 215));
-        jPanel2.add(pword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 140, 30));
-
         jLabel17.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
         jLabel17.setText("Confirm Password");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 110, 10));
+
+        pword.setBackground(new java.awt.Color(215, 215, 215));
+        jPanel2.add(pword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 140, 30));
+
+        pword1.setBackground(new java.awt.Color(215, 215, 215));
+        jPanel2.add(pword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 140, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 360, 400));
 
@@ -415,8 +462,11 @@ public class CreateUserForm extends javax.swing.JFrame {
         else{
 
             dbConnector dbc=new dbConnector();
+            
+            try{
+            String pass = passwordHasher.hashPassword(pword.getText());
             if(dbc.insertData("INSERT INTO tbl_user(u_name, u_email, u_number, u_username, u_password, u_status, u_type) "
-                + "VALUES('"+CompleteName.getText()+"','"+email.getText()+"','"+cnumber.getText()+"','"+uname.getText()+"','"+pword.getText()+"','"+jUserStatus.getSelectedItem()+"','"+jUserType.getSelectedItem()+"')"))
+                + "VALUES('"+CompleteName.getText()+"','"+email.getText()+"','"+cnumber.getText()+"','"+uname.getText()+"','"+ pass +"','"+jUserStatus.getSelectedItem()+"','"+jUserType.getSelectedItem()+"')"))
         {
             JOptionPane.showMessageDialog(null, "Inserted Successfully");
             usersForm uf=new usersForm();
@@ -427,8 +477,10 @@ public class CreateUserForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Connection Error!");
 
         }
-
+        }catch(NoSuchAlgorithmException ex){
+            System.out.println(""+ex);
         }
+       }
     }//GEN-LAST:event_addBActionPerformed
 
     private void jUserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUserTypeActionPerformed
@@ -495,7 +547,7 @@ public class CreateUserForm extends javax.swing.JFrame {
 
     private void UpdateBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBActionPerformed
         if(CompleteName.getText().isEmpty()||email.getText().isEmpty()||cnumber.getText().isEmpty()
-            ||uname.getText().isEmpty()||pword.getText().isEmpty())
+            ||pword.getText().isEmpty())
 
         {
             JOptionPane.showMessageDialog(null, "Fill apa ang wa na fill apan duh!");
@@ -503,17 +555,26 @@ public class CreateUserForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Password character should be 8 above");
             pword.setText("");
 
-        }else if(updateCheck()){
+        }else if (!pword.getText().equals(pword1.getText())) {
+            JOptionPane.showMessageDialog(null, "Passwords do not match.");
+            pword.setText("");
+            pword1.setText("");
+        }
+        
+        else if(updateCheck()){
+            
 
         }else{
         
         
         dbConnector dbc = new dbConnector();
+        try{
+            
+        String pass = passwordHasher.hashPassword(pword.getText());
         dbc.updateData("UPDATE tbl_user SET u_name = '"+CompleteName.getText()+"',"
                 + "u_email ='"+email.getText()+"',"
                 + "u_number = '"+cnumber.getText()+"', "
-                + "u_username = '"+uname.getText()+"', "
-                + "u_password = '"+pword.getText()+"',"
+                + "u_password = '"+ pass +"',"
                 + "u_status = '"+jUserStatus.getSelectedItem()+"',"
                 + "u_type = '"+jUserType.getSelectedItem()+"'WHERE u_id = '"+uID.getText()+"'");
         
@@ -521,9 +582,12 @@ public class CreateUserForm extends javax.swing.JFrame {
             uf.setVisible(true);
             this.dispose();
             
+        }catch(NoSuchAlgorithmException ex){
+            System.out.println(""+ex);
+        
+        } 
+        
         }
-        
-        
     }//GEN-LAST:event_UpdateBActionPerformed
 
     private void RefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RefreshMouseEntered
@@ -604,8 +668,8 @@ public class CreateUserForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     public javax.swing.JComboBox<String> jUserStatus;
     public javax.swing.JComboBox<String> jUserType;
-    public javax.swing.JTextField pword;
-    public javax.swing.JTextField pword1;
+    public javax.swing.JPasswordField pword;
+    public javax.swing.JPasswordField pword1;
     public javax.swing.JTextField uID;
     public javax.swing.JTextField uname;
     // End of variables declaration//GEN-END:variables
