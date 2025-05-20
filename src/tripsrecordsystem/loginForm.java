@@ -224,7 +224,7 @@ public class loginForm extends javax.swing.JFrame {
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-140, 0, 620, 30));
 
         jPanel4.setBackground(new java.awt.Color(255, 29, 29));
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 480, 40));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 480, 30));
 
         pack();
         setLocationRelativeTo(null);

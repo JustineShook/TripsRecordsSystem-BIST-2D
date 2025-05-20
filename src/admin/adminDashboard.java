@@ -9,6 +9,7 @@ import config.Session;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import tripsrecordsystem.loginForm;
+import user.tripForm;
 
 /**
  *
@@ -146,6 +147,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
         AdminName.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         AdminName.setForeground(new java.awt.Color(153, 153, 153));
+        AdminName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AdminName.setText("ADMIN");
         jPanel3.add(AdminName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 110, 10));
 
@@ -374,7 +376,9 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-        // TODO add your handling code here:
+       tripForm tf = new tripForm(); 
+        tf.setVisible(true); 
+        this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -390,7 +394,9 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel9MouseClicked
 
     private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
-        // TODO add your handling code here:
+    TrucksForm tfm = new TrucksForm();
+        tfm.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jPanel8MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked

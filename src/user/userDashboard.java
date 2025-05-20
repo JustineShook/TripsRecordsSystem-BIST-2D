@@ -102,7 +102,7 @@ public class userDashboard extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 380, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 520, Short.MAX_VALUE)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -116,7 +116,7 @@ public class userDashboard extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 30));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 30));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,15 +127,17 @@ public class userDashboard extends javax.swing.JFrame {
         UserName.setBackground(new java.awt.Color(190, 175, 175));
         UserName.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         UserName.setForeground(new java.awt.Color(153, 153, 153));
+        UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         UserName.setText("USER");
         jPanel3.add(UserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 110, 10));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 370));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 380));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 150, -1));
 
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel10.setBackground(new java.awt.Color(229, 8, 8));
@@ -180,7 +182,7 @@ public class userDashboard extends javax.swing.JFrame {
 
         jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 90, 90));
 
-        jPanel12.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 200, 160));
+        jPanel12.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 200, 160));
 
         jPanel5.setBackground(new java.awt.Color(255, 29, 29));
         jPanel5.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -268,7 +270,7 @@ public class userDashboard extends javax.swing.JFrame {
 
         jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 90, 90));
 
-        jPanel12.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 200, 160));
+        jPanel12.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 200, 160));
 
         jPanel7.setBackground(new java.awt.Color(255, 29, 29));
         jPanel7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -290,9 +292,9 @@ public class userDashboard extends javax.swing.JFrame {
         });
         jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 10));
 
-        jPanel12.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 200, 160));
+        jPanel12.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 200, 160));
 
-        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 450, 370));
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 590, 380));
 
         pack();
         setLocationRelativeTo(null);

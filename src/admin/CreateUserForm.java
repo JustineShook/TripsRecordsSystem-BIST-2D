@@ -1,12 +1,26 @@
-
+    
 package admin;
 
 import config.dbConnector;
 import config.passwordHasher;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static tripsrecordsystem.regForm.dbemail;
 import static tripsrecordsystem.regForm.dbusername;
@@ -23,6 +37,87 @@ public class CreateUserForm extends javax.swing.JFrame {
     public CreateUserForm() {
         initComponents();
     }
+    
+    public String destination = "";
+    File selectedFile;
+    public String oldpath;
+    public String path;
+    
+    public int FileExistenceChecker(String path){
+        File file = new File(path);
+        String fileName = file.getName();
+        
+        Path filePath = Paths.get("src/userimages", fileName);
+        boolean fileExists = Files.exists(filePath);
+        
+        if (fileExists) {
+            return 1;
+        } else {
+            return 0;
+        }
+    
+    }
+    
+    public static int getHeightFromWidth(String imagePath, int desiredWidth) {
+        try {
+            // Read the image file
+            File imageFile = new File(imagePath);
+            BufferedImage image = ImageIO.read(imageFile);
+            
+            // Get the original width and height of the image
+            int originalWidth = image.getWidth();
+            int originalHeight = image.getHeight();
+            
+            // Calculate the new height based on the desired width and the aspect ratio
+            int newHeight = (int) ((double) desiredWidth / originalWidth * originalHeight);
+            
+            return newHeight;
+        } catch (IOException ex) {
+            System.out.println("No image found!");
+        }
+        
+        return -1;
+    }
+    
+    public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
+    ImageIcon MyImage = null;
+        if(ImagePath !=null){
+            MyImage = new ImageIcon(ImagePath);
+        }else{
+            MyImage = new ImageIcon(pic);
+        }
+        
+    int newHeight = getHeightFromWidth(ImagePath, label.getWidth());
+
+    Image img = MyImage.getImage();
+    Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImg);
+    return image;
+}
+     public void imageUpdater(String existingFilePath, String newFilePath){
+        File existingFile = new File(existingFilePath);
+        if (existingFile.exists()) {
+            String parentDirectory = existingFile.getParent();
+            File newFile = new File(newFilePath);
+            String newFileName = newFile.getName();
+            File updatedFile = new File(parentDirectory, newFileName);
+            existingFile.delete();
+            try {
+                Files.copy(newFile.toPath(), updatedFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Image updated successfully.");
+            } catch (IOException e) {
+                System.out.println("Error occurred while updating the image: "+e);
+            }
+        } else {
+            try{
+                Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
+            }catch(IOException e){
+                System.out.println("Error on update!");
+            }
+        }
+   }
+
+    
     
     Color shok = new Color(160,3,0);
     Color redd = new Color(198,20,17);
@@ -172,6 +267,10 @@ public class CreateUserForm extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         pword = new javax.swing.JPasswordField();
         pword1 = new javax.swing.JPasswordField();
+        jPanel3 = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
+        remove = new javax.swing.JButton();
+        select = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -269,7 +368,7 @@ public class CreateUserForm extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(255, 102, 102));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/123.jpg"))); // NOI18N
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 60, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, 60, 30));
 
         jLabel9.setBackground(new java.awt.Color(115, 5, 5));
         jLabel9.setFont(new java.awt.Font("Stencil", 3, 10)); // NOI18N
@@ -409,18 +508,63 @@ public class CreateUserForm extends javax.swing.JFrame {
         pword1.setBackground(new java.awt.Color(215, 215, 215));
         jPanel2.add(pword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 140, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 360, 400));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        image.setText("jLabel2");
+        jPanel3.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 240));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 280, 260));
+
+        remove.setBackground(new java.awt.Color(198, 20, 17));
+        remove.setForeground(new java.awt.Color(255, 255, 255));
+        remove.setText("REMOVE");
+        remove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                removeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                removeMouseExited(evt);
+            }
+        });
+        remove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeActionPerformed(evt);
+            }
+        });
+        jPanel2.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 90, 40));
+
+        select.setBackground(new java.awt.Color(198, 20, 17));
+        select.setForeground(new java.awt.Color(255, 255, 255));
+        select.setText("SELECT");
+        select.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                selectMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                selectMouseExited(evt);
+            }
+        });
+        select.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectActionPerformed(evt);
+            }
+        });
+        jPanel2.add(select, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 90, 40));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 660, 400));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ADMIN CREATE/ADD FORM");
+        jLabel1.setText("ADMIN CREATE/ADD USER FORM");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 862, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -460,14 +604,15 @@ public class CreateUserForm extends javax.swing.JFrame {
         }
 
         else{
-
-            dbConnector dbc=new dbConnector();
-            
             try{
+            dbConnector dbc=new dbConnector();
             String pass = passwordHasher.hashPassword(pword.getText());
-            if(dbc.insertData("INSERT INTO tbl_user(u_name, u_email, u_number, u_username, u_password, u_status, u_type) "
-                + "VALUES('"+CompleteName.getText()+"','"+email.getText()+"','"+cnumber.getText()+"','"+uname.getText()+"','"+ pass +"','"+jUserStatus.getSelectedItem()+"','"+jUserType.getSelectedItem()+"')"))
+            if(dbc.insertData("INSERT INTO tbl_user(u_name, u_email, u_number, u_username, u_password, u_image, u_status, u_type) "
+                + "VALUES('"+CompleteName.getText()+"','"+email.getText()+"','"+cnumber.getText()+"','"+uname.getText()+"','"+ pass +"','"+destination+"', '"+jUserStatus.getSelectedItem()+"','"+jUserType.getSelectedItem()+"')"))
         {
+            
+            
+            Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
             JOptionPane.showMessageDialog(null, "Inserted Successfully");
             usersForm uf=new usersForm();
             uf.setVisible(true);
@@ -478,8 +623,10 @@ public class CreateUserForm extends javax.swing.JFrame {
 
         }
         }catch(NoSuchAlgorithmException ex){
-            System.out.println(""+ex);
-        }
+            System.out.println("Insert Image Error" +ex);
+        }   catch (IOException ex) {
+                Logger.getLogger(CreateUserForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
        }
     }//GEN-LAST:event_addBActionPerformed
 
@@ -576,7 +723,18 @@ public class CreateUserForm extends javax.swing.JFrame {
                 + "u_number = '"+cnumber.getText()+"', "
                 + "u_password = '"+ pass +"',"
                 + "u_status = '"+jUserStatus.getSelectedItem()+"',"
-                + "u_type = '"+jUserType.getSelectedItem()+"'WHERE u_id = '"+uID.getText()+"'");
+                + "u_type = '"+jUserType.getSelectedItem()+"'u_image = '"+destination+"'WHERE u_id = '"+uID.getText()+"'");
+        
+        if(destination.isEmpty()){
+            File existingFile = new File(oldpath);
+            if(existingFile.exists()){
+                existingFile.delete();
+            }
+        }else{
+        if(!(oldpath.equals(path))){
+            imageUpdater(oldpath, path);
+        }
+        }
         
             usersForm uf=new usersForm();
             uf.setVisible(true);
@@ -601,6 +759,56 @@ public class CreateUserForm extends javax.swing.JFrame {
     private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RefreshActionPerformed
+
+    private void removeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeMouseEntered
+
+    private void removeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeMouseExited
+
+    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
+        remove.setEnabled(false);
+        select.setEnabled(true);
+        image.setIcon(null);
+        destination = "";
+        path = "";
+    }//GEN-LAST:event_removeActionPerformed
+
+    private void selectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectMouseEntered
+
+    private void selectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectMouseExited
+
+    private void selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectActionPerformed
+       JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    try {
+                        selectedFile = fileChooser.getSelectedFile();
+                        destination = "src/userimages/" + selectedFile.getName();
+                        path  = selectedFile.getAbsolutePath();
+                        
+                        
+                        if(FileExistenceChecker(path) == 1){
+                          JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
+                            destination = "";
+                            path="";
+                        }else{
+                            image.setIcon(ResizeImage(path, null, image));
+                            select.setEnabled(false);
+                            remove.setEnabled(true);
+                         
+                        }
+                    } catch (Exception ex) {
+                        System.out.println("File Error!");
+                    }
+                }
+    }//GEN-LAST:event_selectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -648,6 +856,7 @@ public class CreateUserForm extends javax.swing.JFrame {
     public javax.swing.JButton addB;
     public javax.swing.JTextField cnumber;
     public javax.swing.JTextField email;
+    public javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -666,10 +875,13 @@ public class CreateUserForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     public javax.swing.JComboBox<String> jUserStatus;
     public javax.swing.JComboBox<String> jUserType;
     public javax.swing.JPasswordField pword;
     public javax.swing.JPasswordField pword1;
+    public javax.swing.JButton remove;
+    public javax.swing.JButton select;
     public javax.swing.JTextField uID;
     public javax.swing.JTextField uname;
     // End of variables declaration//GEN-END:variables
