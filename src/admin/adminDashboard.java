@@ -123,7 +123,7 @@ public class adminDashboard extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 662, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 562, Short.MAX_VALUE)
                 .addComponent(LOGpannel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -137,7 +137,7 @@ public class adminDashboard extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 30));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 30));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -153,10 +153,11 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 390));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 330));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 150, 390));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 150, 330));
 
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel10.setBackground(new java.awt.Color(255, 29, 29));
@@ -201,7 +202,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 90, 90));
 
-        jPanel12.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 200, 150));
+        jPanel12.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 150));
 
         jPanel5.setBackground(new java.awt.Color(255, 29, 29));
         jPanel5.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -245,7 +246,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 90, 90));
 
-        jPanel12.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 200, 150));
+        jPanel12.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 200, 150));
 
         jPanel8.setBackground(new java.awt.Color(255, 29, 29));
         jPanel8.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -289,7 +290,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 90, 90));
 
-        jPanel12.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 200, 150));
+        jPanel12.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 200, 150));
 
         jPanel1.setBackground(new java.awt.Color(229, 8, 8));
         jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -311,7 +312,7 @@ public class adminDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, 10));
 
-        jPanel12.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 200, 150));
+        jPanel12.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 200, 150));
 
         jPanel7.setBackground(new java.awt.Color(229, 8, 8));
         jPanel7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -333,9 +334,9 @@ public class adminDashboard extends javax.swing.JFrame {
         });
         jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, 10));
 
-        jPanel12.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 200, 150));
+        jPanel12.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 200, 150));
 
-        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 740, 390));
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 640, 330));
 
         pack();
         setLocationRelativeTo(null);
@@ -376,9 +377,7 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-       tripForm tf = new tripForm(); 
-        tf.setVisible(true); 
-        this.dispose();
+     
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -412,7 +411,9 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel11MouseClicked
 
     private void jPanel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseClicked
-        // TODO add your handling code here:
+        DriverForm df = new DriverForm();
+        df.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jPanel10MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated

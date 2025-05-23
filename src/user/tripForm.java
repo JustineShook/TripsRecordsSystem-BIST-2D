@@ -316,16 +316,7 @@ public class tripForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-     Session sess = Session.getInstance();
-        if(sess.getUid()==0){ 
-            JOptionPane.showMessageDialog(null, "No Account, Login First");
-            loginForm lgf = new loginForm();
-            lgf.setVisible(true);
-            this.dispose();
-        }else{
-            UserName.setText(""+sess.getCname());
-    
-        }
+     
     }//GEN-LAST:event_formWindowActivated
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -369,9 +360,9 @@ public class tripForm extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Fill apa ang wa na fill apan duh!");
         }else{
-          dbConnector dbc=new dbConnector(); if(dbc.insertData("INSERT INTO tbl_truck(driver_id , truck_id , u_id , description, weight, start_location, end_location, departure_date, arrival_date, distance, status) "
-                + "VALUES('"+sess.getUid()+"','"+TruckID.getText()+"','"+DriverID.getText()+"','"+userID.getText()+"','"+description.getText()+"','"+weight.getText()+"', '"+weight.getText()+"', '"+start.getText()+"',"
-                        + "'"+depart.getText()+"','"+arrival.getText()+"', '"+distance.getText()+"', '"+TripStatus.getSelectedItem()+"')"));
+          dbConnector dbc=new dbConnector(); if(dbc.insertData("INSERT INTO tbl_trip(driver_id , truck_id , u_id , description, weight, start_location, end_location, departure_date, arrival_date, distance, status) "
+                + "VALUES('"+sess.getUid()+"','"+DriverID.getText()+"', '"+TruckID.getText()+"','"+userID.getText()+"','"+description.getText()+"' '"+weight.getText()+"', '"+start.getText()+"',"
+                        + "'"+end.getText()+"', '"+depart.getText()+"','"+arrival.getText()+"', '"+distance.getText()+"', '"+TripStatus.getSelectedItem()+"')"));
        
       }
     }//GEN-LAST:event_AddActionPerformed

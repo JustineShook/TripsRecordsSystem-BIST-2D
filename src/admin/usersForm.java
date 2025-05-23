@@ -59,8 +59,6 @@ public class usersForm extends javax.swing.JFrame {
         BackPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        usersTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         p_add = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -72,6 +70,8 @@ public class usersForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        usersTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -108,18 +108,14 @@ public class usersForm extends javax.swing.JFrame {
         });
         BackPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 10));
 
-        jPanel1.add(BackPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 0, 50, 30));
+        jPanel1.add(BackPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, 50, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("USERS FORM");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 10));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 30));
-
-        jScrollPane1.setViewportView(usersTable);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 840, 350));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -226,9 +222,13 @@ public class usersForm extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 350));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 360));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 350));
+        jScrollPane1.setViewportView(usersTable);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 820, 330));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 990, 360));
 
         pack();
         setLocationRelativeTo(null);
@@ -371,7 +371,6 @@ public class usersForm extends javax.swing.JFrame {
                 ip.cnum.setText(""+rs.getString("u_number"));
                 ip.ustatus.setText(""+rs.getString("u_status"));
                 ip.utype.setText(""+rs.getString("u_type"));
-                ip.image.setIcon(ip.ResizeImage(rs.getString("u_image"), null, ip.image));
                 ip.setVisible(true);   
                 this.dispose();
             }

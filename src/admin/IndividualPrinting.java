@@ -62,7 +62,6 @@ public class IndividualPrinting extends javax.swing.JFrame {
         page = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         UserID = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -75,7 +74,6 @@ public class IndividualPrinting extends javax.swing.JFrame {
         utype = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         ustatus = new javax.swing.JLabel();
-        image = new javax.swing.JLabel();
         un = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -125,178 +123,82 @@ public class IndividualPrinting extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 30));
 
         page.setBackground(new java.awt.Color(255, 255, 255));
+        page.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("SHOOK TRUCKING CORP.");
+        page.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 18, 410, 25));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Bulacao, Talisay City, Cebu");
+        page.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 49, 390, 18));
 
         UserID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         UserID.setText(" ");
+        page.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 140, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel5.setText("User ID                 :");
+        page.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel7.setText("Complete Name   :");
+        page.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, -1));
 
         completename1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         completename1.setText(" ");
+        page.add(completename1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 140, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel9.setText("Email                   :");
+        page.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, -1));
 
         email.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         email.setText(" ");
+        page.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 140, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel11.setText("Cell Number        :");
+        page.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 90, -1));
 
         cnum.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         cnum.setText(" ");
+        page.add(cnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 140, -1));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel13.setText("User Type            :");
+        page.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 90, -1));
 
         utype.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         utype.setText(" ");
+        page.add(utype, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 140, -1));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel15.setText("Status                 :");
+        page.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, -1));
 
         ustatus.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         ustatus.setText(" ");
-
-        image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        image.setText("No image Found!");
+        page.add(ustatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 140, -1));
 
         un.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         un.setText(" ");
+        page.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 140, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel8.setText("User Name          :");
+        page.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, -1));
 
         jLabel10.setBackground(new java.awt.Color(255, 102, 102));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/123.jpg"))); // NOI18N
+        page.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 60, 30));
 
         jLabel12.setBackground(new java.awt.Color(255, 102, 102));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/123.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout pageLayout = new javax.swing.GroupLayout(page);
-        page.setLayout(pageLayout);
-        pageLayout.setHorizontalGroup(
-            pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(330, 330, 330)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pageLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel5)
-                .addGap(10, 10, 10)
-                .addComponent(UserID, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(completename1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(un, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(cnum, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(utype, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(ustatus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        pageLayout.setVerticalGroup(
-            pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pageLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pageLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pageLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pageLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23)
-                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pageLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(UserID))
-                .addGap(17, 17, 17)
-                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(completename1))
-                .addGap(17, 17, 17)
-                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(un))
-                .addGap(17, 17, 17)
-                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(email))
-                .addGap(17, 17, 17)
-                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(cnum))
-                .addGap(17, 17, 17)
-                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addComponent(utype))
-                .addGap(17, 17, 17)
-                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(ustatus)))
-        );
+        page.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 60, 30));
+        page.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 340, 12));
 
         jPanel1.add(page, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 410, 570));
 
@@ -391,7 +293,6 @@ public class IndividualPrinting extends javax.swing.JFrame {
     public javax.swing.JLabel cnum;
     public javax.swing.JLabel completename1;
     public javax.swing.JLabel email;
-    public javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -407,7 +308,6 @@ public class IndividualPrinting extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton pPrint;
     private javax.swing.JPanel page;

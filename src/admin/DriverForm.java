@@ -119,7 +119,7 @@ public class DriverForm extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(driversTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 840, 350));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 830, 340));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -228,7 +228,7 @@ public class DriverForm extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 350));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 350));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 350));
 
         pack();
         setLocationRelativeTo(null);
@@ -368,7 +368,6 @@ public class DriverForm extends javax.swing.JFrame {
                 ip.cnum.setText(""+rs.getString("u_number"));
                 ip.ustatus.setText(""+rs.getString("u_status"));
                 ip.utype.setText(""+rs.getString("u_type"));
-                ip.image.setIcon(ip.ResizeImage(rs.getString("u_image"), null, ip.image));
                 ip.setVisible(true);   
                 this.dispose();
             }
