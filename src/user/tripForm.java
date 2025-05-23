@@ -76,7 +76,7 @@ public class tripForm extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         DriverID = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        Drivertripadd = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         userID = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
@@ -203,7 +203,7 @@ public class tripForm extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tripsTable);
 
-        jPanel12.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 430, 400));
+        jPanel12.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 58, 440, 410));
 
         TruckID.setBackground(new java.awt.Color(204, 204, 204));
         TruckID.setEnabled(false);
@@ -284,14 +284,14 @@ public class tripForm extends javax.swing.JFrame {
         jLabel16.setText("DRIVER'S ID ");
         jPanel12.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 130, 10));
 
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-add-24.png"))); // NOI18N
-        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+        Drivertripadd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Drivertripadd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-add-24.png"))); // NOI18N
+        Drivertripadd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel17MouseClicked(evt);
+                DrivertripaddMouseClicked(evt);
             }
         });
-        jPanel12.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 20, 30));
+        jPanel12.add(Drivertripadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 20, 30));
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-add-24.png"))); // NOI18N
@@ -382,9 +382,11 @@ public class tripForm extends javax.swing.JFrame {
        tt.setVisible(true);
     }//GEN-LAST:event_jLabel14MouseClicked
 
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel17MouseClicked
+    private void DrivertripaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DrivertripaddMouseClicked
+       this.dispose();
+       DriverTable dt = new DriverTable();
+       dt.setVisible(true);
+    }//GEN-LAST:event_DrivertripaddMouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         // TODO add your handling code here:
@@ -430,6 +432,7 @@ public class tripForm extends javax.swing.JFrame {
     private javax.swing.JButton Add;
     private javax.swing.JButton Delete;
     public javax.swing.JTextField DriverID;
+    private javax.swing.JLabel Drivertripadd;
     private javax.swing.JComboBox<String> TripStatus;
     public javax.swing.JTextField TruckID;
     private javax.swing.JButton Update;
@@ -446,7 +449,6 @@ public class tripForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;

@@ -509,8 +509,6 @@ public class CreateUserForm extends javax.swing.JFrame {
         jPanel2.add(pword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 140, 30));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        image.setText("jLabel2");
         jPanel3.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 240));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 280, 260));
@@ -555,7 +553,7 @@ public class CreateUserForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ADMIN CREATE/ADD USER FORM");
+        jLabel1.setText("CREATE/ADD USER FORM");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -583,7 +581,7 @@ public class CreateUserForm extends javax.swing.JFrame {
             ||uname.getText().isEmpty()||pword.getText().isEmpty())
 
         {
-            JOptionPane.showMessageDialog(null, "Fill apa ang wa na fill apan duh!");
+            JOptionPane.showMessageDialog(null, "All Fields are Required!");
         }else if(pword.getText().length()< 8){
             JOptionPane.showMessageDialog(null, "Password character should be 8 above");
             pword.setText("");

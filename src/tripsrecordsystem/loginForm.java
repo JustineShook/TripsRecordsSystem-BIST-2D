@@ -237,8 +237,9 @@ public class loginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Account is not Active, Please contact the ADMIN! ");   
         }else{
             JOptionPane.showMessageDialog(null, "Login Success");
+            
+            dbConnector db = new dbConnector();
             if(type.equals("ADMIN")){
-                
                 adminDashboard ads=new adminDashboard();
                 ads.setVisible(true);
                 this.dispose();   

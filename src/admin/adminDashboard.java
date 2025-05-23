@@ -394,7 +394,7 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel9MouseClicked
 
     private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
-    TrucksForm tfm = new TrucksForm();
+    truckForm tfm = new truckForm();
         tfm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel8MouseClicked
