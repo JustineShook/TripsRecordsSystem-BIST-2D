@@ -72,6 +72,25 @@ public class dbConnector {
         return connect;
         
          }
+         
+         
+         public boolean deleteData(String sql) {
+    try {
+        PreparedStatement pst = connect.prepareStatement(sql);
+        int rowsDeleted = pst.executeUpdate();
+        if (rowsDeleted > 0) {
+            System.out.println("Data Deleted Successfully!");
+            return true;
+        } else {
+            System.out.println("No rows deleted.");
+            return false;
+        }
+    } catch (SQLException ex) {
+        System.out.println("Delete Error: " + ex.getMessage());
+        return false;
+    }
+}
+
 
    
         

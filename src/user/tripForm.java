@@ -51,35 +51,13 @@ public class tripForm extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tripsTable = new javax.swing.JTable();
-        TruckID = new javax.swing.JTextField();
-        description = new javax.swing.JTextField();
-        weight = new javax.swing.JTextField();
-        start = new javax.swing.JTextField();
-        end = new javax.swing.JTextField();
-        depart = new javax.swing.JTextField();
-        arrival = new javax.swing.JTextField();
-        distance = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        TripStatus = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        DriverID = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
         Drivertripadd = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        userID = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -205,62 +183,10 @@ public class tripForm extends javax.swing.JFrame {
 
         jPanel12.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 58, 440, 410));
 
-        TruckID.setBackground(new java.awt.Color(204, 204, 204));
-        TruckID.setEnabled(false);
-        jPanel12.add(TruckID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 60, -1));
-
-        description.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel12.add(description, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 130, -1));
-
-        weight.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel12.add(weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 130, -1));
-
-        start.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel12.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 200, -1));
-
-        end.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel12.add(end, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, -1));
-
-        depart.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel12.add(depart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 130, -1));
-
-        arrival.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel12.add(arrival, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 130, -1));
-
-        distance.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel12.add(distance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 130, -1));
-
-        jLabel3.setText("STATUS");
-        jPanel12.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 130, 10));
-
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("TRIP TABLE");
         jPanel12.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 390, 20));
-
-        jLabel6.setText("DESCRIPTION ");
-        jPanel12.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, 10));
-
-        jLabel7.setText("WEIGHT ");
-        jPanel12.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 130, 10));
-
-        jLabel8.setText("START LOCATION");
-        jPanel12.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, 10));
-
-        jLabel9.setText("END LOCATION ");
-        jPanel12.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 140, 10));
-
-        jLabel10.setText("DEPARTURE DATE ");
-        jPanel12.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 160, 10));
-
-        jLabel11.setText("ARRIVAL DATE ");
-        jPanel12.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 130, 10));
-
-        jLabel12.setText("DISTANCE");
-        jPanel12.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 130, 10));
-
-        TripStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SUCCESSFUL", "PENDING" }));
-        jPanel12.add(TripStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 130, -1));
         jPanel12.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 390, 10));
         jPanel12.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
         jPanel12.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
@@ -273,16 +199,6 @@ public class tripForm extends javax.swing.JFrame {
             }
         });
         jPanel12.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 20, 30));
-
-        jLabel15.setText("TRUCK'S ID ");
-        jPanel12.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 10));
-
-        DriverID.setBackground(new java.awt.Color(204, 204, 204));
-        DriverID.setEnabled(false);
-        jPanel12.add(DriverID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 60, -1));
-
-        jLabel16.setText("DRIVER'S ID ");
-        jPanel12.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 130, 10));
 
         Drivertripadd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Drivertripadd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-add-24.png"))); // NOI18N
@@ -301,13 +217,6 @@ public class tripForm extends javax.swing.JFrame {
             }
         });
         jPanel12.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 20, 30));
-
-        userID.setBackground(new java.awt.Color(204, 204, 204));
-        userID.setEnabled(false);
-        jPanel12.add(userID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 60, -1));
-
-        jLabel19.setText("USER'S ID ");
-        jPanel12.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 130, 10));
 
         getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 690, 480));
 
@@ -351,32 +260,17 @@ public class tripForm extends javax.swing.JFrame {
     }//GEN-LAST:event_UpdateActionPerformed
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
-       Session sess = Session.getInstance();
-        if(TruckID.getText().isEmpty()||DriverID.getText().isEmpty()||userID.getText().isEmpty()
-            ||description.getText().isEmpty()||weight.getText().isEmpty()||start.getText().isEmpty()
-              ||end.getText().isEmpty()||depart.getText().isEmpty()
-              ||arrival.getText().isEmpty()||distance.getText().isEmpty())
-
-        {
-            JOptionPane.showMessageDialog(null, "Fill apa ang wa na fill apan duh!");
-        }else{
-          dbConnector dbc=new dbConnector(); if(dbc.insertData("INSERT INTO tbl_trip(driver_id , truck_id , u_id , description, weight, start_location, end_location, departure_date, arrival_date, distance, status) "
-                + "VALUES('"+sess.getUid()+"','"+DriverID.getText()+"', '"+TruckID.getText()+"','"+userID.getText()+"','"+description.getText()+"' '"+weight.getText()+"', '"+start.getText()+"',"
-                        + "'"+end.getText()+"', '"+depart.getText()+"','"+arrival.getText()+"', '"+distance.getText()+"', '"+TripStatus.getSelectedItem()+"')"));
-       
-      }
+     
     }//GEN-LAST:event_AddActionPerformed
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-       this.dispose();
-       truckTable tt = new truckTable();
-       tt.setVisible(true);
+        this.dispose();
+        truckTable tt = new truckTable();
+        tt.setVisible(true);
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void DrivertripaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DrivertripaddMouseClicked
-       this.dispose();
-       DriverTable dt = new DriverTable();
-       dt.setVisible(true);
+      
     }//GEN-LAST:event_DrivertripaddMouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
@@ -422,34 +316,15 @@ public class tripForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add;
     private javax.swing.JButton Delete;
-    public javax.swing.JTextField DriverID;
     private javax.swing.JLabel Drivertripadd;
-    private javax.swing.JComboBox<String> TripStatus;
-    public javax.swing.JTextField TruckID;
     private javax.swing.JButton Update;
     private javax.swing.JLabel UserName;
-    private javax.swing.JTextField arrival;
-    private javax.swing.JTextField depart;
-    private javax.swing.JTextField description;
-    private javax.swing.JTextField distance;
-    private javax.swing.JTextField end;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
@@ -459,9 +334,6 @@ public class tripForm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField start;
     private javax.swing.JTable tripsTable;
-    public javax.swing.JTextField userID;
-    private javax.swing.JTextField weight;
     // End of variables declaration//GEN-END:variables
 }

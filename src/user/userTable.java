@@ -21,9 +21,8 @@ import tripsrecordsystem.loginForm;
  */
 public class userTable extends javax.swing.JFrame {
 
-    /**
-     * Creates new form userDashboard
-     */
+    
+   
     public userTable() {
         initComponents();
         displayData();
@@ -181,7 +180,7 @@ public class userTable extends javax.swing.JFrame {
         jPanel12.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 610, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText("TRUCK TABLE");
+        jLabel2.setText("USER TABLE");
         jPanel12.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, 30));
 
         getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 830, 390));
@@ -209,17 +208,7 @@ public class userTable extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel13MouseClicked
 
     private void userTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTableMouseClicked
-    int rowIndex = userTable.getSelectedRow();
-       if(rowIndex < 0 ){
-           JOptionPane.showMessageDialog(null, "Please Select an Item!");    
-       }else{
-           TableModel model = userTable.getModel();
-           tripForm lgf = new tripForm();
-           lgf.userID.setText(""+model.getValueAt(rowIndex, 0 ));
-           lgf.setVisible(true); 
-           this.dispose();          
-       }
-      
+ 
     }//GEN-LAST:event_userTableMouseClicked
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
@@ -234,16 +223,7 @@ public class userTable extends javax.swing.JFrame {
     }//GEN-LAST:event_selectActionPerformed
 
     private void selectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectMouseClicked
-       int rowIndex = userTable.getSelectedRow();
-       if(rowIndex < 0 ){
-           JOptionPane.showMessageDialog(null, "Please Select an Item!");    
-       }else{
-           TableModel model = userTable.getModel();
-           tripForm lgf = new tripForm();
-           lgf.userID.setText(""+model.getValueAt(rowIndex, 0 ));
-           lgf.setVisible(true); 
-            this.dispose();        
-       }
+ 
     }//GEN-LAST:event_selectMouseClicked
 
     /**

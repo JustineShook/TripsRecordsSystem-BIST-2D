@@ -1,6 +1,8 @@
     
 package admin;
 
+import config.Logs;
+import config.Session;
 import config.dbConnector;
 import config.passwordHasher;
 import java.awt.Color;
@@ -261,7 +263,6 @@ public class CreateUserForm extends javax.swing.JFrame {
         uID = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         Clearb = new javax.swing.JButton();
-        DeleteB = new javax.swing.JButton();
         UpdateB = new javax.swing.JButton();
         Refresh = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
@@ -317,7 +318,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 addBActionPerformed(evt);
             }
         });
-        jPanel2.add(addB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, -1));
+        jPanel2.add(addB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 80, 30));
 
         jUserType.setBackground(new java.awt.Color(255, 51, 51));
         jUserType.setForeground(new java.awt.Color(255, 255, 255));
@@ -327,7 +328,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 jUserTypeActionPerformed(evt);
             }
         });
-        jPanel2.add(jUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 140, 30));
+        jPanel2.add(jUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 140, 30));
 
         uname.setBackground(new java.awt.Color(215, 215, 215));
         jPanel2.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 140, 30));
@@ -359,7 +360,7 @@ public class CreateUserForm extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Account Status");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, 10));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, 10));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
@@ -408,12 +409,12 @@ public class CreateUserForm extends javax.swing.JFrame {
                 jUserStatusActionPerformed(evt);
             }
         });
-        jPanel2.add(jUserStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 140, 30));
+        jPanel2.add(jUserStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 140, 30));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("User Type");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, 10));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, -1, 10));
 
         uID.setBackground(new java.awt.Color(215, 215, 215));
         uID.setEnabled(false);
@@ -440,25 +441,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 ClearbActionPerformed(evt);
             }
         });
-        jPanel2.add(Clearb, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 80, -1));
-
-        DeleteB.setBackground(new java.awt.Color(198, 20, 17));
-        DeleteB.setForeground(new java.awt.Color(255, 255, 255));
-        DeleteB.setText("Delete");
-        DeleteB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                DeleteBMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                DeleteBMouseExited(evt);
-            }
-        });
-        DeleteB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteBActionPerformed(evt);
-            }
-        });
-        jPanel2.add(DeleteB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 80, -1));
+        jPanel2.add(Clearb, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 80, -1));
 
         UpdateB.setBackground(new java.awt.Color(198, 20, 17));
         UpdateB.setForeground(new java.awt.Color(255, 255, 255));
@@ -477,7 +460,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 UpdateBActionPerformed(evt);
             }
         });
-        jPanel2.add(UpdateB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, -1));
+        jPanel2.add(UpdateB, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 80, 30));
 
         Refresh.setBackground(new java.awt.Color(198, 20, 17));
         Refresh.setForeground(new java.awt.Color(255, 255, 255));
@@ -495,7 +478,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 RefreshActionPerformed(evt);
             }
         });
-        jPanel2.add(Refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 80, -1));
+        jPanel2.add(Refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, -1));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
@@ -578,7 +561,7 @@ public class CreateUserForm extends javax.swing.JFrame {
     private void addBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBActionPerformed
 
         if(CompleteName.getText().isEmpty()||email.getText().isEmpty()||cnumber.getText().isEmpty()
-            ||uname.getText().isEmpty()||pword.getText().isEmpty())
+            ||uname.getText().isEmpty()||pword.getText().isEmpty()|| image.getIcon() == null)
 
         {
             JOptionPane.showMessageDialog(null, "All Fields are Required!");
@@ -611,6 +594,13 @@ public class CreateUserForm extends javax.swing.JFrame {
             
             
             Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
+            
+            Session session = Session.getInstance();
+            int userId = session.getUid();
+            String userFullname = session.getCname();  // Make sure these method names are correct
+            String action = "Admin Added a User Account successfully: " + CompleteName.getText();
+            Logs.logFunctionCall(userId, userFullname, action);
+            
             JOptionPane.showMessageDialog(null, "Inserted Successfully");
             usersForm uf=new usersForm();
             uf.setVisible(true);
@@ -667,20 +657,14 @@ public class CreateUserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_ClearbMouseExited
 
     private void ClearbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearbActionPerformed
-        // TODO add your handling code here:
+   CompleteName.setText("");
+    email.setText("");
+    cnumber.setText("");
+    uname.setText("");
+    pword.setText("");
+    pword1.setText("");
+
     }//GEN-LAST:event_ClearbActionPerformed
-
-    private void DeleteBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteBMouseEntered
-
-    private void DeleteBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteBMouseExited
-
-    private void DeleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteBActionPerformed
 
     private void UpdateBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateBMouseEntered
         // TODO add your handling code here:
@@ -733,7 +717,11 @@ public class CreateUserForm extends javax.swing.JFrame {
             imageUpdater(oldpath, path);
         }
         }
-        
+           Session session = Session.getInstance();
+            int userId = session.getUid();
+            String userFullname = session.getCname();
+            String action = "Admin Upadted a User Account successfully: " + CompleteName.getText();
+            Logs.logFunctionCall(userId, userFullname, action);
             usersForm uf=new usersForm();
             uf.setVisible(true);
             this.dispose();
@@ -848,7 +836,6 @@ public class CreateUserForm extends javax.swing.JFrame {
     private javax.swing.JButton Cancelbutton;
     private javax.swing.JButton Clearb;
     public javax.swing.JTextField CompleteName;
-    private javax.swing.JButton DeleteB;
     private javax.swing.JButton Refresh;
     public javax.swing.JButton UpdateB;
     public javax.swing.JButton addB;

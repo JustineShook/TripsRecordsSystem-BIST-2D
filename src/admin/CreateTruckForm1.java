@@ -1,6 +1,8 @@
     
 package admin;
 
+import config.Logs;
+import config.Session;
 import config.dbConnector;
 
 import java.awt.Color;
@@ -498,7 +500,7 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
 
     private void addBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBActionPerformed
 
-        if(Model.getText().isEmpty()||Pnum.getText().isEmpty()||Capacity.getText().isEmpty())
+        if(Model.getText().isEmpty()||Pnum.getText().isEmpty()||Capacity.getText().isEmpty()|| image.getIcon() == null)
           
         {
             JOptionPane.showMessageDialog(null, "All Fields are Required!");
@@ -523,6 +525,13 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
             
             
             Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
+            
+            Session session = Session.getInstance();
+            int userId = session.getUid();
+            String userFullname = session.getCname();  // Make sure these method names are correct
+            String action = "Admin Added a Truck successfully: " + Pnum.getText();
+            Logs.logFunctionCall(userId, userFullname, action);
+            
             JOptionPane.showMessageDialog(null, "Inserted Successfully");
             truckForm uf=new truckForm();
             uf.setVisible(true);
@@ -611,11 +620,18 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
         
         
         dbConnector dbc = new dbConnector();
-        dbc.updateData("UPDATE tbl_user SET model = '"+Model.getText()+"',"
-                + "plate_number ='"+Pnum.getText()+"',"
-                        + "capacity = '"+Capacity.getText()+"', "
-                                + "truck_status = '"+truck_status.getSelectedItem()+"',"
-                                        + "'truck_image = '"+destination+"'WHERE u_id = '"+TruckID.getText()+"'");
+        dbc.updateData(
+    "UPDATE tbl_truck SET " +
+    "model = '" + Model.getText() + "', " +
+    "plate_number = '" + Pnum.getText() + "', " +
+    "capacity = '" + Capacity.getText() + "', " +
+    "truck_status = '" + truck_status.getSelectedItem() + "', " +
+    "truck_image = '" + destination + "' " +
+    "WHERE truck_id = '" + TruckID.getText() + "'"
+);
+    
+
+
         if(destination.isEmpty()){
             File existingFile = new File(oldpath);
             if(existingFile.exists()){
@@ -626,6 +642,11 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
                 imageUpdater(oldpath, path);
             }
         }
+        Session session = Session.getInstance();
+            int userId = session.getUid();
+            String userFullname = session.getCname();
+            String action = "Admin Updated a Truck successfully:: " + Pnum.getText();
+            Logs.logFunctionCall(userId, userFullname, action);
         truckForm uf=new truckForm();
         uf.setVisible(true);
         this.dispose(); 

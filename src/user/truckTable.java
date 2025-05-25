@@ -21,6 +21,10 @@ import tripsrecordsystem.loginForm;
  */
 public class truckTable extends javax.swing.JFrame {
 
+    static void setModel(TableModel resultSetToTableModel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * Creates new form userDashboard
      */
@@ -209,17 +213,7 @@ public class truckTable extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel13MouseClicked
 
     private void truckTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_truckTableMouseClicked
-    int rowIndex = truckTable.getSelectedRow();
-       if(rowIndex < 0 ){
-           JOptionPane.showMessageDialog(null, "Please Select an Item!");    
-       }else{
-           TableModel model = truckTable.getModel();
-           tripForm lgf = new tripForm();
-           lgf.TruckID.setText(""+model.getValueAt(rowIndex, 0 ));
-           lgf.setVisible(true); 
-           this.dispose();          
-       }
-      
+   
     }//GEN-LAST:event_truckTableMouseClicked
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
@@ -234,16 +228,7 @@ public class truckTable extends javax.swing.JFrame {
     }//GEN-LAST:event_selectActionPerformed
 
     private void selectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectMouseClicked
-       int rowIndex = truckTable.getSelectedRow();
-       if(rowIndex < 0 ){
-           JOptionPane.showMessageDialog(null, "Please Select an Item!");    
-       }else{
-           TableModel model = truckTable.getModel();
-           tripForm lgf = new tripForm();
-           lgf.TruckID.setText(""+model.getValueAt(rowIndex, 0 ));
-           lgf.setVisible(true); 
-           this.dispose();          
-       }
+
     }//GEN-LAST:event_selectMouseClicked
 
     /**

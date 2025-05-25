@@ -5,12 +5,14 @@
  */
 package admin;
 
+import config.Logs;
 import config.Session;
 import config.dbConnector;
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -67,11 +69,17 @@ public class DriverForm extends javax.swing.JFrame {
         UserID = new javax.swing.JLabel();
         PrintButton = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        Delete = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         p_edit = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        p_edit2 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        p_edit3 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -119,7 +127,7 @@ public class DriverForm extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(driversTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 830, 340));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 830, 440));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -140,9 +148,10 @@ public class DriverForm extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("ADD");
         p_add.add(jLabel4);
-        jLabel4.setBounds(40, 10, 30, 20);
+        jLabel4.setBounds(0, 10, 120, 20);
 
         jPanel2.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 120, 40));
 
@@ -150,7 +159,7 @@ public class DriverForm extends javax.swing.JFrame {
         UserID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         UserID.setForeground(new java.awt.Color(153, 153, 153));
         UserID.setText("ID");
-        jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 30, -1));
+        jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 30, -1));
 
         PrintButton.setBackground(new java.awt.Color(160, 3, 0));
         PrintButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,6 +177,7 @@ public class DriverForm extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("PRINT");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -178,9 +188,40 @@ public class DriverForm extends javax.swing.JFrame {
             }
         });
         PrintButton.add(jLabel8);
-        jLabel8.setBounds(40, 10, 50, 20);
+        jLabel8.setBounds(0, 10, 120, 20);
 
         jPanel2.add(PrintButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, 40));
+
+        Delete.setBackground(new java.awt.Color(160, 3, 0));
+        Delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DeleteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DeleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                DeleteMouseExited(evt);
+            }
+        });
+        Delete.setLayout(null);
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("DELETE");
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel9MouseEntered(evt);
+            }
+        });
+        Delete.add(jLabel9);
+        jLabel9.setBounds(0, 10, 120, 20);
+
+        jPanel2.add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 120, 40));
 
         p_edit.setBackground(new java.awt.Color(160, 3, 0));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,7 +239,8 @@ public class DriverForm extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel7.setText("EDIT");
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("UPDATE");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
@@ -208,7 +250,7 @@ public class DriverForm extends javax.swing.JFrame {
             }
         });
         p_edit.add(jLabel7);
-        jLabel7.setBounds(40, 10, 40, 20);
+        jLabel7.setBounds(0, 10, 120, 20);
 
         jPanel2.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 120, 40));
 
@@ -216,7 +258,7 @@ public class DriverForm extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("Current User :");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 70, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
@@ -226,9 +268,70 @@ public class DriverForm extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 350));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 450));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 350));
+        p_edit2.setBackground(new java.awt.Color(160, 3, 0));
+        p_edit2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_edit2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_edit2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                p_edit2MouseExited(evt);
+            }
+        });
+        p_edit2.setLayout(null);
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel11.setText("EDIT");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel11MouseEntered(evt);
+            }
+        });
+        p_edit2.add(jLabel11);
+        jLabel11.setBounds(40, 10, 40, 20);
+
+        p_edit3.setBackground(new java.awt.Color(160, 3, 0));
+        p_edit3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_edit3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_edit3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                p_edit3MouseExited(evt);
+            }
+        });
+        p_edit3.setLayout(null);
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel12.setText("EDIT");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel12MouseEntered(evt);
+            }
+        });
+        p_edit3.add(jLabel12);
+        jLabel12.setBounds(40, 10, 40, 20);
+
+        p_edit2.add(p_edit3);
+        p_edit3.setBounds(0, 0, 0, 0);
+
+        jPanel2.add(p_edit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 120, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 450));
 
         pack();
         setLocationRelativeTo(null);
@@ -277,7 +380,7 @@ public class DriverForm extends javax.swing.JFrame {
         if(rowIndex<0){
             JOptionPane.showMessageDialog(null, "Please select Item!");
         }else{
-          
+            
             
             try{
             dbConnector dbc = new dbConnector();
@@ -285,7 +388,7 @@ public class DriverForm extends javax.swing.JFrame {
             ResultSet rs = dbc.getData("SELECT*FROM tbl_driver WHERE driver_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
             if(rs.next()){
                 CreateDriverForm crf = new CreateDriverForm();
-                crf.DriverID.setText(""+rs.getInt("driver_id "));
+                crf.DriverID.setText(""+rs.getInt("driver_id"));
                 crf.CompleteName.setText(""+rs.getString("full_name"));
                 crf.Lnum.setText(""+rs.getString("license_number"));
                 crf.cnumber.setText(""+rs.getString("contact_number"));
@@ -387,6 +490,143 @@ public class DriverForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PrintButtonMouseExited
 
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseEntered
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseEntered
+
+    private void p_edit3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_edit3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_edit3MouseClicked
+
+    private void p_edit3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_edit3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_edit3MouseEntered
+
+    private void p_edit3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_edit3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_edit3MouseExited
+
+    private void p_edit2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_edit2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_edit2MouseClicked
+
+    private void p_edit2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_edit2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_edit2MouseEntered
+
+    private void p_edit2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_edit2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_edit2MouseExited
+
+    private void DeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteMouseClicked
+       int rowIndex = driversTable.getSelectedRow();
+
+if (rowIndex < 0) {
+    JOptionPane.showMessageDialog(null, "Please select a driver to delete!");
+} else {
+    int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this driver?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+        TableModel tbl = driversTable.getModel();
+        String driverId = tbl.getValueAt(rowIndex, 0).toString();  // Assuming driver_id is column 0
+        String driverName = tbl.getValueAt(rowIndex, 1).toString(); // Assuming full_name is column 1
+
+        try {
+            dbConnector dbc = new dbConnector();
+            boolean success = dbc.deleteData("DELETE FROM tbl_driver WHERE driver_id = '" + driverId + "'");
+
+            if (success) {
+                JOptionPane.showMessageDialog(null, "Driver deleted successfully.");
+
+                // Remove row from table model to refresh UI instantly
+                ((DefaultTableModel) driversTable.getModel()).removeRow(rowIndex);
+
+                // Log the delete action
+                Session session = Session.getInstance();
+                int userId = session.getUid();
+                String userFullname = session.getCname();
+                String action = ("Admin Deleted a Driver Account successfully");
+                Logs.logFunctionCall(userId, userFullname, action);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to delete driver.");
+            }
+        } catch (Exception ex) {
+            System.out.println("Error deleting driver: " + ex.getMessage());
+        }
+    }
+}
+    }//GEN-LAST:event_DeleteMouseClicked
+
+    private void DeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteMouseEntered
+
+    private void DeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteMouseExited
+
+    private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9MouseEntered
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+     int rowIndex = driversTable.getSelectedRow();
+
+if (rowIndex < 0) {
+    JOptionPane.showMessageDialog(null, "Please select a driver to delete!");
+} else {
+    int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this driver?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+        TableModel tbl = driversTable.getModel();
+        String driverId = tbl.getValueAt(rowIndex, 0).toString();  // Assuming driver_id is column 0
+        String driverName = tbl.getValueAt(rowIndex, 1).toString(); // Assuming full_name is column 1
+
+        try {
+            dbConnector dbc = new dbConnector();
+            boolean success = dbc.deleteData("DELETE FROM tbl_driver WHERE driver_id = '" + driverId + "'");
+
+            if (success) {
+                JOptionPane.showMessageDialog(null, "Driver deleted successfully.");
+
+                // Remove row from table model to refresh UI instantly
+                ((DefaultTableModel) driversTable.getModel()).removeRow(rowIndex);
+
+                // Log the delete action
+                Session session = Session.getInstance();
+                int userId = session.getUid();
+                String userFullname = session.getCname();
+
+                if (userFullname == null || userFullname.trim().isEmpty()) {
+                userFullname = "Unknown User";
+                }
+
+                String action = "Deleted driver: " + driverName + " (ID: " + driverId + ")";
+                Logs.logFunctionCall(userId, userFullname, action);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to delete driver.");
+            }
+        } catch (Exception ex) {
+            System.out.println("Error deleting driver: " + ex.getMessage());
+        }
+    }
+}
+    }//GEN-LAST:event_jLabel9MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -431,10 +671,13 @@ public class DriverForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackPanel;
+    private javax.swing.JPanel Delete;
     private javax.swing.JPanel PrintButton;
     private javax.swing.JLabel UserID;
     private javax.swing.JTable driversTable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -442,10 +685,13 @@ public class DriverForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel p_add;
     private javax.swing.JPanel p_edit;
+    private javax.swing.JPanel p_edit2;
+    private javax.swing.JPanel p_edit3;
     // End of variables declaration//GEN-END:variables
 }

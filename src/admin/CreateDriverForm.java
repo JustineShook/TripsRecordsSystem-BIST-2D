@@ -1,6 +1,8 @@
     
 package admin;
 
+import config.Logs;
+import config.Session;
 import config.dbConnector;
 import java.awt.Color;
 import java.awt.Image;
@@ -21,6 +23,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import static tripsrecordsystem.regForm.dbemail;
 
 
@@ -180,7 +184,7 @@ public class CreateDriverForm extends javax.swing.JFrame {
             if(resultSet.next()){
                 dbemail = resultSet.getString("license_number");
                 if(dbemail.equals(Lnum.getText())){
-                    JOptionPane.showMessageDialog(null, "Email is already Used!");
+                    JOptionPane.showMessageDialog(null, "License Number is already Used!");
                     Lnum.setText("");
                 }
                 
@@ -235,7 +239,6 @@ public class CreateDriverForm extends javax.swing.JFrame {
         DriverID = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         Clearb = new javax.swing.JButton();
-        DeleteB = new javax.swing.JButton();
         UpdateB = new javax.swing.JButton();
         Refresh = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -288,10 +291,10 @@ public class CreateDriverForm extends javax.swing.JFrame {
                 addBActionPerformed(evt);
             }
         });
-        jPanel2.add(addB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, -1));
+        jPanel2.add(addB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 100, 30));
 
         cnumber.setBackground(new java.awt.Color(215, 215, 215));
-        jPanel2.add(cnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 140, 30));
+        jPanel2.add(cnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 140, 30));
 
         Lnum.setBackground(new java.awt.Color(215, 215, 215));
         jPanel2.add(Lnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 140, 30));
@@ -307,16 +310,16 @@ public class CreateDriverForm extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Contact Number");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 10));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 90, 10));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Account Status");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, 10));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, 10));
 
         jLabel8.setBackground(new java.awt.Color(255, 102, 102));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/123.jpg"))); // NOI18N
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 60, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 60, 30));
 
         jLabel9.setBackground(new java.awt.Color(115, 5, 5));
         jLabel9.setFont(new java.awt.Font("Stencil", 3, 10)); // NOI18N
@@ -356,7 +359,7 @@ public class CreateDriverForm extends javax.swing.JFrame {
                 jDriverStatusActionPerformed(evt);
             }
         });
-        jPanel2.add(jDriverStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 140, 30));
+        jPanel2.add(jDriverStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 140, 30));
 
         DriverID.setBackground(new java.awt.Color(215, 215, 215));
         DriverID.setEnabled(false);
@@ -383,25 +386,7 @@ public class CreateDriverForm extends javax.swing.JFrame {
                 ClearbActionPerformed(evt);
             }
         });
-        jPanel2.add(Clearb, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 80, -1));
-
-        DeleteB.setBackground(new java.awt.Color(198, 20, 17));
-        DeleteB.setForeground(new java.awt.Color(255, 255, 255));
-        DeleteB.setText("Delete");
-        DeleteB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                DeleteBMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                DeleteBMouseExited(evt);
-            }
-        });
-        DeleteB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteBActionPerformed(evt);
-            }
-        });
-        jPanel2.add(DeleteB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 80, -1));
+        jPanel2.add(Clearb, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 100, 30));
 
         UpdateB.setBackground(new java.awt.Color(198, 20, 17));
         UpdateB.setForeground(new java.awt.Color(255, 255, 255));
@@ -420,7 +405,7 @@ public class CreateDriverForm extends javax.swing.JFrame {
                 UpdateBActionPerformed(evt);
             }
         });
-        jPanel2.add(UpdateB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, -1));
+        jPanel2.add(UpdateB, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 100, 30));
 
         Refresh.setBackground(new java.awt.Color(198, 20, 17));
         Refresh.setForeground(new java.awt.Color(255, 255, 255));
@@ -438,7 +423,7 @@ public class CreateDriverForm extends javax.swing.JFrame {
                 RefreshActionPerformed(evt);
             }
         });
-        jPanel2.add(Refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 80, -1));
+        jPanel2.add(Refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 30));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 240));
@@ -507,40 +492,44 @@ public class CreateDriverForm extends javax.swing.JFrame {
 
     private void addBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBActionPerformed
      
-        if(CompleteName.getText().isEmpty()||Lnum.getText().isEmpty()||cnumber.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "All Fields are Required!");
-        }
-        else if(duplicateCheck()){
-            System.out.println("Duplicate Exist");
-        }
-        else{
-            try{
-               
-            dbConnector dbc=new dbConnector();
-            if(dbc.insertData("INSERT INTO tbl_driver(full_name, license_number, contact_number, driver_image, driver_status) "
-             + "VALUES('"+CompleteName.getText()+"','"+Lnum.getText()+"','"+cnumber.getText()+"','"+destination+"', '"+jDriverStatus.getSelectedItem()+"')"))
-            
-                
-            {
+        if (CompleteName.getText().isEmpty() || Lnum.getText().isEmpty() || cnumber.getText().isEmpty() || image.getIcon() == null) {
+    JOptionPane.showMessageDialog(null, "All Fields are Required!");
+} else if (duplicateCheck()) {
+    System.out.println("Duplicate Exist");
+} else {
+    try {
+        dbConnector dbc = new dbConnector();
+        if (dbc.insertData("INSERT INTO tbl_driver(full_name, license_number, contact_number, driver_image, driver_status) "
+                + "VALUES('" + CompleteName.getText() + "','" + Lnum.getText() + "','" + cnumber.getText() + "','" + destination + "', '" + jDriverStatus.getSelectedItem() + "')")) {
+
             Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+            // ✅ LOGGING THE ACTION AFTER SUCCESSFUL INSERT
+            Session session = Session.getInstance();
+            int userId = session.getUid();
+            String userFullname = session.getCname();  // Make sure these method names are correct
+            String action = "Admin Added a Driver successfully: " + CompleteName.getText();
+            Logs.logFunctionCall(userId, userFullname, action);
+            // 🔚 END LOGGING
+
             JOptionPane.showMessageDialog(null, "Inserted Successfully");
-            usersForm uf=new usersForm();
+
+            usersForm uf = new usersForm();
             uf.setVisible(true);
             this.dispose();
 
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Connection Error!");
-
         }
-        }   catch (IOException ex) {
-                Logger.getLogger(CreateDriverForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
-       }
+    } catch (IOException ex) {
+        Logger.getLogger(CreateDriverForm.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+
     }//GEN-LAST:event_addBActionPerformed
 
     private void CancelbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelbuttonActionPerformed
-        usersForm uf =new usersForm();
+        DriverForm uf =new DriverForm();
         uf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CancelbuttonActionPerformed
@@ -574,20 +563,32 @@ public class CreateDriverForm extends javax.swing.JFrame {
     }//GEN-LAST:event_ClearbMouseExited
 
     private void ClearbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearbActionPerformed
-        // TODO add your handling code here:
+
+
+    CompleteName.setText("");
+    Lnum.setText("");
+    cnumber.setText("");
+    DriverID.setText("");
+
+    // Clear image and reset image path
+    image.setIcon(null);
+    destination = "";
+    oldpath = "";
+    path = "";
+    selectedFile = null;
+
+    // Reset status dropdown
+    jDriverStatus.setSelectedIndex(0);
+
+    // Reset buttons: enable Add, disable Update
+    addB.setEnabled(true);
+    UpdateB.setEnabled(false);
+
+    // Reset select/remove image buttons if you have them
+    select.setEnabled(true);
+    remove.setEnabled(false);
+
     }//GEN-LAST:event_ClearbActionPerformed
-
-    private void DeleteBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteBMouseEntered
-
-    private void DeleteBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteBMouseExited
-
-    private void DeleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteBActionPerformed
 
     private void UpdateBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateBMouseEntered
         // TODO add your handling code here:
@@ -612,11 +613,11 @@ public class CreateDriverForm extends javax.swing.JFrame {
         
         
         dbConnector dbc = new dbConnector();
-        dbc.updateData("UPDATE tbl_table SET full_name = '"+CompleteName.getText()+"',"
+        dbc.updateData("UPDATE tbl_driver SET full_name = '"+CompleteName.getText()+"',"
                 + "license_number ='"+Lnum.getText()+"',"
                         + "contact_number = '"+cnumber.getText()+"', "
                                 + "driver_status = '"+jDriverStatus.getSelectedItem()+"',"
-                                        + "'driver_image = '"+destination+"'WHERE driver_id  = '"+DriverID.getText()+"'");
+                                        + "'driver_image = '"+destination+"' WHERE driver_id  = '"+DriverID.getText()+"'");
         if(destination.isEmpty()){
             File existingFile = new File(oldpath);
             if(existingFile.exists()){
@@ -627,7 +628,13 @@ public class CreateDriverForm extends javax.swing.JFrame {
                 imageUpdater(oldpath, path);
             }
         }
-        usersForm uf=new usersForm();
+         Session session = Session.getInstance();
+            int userId = session.getUid();
+            String userFullname = session.getCname();
+            String action = "Admin Update a Driver successfully: " + CompleteName.getText();
+            Logs.logFunctionCall(userId, userFullname, action);
+        
+        DriverForm uf=new DriverForm();
         uf.setVisible(true);
         this.dispose(); 
         
@@ -738,7 +745,6 @@ public class CreateDriverForm extends javax.swing.JFrame {
     private javax.swing.JButton Cancelbutton;
     private javax.swing.JButton Clearb;
     public javax.swing.JTextField CompleteName;
-    private javax.swing.JButton DeleteB;
     public javax.swing.JTextField DriverID;
     public javax.swing.JTextField Lnum;
     private javax.swing.JButton Refresh;

@@ -5,12 +5,15 @@
  */
 package admin;
 
+import config.Logs;
 import config.Session;
 import config.dbConnector;
 import java.awt.Color;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -62,15 +65,17 @@ public class truckForm extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         truckTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        p_add = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         UserID = new javax.swing.JLabel();
-        PrintButton = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        p_edit = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        p_edit = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        p_add = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        PrintButton = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        DELETE = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,68 +124,28 @@ public class truckForm extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(truckTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 830, 340));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 830, 380));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        p_add.setBackground(new java.awt.Color(160, 3, 0));
-        p_add.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                p_addMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                p_addMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                p_addMouseExited(evt);
-            }
-        });
-        p_add.setLayout(null);
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel4.setText("ADD");
-        p_add.add(jLabel4);
-        jLabel4.setBounds(40, 10, 30, 20);
-
-        jPanel2.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 120, 40));
 
         UserID.setBackground(new java.awt.Color(0, 0, 0));
         UserID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         UserID.setForeground(new java.awt.Color(153, 153, 153));
         UserID.setText("ID");
-        jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 30, -1));
+        jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 30, -1));
 
-        PrintButton.setBackground(new java.awt.Color(160, 3, 0));
-        PrintButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseExited(evt);
-            }
-        });
-        PrintButton.setLayout(null);
+        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setText("Current User :");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 70, -1));
 
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel8.setText("PRINT");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel8MouseEntered(evt);
-            }
-        });
-        PrintButton.add(jLabel8);
-        jLabel8.setBounds(40, 10, 50, 20);
-
-        jPanel2.add(PrintButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, 40));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("TRUCKS");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, -1));
 
         p_edit.setBackground(new java.awt.Color(160, 3, 0));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -196,39 +161,89 @@ public class truckForm extends javax.swing.JFrame {
         });
         p_edit.setLayout(null);
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel7.setText("EDIT");
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel7MouseEntered(evt);
-            }
-        });
-        p_edit.add(jLabel7);
-        jLabel7.setBounds(40, 10, 40, 20);
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("UPDATE");
+        p_edit.add(jLabel10);
+        jLabel10.setBounds(0, 10, 120, 17);
 
         jPanel2.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 120, 40));
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("Current User :");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, -1));
+        p_add.setBackground(new java.awt.Color(160, 3, 0));
+        p_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_addMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_addMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                p_addMouseExited(evt);
+            }
+        });
+        p_add.setLayout(null);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("TRUCKS");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, -1));
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("ADD");
+        p_add.add(jLabel11);
+        jLabel11.setBounds(0, 10, 120, 17);
+
+        jPanel2.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 120, 40));
+
+        PrintButton.setBackground(new java.awt.Color(160, 3, 0));
+        PrintButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PrintButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PrintButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PrintButtonMouseExited(evt);
+            }
+        });
+        PrintButton.setLayout(null);
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("PRINT");
+        PrintButton.add(jLabel12);
+        jLabel12.setBounds(0, 10, 120, 17);
+
+        jPanel2.add(PrintButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 120, 40));
+
+        DELETE.setBackground(new java.awt.Color(160, 3, 0));
+        DELETE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DELETEMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DELETEMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                DELETEMouseExited(evt);
+            }
+        });
+        DELETE.setLayout(null);
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("DELETE");
+        DELETE.add(jLabel9);
+        jLabel9.setBounds(0, 10, 120, 17);
+
+        jPanel2.add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 350));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 400));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 350));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 400));
 
         pack();
         setLocationRelativeTo(null);
@@ -246,15 +261,6 @@ public class truckForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowActivated
 
-    private void p_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseEntered
-        p_add.setBackground(redd);   
-    }//GEN-LAST:event_p_addMouseEntered
-
-    private void p_addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseExited
-     
-        p_add.setBackground(shok);
-    }//GEN-LAST:event_p_addMouseExited
-
     private void BackPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackPanelMouseEntered
         BackPanel.setBackground(redd);
     }//GEN-LAST:event_BackPanelMouseEntered
@@ -263,57 +269,71 @@ public class truckForm extends javax.swing.JFrame {
         BackPanel.setBackground(shok);
     }//GEN-LAST:event_BackPanelMouseExited
 
+    private void BackPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackPanelMouseClicked
+        adminDashboard ads=new adminDashboard();
+        ads.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BackPanelMouseClicked
+
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
-       CreateUserForm cuf =new CreateUserForm();
+        CreateTruckForm1 cuf =new CreateTruckForm1();
         cuf.setVisible(true);
         cuf.remove.setEnabled(false);
         cuf.select.setEnabled(true);
         this.dispose();
     }//GEN-LAST:event_p_addMouseClicked
 
+    private void p_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseEntered
+        p_add.setBackground(redd);
+    }//GEN-LAST:event_p_addMouseEntered
+
+    private void p_addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseExited
+
+        p_add.setBackground(shok);
+    }//GEN-LAST:event_p_addMouseExited
+
     private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
         int rowIndex = truckTable.getSelectedRow();
-        
+
         if(rowIndex<0){
             JOptionPane.showMessageDialog(null, "Please select Item!");
         }else{
-          
-            
+
             try{
-            dbConnector dbc = new dbConnector();
-            TableModel tbl = truckTable.getModel();
-            ResultSet rs = dbc.getData("SELECT*FROM tbl_truck WHERE driver_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
-            if(rs.next()){
-                CreateTruckForm1 crf = new CreateTruckForm1();
-                crf.TruckID.setText(""+rs.getInt("truck_id "));
-                crf.Pnum.setText(""+rs.getString("plate_number"));
-                crf.Model.setText(""+rs.getString("model"));
-                crf.Capacity.setText(""+rs.getString("capacity"));
-                crf.truck_status.setSelectedItem(""+rs.getString("truck_status"));
-                crf.image.setIcon(crf.ResizeImage(rs.getString("truck_image"), null, crf.image));
-                crf.oldpath = rs.getString("truck_image");
-                crf.path = rs.getString("truck_image");
-                crf.destination = rs.getString("truck_image");
-                crf.addB.setEnabled(false);
-                crf.UpdateB.setEnabled(true);
-                crf.setVisible(true);
-                if(rs.getString("truck_image").isEmpty()){
-                 crf.select.setEnabled(true);
-                 crf.remove.setEnabled(false);
-                }else{
-                 crf.select.setEnabled(false);
-                 crf.remove.setEnabled(true);
+                dbConnector dbc = new dbConnector();
+                TableModel tbl = truckTable.getModel();
+                ResultSet rs = dbc.getData("SELECT*FROM tbl_Truck WHERE truck_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
+                if(rs.next()){
+                    CreateTruckForm1 crf = new CreateTruckForm1();
+                    crf.TruckID.setText(""+rs.getInt("truck_id"));
+                    crf.Pnum.setText(""+rs.getString("plate_number"));
+                    crf.Model.setText(""+rs.getString("model"));
+                    crf.Capacity.setText(""+rs.getString("capacity"));
+                    crf.truck_status.setSelectedItem(""+rs.getString("truck_status"));
+                    crf.image.setIcon(crf.ResizeImage(rs.getString("truck_image"), null, crf.image));
+                    crf.oldpath = rs.getString("truck_image");
+                    crf.path = rs.getString("truck_image");
+                    crf.destination = rs.getString("truck_image");
+                    crf.addB.setEnabled(false);
+                    crf.UpdateB.setEnabled(true);
+                    crf.setVisible(true);
+
+                    if(rs.getString("truck_image").isEmpty()){
+                        crf.select.setEnabled(true);
+                        crf.remove.setEnabled(false);
+                    }else{
+                        crf.select.setEnabled(false);
+                        crf.remove.setEnabled(true);
+                    }
+
+                    this.dispose();
                 }
-                
-                this.dispose();
+            }catch(SQLException ex){
+                System.out.println(""+ex);
             }
-            }catch(SQLException ex){  
-              System.out.println(""+ex);
-            }
-        
+
         }
-    
-        
+
     }//GEN-LAST:event_p_editMouseClicked
 
     private void p_editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseEntered
@@ -324,66 +344,98 @@ public class truckForm extends javax.swing.JFrame {
         p_edit.setBackground(shok);
     }//GEN-LAST:event_p_editMouseExited
 
-    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
+    private void DELETEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETEMouseClicked
+        int rowIndex = truckTable.getSelectedRow();
 
-    }//GEN-LAST:event_jLabel7MouseEntered
+        if (rowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a user to delete!");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to delete this user?",
+                "Confirm Delete",
+                JOptionPane.YES_NO_OPTION);
 
-    private void BackPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackPanelMouseClicked
-        adminDashboard ads=new adminDashboard();
-        ads.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BackPanelMouseClicked
+            if (confirm == JOptionPane.YES_OPTION) {
+                TableModel tbl = truckTable.getModel();
+                String userId = tbl.getValueAt(rowIndex, 0).toString();   // Assuming u_id is column 0
+                String userName = tbl.getValueAt(rowIndex, 1).toString(); // Assuming u_name is column 1
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel7MouseClicked
+                try {
+                    dbConnector dbc = new dbConnector();
+                    String sql = "DELETE FROM tbl_truck WHERE truck_id = ?";
+                    PreparedStatement pst = dbc.getConnection().prepareStatement(sql);
+                    pst.setString(1, userId);
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8MouseClicked
+                    int result = pst.executeUpdate();
 
-    private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8MouseEntered
+                    if (result > 0) {
+                        JOptionPane.showMessageDialog(null, "Truck deleted successfully.");
+
+                        // Remove from table model to update UI
+                        ((DefaultTableModel) truckTable.getModel()).removeRow(rowIndex);
+                        // Logging
+                        Session session = Session.getInstance();
+                        int currentUserId = session.getUid();
+                        String currentUserName = session.getCname();
+                        String action = ("Admin Deleted a Truck Account successfully");
+                        Logs.logFunctionCall(currentUserId, currentUserName, action);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Truck not found or could not be deleted.");
+                    }
+
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error deleting user: " + ex.getMessage());
+                }
+            }
+        }
+    }//GEN-LAST:event_DELETEMouseClicked
+
+    private void DELETEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETEMouseEntered
+               DELETE.setBackground(redd);
+    }//GEN-LAST:event_DELETEMouseEntered
+
+    private void DELETEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETEMouseExited
+                 DELETE.setBackground(shok);
+    }//GEN-LAST:event_DELETEMouseExited
 
     private void PrintButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseClicked
         int rowIndex = truckTable.getSelectedRow();
-        
+
         if(rowIndex<0){
             JOptionPane.showMessageDialog(null, "Please select Item!");
         }else{
-          
-            
+
             try{
-            dbConnector dbc = new dbConnector();
-            TableModel tbl = truckTable.getModel();
-            ResultSet rs = dbc.getData("SELECT*FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
-            if(rs.next()){
-                IndividualPrinting ip = new IndividualPrinting();
-                ip.UserID.setText(""+rs.getInt("u_id"));
-                ip.completename1.setText(""+rs.getString("u_name"));
-                ip.un.setText(""+rs.getString("u_username"));
-                ip.email.setText(""+rs.getString("u_email"));
-                ip.cnum.setText(""+rs.getString("u_number"));
-                ip.ustatus.setText(""+rs.getString("u_status"));
-                ip.utype.setText(""+rs.getString("u_type"));
-                ip.setVisible(true);   
-                this.dispose();
+                dbConnector dbc = new dbConnector();
+                TableModel tbl = truckTable.getModel();
+                ResultSet rs = dbc.getData("SELECT*FROM tbl_truck WHERE truck_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
+                if(rs.next()){
+                    IndividualPrinting ip = new IndividualPrinting();
+                    ip.UserID.setText(""+rs.getInt("u_id"));
+                    ip.completename1.setText(""+rs.getString("u_name"));
+                    ip.un.setText(""+rs.getString("u_username"));
+                    ip.email.setText(""+rs.getString("u_email"));
+                    ip.cnum.setText(""+rs.getString("u_number"));
+                    ip.ustatus.setText(""+rs.getString("u_status"));
+                    ip.utype.setText(""+rs.getString("u_type"));
+                    ip.setVisible(true);
+                    this.dispose();
+                }
+            }catch(SQLException ex){
+                System.out.println(""+ex);
             }
-            }catch(SQLException ex){  
-              System.out.println(""+ex);
-            }
-        
+
         }
-    
+
     }//GEN-LAST:event_PrintButtonMouseClicked
 
     private void PrintButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseEntered
-        // TODO add your handling code here:
+        PrintButton.setBackground(redd);
     }//GEN-LAST:event_PrintButtonMouseEntered
 
     private void PrintButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseExited
-        // TODO add your handling code here:
+        PrintButton.setBackground(shok);
     }//GEN-LAST:event_PrintButtonMouseExited
 
     /**
@@ -426,16 +478,18 @@ public class truckForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackPanel;
+    private javax.swing.JPanel DELETE;
     private javax.swing.JPanel PrintButton;
     private javax.swing.JLabel UserID;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
