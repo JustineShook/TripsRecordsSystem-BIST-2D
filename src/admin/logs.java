@@ -23,6 +23,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -37,31 +38,14 @@ public class logs extends javax.swing.JFrame {
         initComponents();
         displayData();
         
-       
+    
         
-            logs_tbl.getTableHeader().setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 15));
-            logs_tbl.getTableHeader().setOpaque(false);
-            logs_tbl.getTableHeader().setBorder(null);
-            logs_tbl.getTableHeader().setForeground(new Color(0,0,0));
-            logs_tbl.getTableHeader().setBackground(new Color(102,102,102));
-
-            logs_tbl.setBackground(Color.WHITE); // Set table background to white
-            logs_tbl.setForeground(Color.BLACK); // Set text color to black
-
-            logs_tbl.setRowHeight(25);
-            logs_tbl.setSelectionForeground(Color.WHITE);
-            logs_tbl.setSelectionBackground(new Color(167, 134, 42)); // Selection background color
-
-            // Set column widths
-            logs_tbl.getColumnModel().getColumn(0).setPreferredWidth(80);  // Log id
-            logs_tbl.getColumnModel().getColumn(1).setPreferredWidth(400); // Action
-            logs_tbl.getColumnModel().getColumn(2).setPreferredWidth(80); //  User id
-            logs_tbl.getColumnModel().getColumn(3).setPreferredWidth(250); // Date and Event
-            
-            
+         
     }
     
-    
+      Color shok = new Color(160,3,0);
+      Color redd = new Color(198,20,17);
+            
         private void resetBorder(JTextField field) {
             field.setBorder(BorderFactory.createCompoundBorder(
                 new LineBorder(new Color(19,122,127), 1),
@@ -70,25 +54,20 @@ public class logs extends javax.swing.JFrame {
         }
 
 
-     public void displayData(){
-        
-        dbConnector dbc = new dbConnector();
+      public void displayData(){
         try{
-           ResultSet rs = dbc.getData("SELECT * FROM user_action_logs");         
-           DefaultTableModel model = (DefaultTableModel)logs_tbl.getModel();
-           model.setRowCount(0);
-           
-           while(rs.next()){
-               model.addRow(new String[]{rs.getString(1), 
-                   rs.getString(3), 
-                   rs.getString(2), 
-                   rs.getString(4)});             
-           }
+            dbConnector dbc = new dbConnector();
+            ResultSet rs;
+            rs = dbc.getData("SELECT * FROM user_action_logs");
+            logsTable.setModel(DbUtils.resultSetToTableModel(rs));
+             rs.close();
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
+        
         }
         
-     }
+    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -100,215 +79,83 @@ public class logs extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        ScrollPane = new javax.swing.JScrollPane();
-        logs_tbl = new javax.swing.JTable();
-        d_photo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        Title = new javax.swing.JLabel();
-        search_bar = new javax.swing.JTextField();
+        BackPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        logsTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
-        jPanel1.setPreferredSize(new java.awt.Dimension(820, 640));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ScrollPane.setBackground(new java.awt.Color(153, 153, 255));
-
-        logs_tbl.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        logs_tbl.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Log ID", "Action", "User ID", "Date and Time"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        logs_tbl.setGridColor(new java.awt.Color(102, 102, 102));
-        logs_tbl.setOpaque(false);
-        logs_tbl.setShowHorizontalLines(false);
-        logs_tbl.setShowVerticalLines(false);
-        ScrollPane.setViewportView(logs_tbl);
-
-        jPanel1.add(ScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 750, 370));
-
-        d_photo.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 15)); // NOI18N
-        d_photo.setForeground(new java.awt.Color(255, 255, 255));
-        d_photo.setText("Delete");
-        d_photo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                d_photoMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                d_photoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                d_photoMouseExited(evt);
-            }
-        });
-        jPanel1.add(d_photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 50, 40));
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("BACK");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 70, 20));
 
         jPanel2.setBackground(new java.awt.Color(255, 29, 29));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Title.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        Title.setForeground(new java.awt.Color(255, 255, 255));
-        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title.setText("LOGS");
-        jPanel2.add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
-
-        search_bar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 13)); // NOI18N
-        search_bar.setForeground(new java.awt.Color(153, 153, 153));
-        search_bar.setText(" Search...");
-        search_bar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(167, 134, 42)));
-        search_bar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                search_barFocusGained(evt);
+        BackPanel.setBackground(new java.awt.Color(160, 3, 0));
+        BackPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackPanelMouseClicked(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                search_barFocusLost(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BackPanelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BackPanelMouseExited(evt);
             }
         });
-        search_bar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                search_barActionPerformed(evt);
+        BackPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("BACK");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
             }
         });
-        search_bar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                search_barKeyReleased(evt);
-            }
-        });
-        jPanel2.add(search_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 210, 20));
+        BackPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 10));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 40));
+        jPanel2.add(BackPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 50, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("LOGS");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 230, 10));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 30));
+
+        jScrollPane1.setViewportView(logsTable);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 660, 420));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 480));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void search_barFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_barFocusGained
-        if(search_bar.getText().equals(" Search...")){
-            search_bar.setText("");
-            search_bar.setForeground(Color.BLACK);
-            search_bar.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-        }
-    }//GEN-LAST:event_search_barFocusGained
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        adminDashboard ads=new adminDashboard();
+        ads.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void search_barFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_barFocusLost
-        if(search_bar.getText().isEmpty()){
-            search_bar.setText(" Search...");
-            search_bar.setForeground(Color.GRAY);
-            search_bar.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-        }
-        resetBorder(search_bar);
-    }//GEN-LAST:event_search_barFocusLost
+    private void BackPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackPanelMouseClicked
+        usersForm uf=new usersForm();
+        uf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BackPanelMouseClicked
 
-    private void search_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_barActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_search_barActionPerformed
+    private void BackPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackPanelMouseEntered
+        BackPanel.setBackground(redd);
+    }//GEN-LAST:event_BackPanelMouseEntered
 
-    private void search_barKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_barKeyReleased
-        DefaultTableModel model = (DefaultTableModel)logs_tbl.getModel();
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>((DefaultTableModel) logs_tbl.getModel());
-        logs_tbl.setRowSorter(sorter);
-        sorter.setRowFilter(RowFilter.regexFilter(search_bar.getText()));
-    }//GEN-LAST:event_search_barKeyReleased
-
-    private void d_photoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d_photoMouseClicked
-        int row = logs_tbl.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "No Selection", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        // Retrieve the selected user's ID from the table
-        String id = logs_tbl.getValueAt(row, 0).toString();
-        int selectedLogID;
-
-        try {
-            selectedLogID = Integer.parseInt(id); // Ensure correct integer conversion
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Invalid log ID format.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Confirm deletion
-        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this log?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
-        if (confirm != JOptionPane.YES_OPTION) {
-            return;
-        }
-
-        // Database connection
-        dbConnector db = new dbConnector();
-        try (Connection connector = db.getConnection();
-            PreparedStatement stmt = connector.prepareStatement("DELETE FROM logs WHERE id = ?")) {
-
-            stmt.setInt(1, selectedLogID);
-            int affectedRows = stmt.executeUpdate();
-
-            if (affectedRows > 0) {
-                displayData(); // Refresh table data after deletion
-
-                // Logging the action
-                Session sess = Session.getInstance();
-                String action = "Deleted log with ID " + selectedLogID;
-                db.insertData("INSERT INTO logs (uid, action, date_time) VALUES ('" + sess.getUid() + "', '" + action + "', '" + LocalDateTime.now() + "')");
-
-                JOptionPane.showMessageDialog(this, "Log deleted successfully.", "Deleted", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "Failed to delete photographer.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_d_photoMouseClicked
-
-    private void d_photoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d_photoMouseEntered
-        d_photo.setForeground(new Color(204,204,204));
-    }//GEN-LAST:event_d_photoMouseEntered
-
-    private void d_photoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d_photoMouseExited
-        d_photo.setForeground(Color.black);
-    }//GEN-LAST:event_d_photoMouseExited
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-      
-       
-    }//GEN-LAST:event_jLabel2MouseClicked
+    private void BackPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackPanelMouseExited
+        BackPanel.setBackground(shok);
+    }//GEN-LAST:event_BackPanelMouseExited
 
     /**
      * @param args the command line arguments
@@ -349,13 +196,12 @@ public class logs extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane ScrollPane;
-    private javax.swing.JLabel Title;
-    private javax.swing.JLabel d_photo;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel BackPanel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTable logs_tbl;
-    private javax.swing.JTextField search_bar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable logsTable;
     // End of variables declaration//GEN-END:variables
 }

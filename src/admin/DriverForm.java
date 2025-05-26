@@ -67,14 +67,15 @@ public class DriverForm extends javax.swing.JFrame {
         p_add = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         UserID = new javax.swing.JLabel();
-        PrintButton = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         Delete = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         p_edit = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         p_edit2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -127,7 +128,7 @@ public class DriverForm extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(driversTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 830, 440));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 830, 330));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -159,38 +160,7 @@ public class DriverForm extends javax.swing.JFrame {
         UserID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         UserID.setForeground(new java.awt.Color(153, 153, 153));
         UserID.setText("ID");
-        jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 30, -1));
-
-        PrintButton.setBackground(new java.awt.Color(160, 3, 0));
-        PrintButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseExited(evt);
-            }
-        });
-        PrintButton.setLayout(null);
-
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("PRINT");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel8MouseEntered(evt);
-            }
-        });
-        PrintButton.add(jLabel8);
-        jLabel8.setBounds(0, 10, 120, 20);
-
-        jPanel2.add(PrintButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, 40));
+        jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 30, -1));
 
         Delete.setBackground(new java.awt.Color(160, 3, 0));
         Delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,7 +191,7 @@ public class DriverForm extends javax.swing.JFrame {
         Delete.add(jLabel9);
         jLabel9.setBounds(0, 10, 120, 20);
 
-        jPanel2.add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 120, 40));
+        jPanel2.add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, 40));
 
         p_edit.setBackground(new java.awt.Color(160, 3, 0));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -258,17 +228,30 @@ public class DriverForm extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("Current User :");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 70, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 70, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("DRIVER");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, -1));
+        jPanel4.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/driver.png"))); // NOI18N
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 100));
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("DRIVER");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 120, -1));
+
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, -1));
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 140, 130));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 450));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 350));
 
         p_edit2.setBackground(new java.awt.Color(160, 3, 0));
         p_edit2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -331,7 +314,7 @@ public class DriverForm extends javax.swing.JFrame {
 
         jPanel2.add(p_edit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 120, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 450));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 350));
 
         pack();
         setLocationRelativeTo(null);
@@ -433,7 +416,7 @@ public class DriverForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel7MouseEntered
 
     private void BackPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackPanelMouseClicked
-        adminDashboard ads=new adminDashboard();
+        adminDashboard ads = new adminDashboard();
         ads.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackPanelMouseClicked
@@ -441,54 +424,6 @@ public class DriverForm extends javax.swing.JFrame {
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7MouseClicked
-
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8MouseClicked
-
-    private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8MouseEntered
-
-    private void PrintButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseClicked
-        int rowIndex = driversTable.getSelectedRow();
-        
-        if(rowIndex<0){
-            JOptionPane.showMessageDialog(null, "Please select Item!");
-        }else{
-          
-            
-            try{
-            dbConnector dbc = new dbConnector();
-            TableModel tbl = driversTable.getModel();
-            ResultSet rs = dbc.getData("SELECT*FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
-            if(rs.next()){
-                IndividualPrinting ip = new IndividualPrinting();
-                ip.UserID.setText(""+rs.getInt("u_id"));
-                ip.completename1.setText(""+rs.getString("u_name"));
-                ip.un.setText(""+rs.getString("u_username"));
-                ip.email.setText(""+rs.getString("u_email"));
-                ip.cnum.setText(""+rs.getString("u_number"));
-                ip.ustatus.setText(""+rs.getString("u_status"));
-                ip.utype.setText(""+rs.getString("u_type"));
-                ip.setVisible(true);   
-                this.dispose();
-            }
-            }catch(SQLException ex){  
-              System.out.println(""+ex);
-            }
-        
-        }
-    
-    }//GEN-LAST:event_PrintButtonMouseClicked
-
-    private void PrintButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PrintButtonMouseEntered
-
-    private void PrintButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PrintButtonMouseExited
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         // TODO add your handling code here:
@@ -672,22 +607,23 @@ if (rowIndex < 0) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackPanel;
     private javax.swing.JPanel Delete;
-    private javax.swing.JPanel PrintButton;
     private javax.swing.JLabel UserID;
     private javax.swing.JTable driversTable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel p_add;
     private javax.swing.JPanel p_edit;

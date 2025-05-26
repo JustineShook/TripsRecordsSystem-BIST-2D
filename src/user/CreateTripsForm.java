@@ -6,28 +6,17 @@ import config.Logs;
 import config.Session;
 import config.dbConnector;
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.sql.PreparedStatement;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import static tripsrecordsystem.regForm.dbemail;
 
 
 /**
@@ -47,7 +36,7 @@ public class CreateTripsForm extends javax.swing.JFrame {
          loadComboBox(userComboBox1, "SELECT u_id FROM tbl_user", "u_id");
          
          driverComboBox3.addActionListener(new ActionListener() {
-         public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e) {
         String selectedDriverID = (String) driverComboBox3.getSelectedItem();
         if (selectedDriverID != null && !selectedDriverID.trim().isEmpty()) {
             showDriverFullName(selectedDriverID);
@@ -107,10 +96,18 @@ public class CreateTripsForm extends javax.swing.JFrame {
         System.out.println("Error fetching plate number: " + ex.getMessage());
     }
 }
+    public boolean isValidDateTime(String input) {
+    SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+    format.setLenient(false);
+    try {
+        format.parse(input);
+        return true;
+    } catch (ParseException e) {
+        return false;
+    }
+}
     
-    
-
-    
+     
     Color shok = new Color(160,3,0);
     Color redd = new Color(198,20,17);
     
@@ -160,7 +157,9 @@ public class CreateTripsForm extends javax.swing.JFrame {
         DriverName = new javax.swing.JTextField();
         PlateNum = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
+        TripID = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -181,7 +180,7 @@ public class CreateTripsForm extends javax.swing.JFrame {
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 160, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rdm3_1.jpg"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 200, 430));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 200, 610));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -236,7 +235,7 @@ public class CreateTripsForm extends javax.swing.JFrame {
                 CancelbuttonActionPerformed(evt);
             }
         });
-        jPanel2.add(Cancelbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 80, -1));
+        jPanel2.add(Cancelbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 80, -1));
 
         Clearb.setBackground(new java.awt.Color(198, 20, 17));
         Clearb.setForeground(new java.awt.Color(255, 255, 255));
@@ -318,10 +317,10 @@ public class CreateTripsForm extends javax.swing.JFrame {
         jPanel2.add(weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 130, 30));
 
         start.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 200, 30));
+        jPanel2.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 200, 30));
 
         end.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.add(end, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 200, 30));
+        jPanel2.add(end, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 200, 30));
 
         depart.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.add(depart, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 130, 30));
@@ -346,11 +345,11 @@ public class CreateTripsForm extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel10.setText("START LOCATION");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 150, 10));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 150, 10));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel15.setText("END LOCATION ");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 140, 10));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 140, 10));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel17.setText("DEPARTURE DATE ");
@@ -369,39 +368,50 @@ public class CreateTripsForm extends javax.swing.JFrame {
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel21.setText("TRUCK ID");
-        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 220, 10));
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 220, 10));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel16.setText("DRIVER ID");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 220, 10));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 220, 10));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel23.setText("USER'S ID ");
-        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 220, 10));
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 220, 10));
 
-        jPanel2.add(userComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 130, 30));
+        userComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
+        jPanel2.add(userComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 130, 30));
 
-        jPanel2.add(driverComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 30));
+        driverComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
+        jPanel2.add(driverComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 130, 30));
 
-        jPanel2.add(TruckID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 30));
+        TruckID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
+        jPanel2.add(TruckID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 30));
 
         DriverName.setBackground(new java.awt.Color(204, 204, 204));
         DriverName.setEnabled(false);
-        jPanel2.add(DriverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 130, 30));
+        jPanel2.add(DriverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 130, 30));
 
         PlateNum.setBackground(new java.awt.Color(204, 204, 204));
         PlateNum.setEnabled(false);
-        jPanel2.add(PlateNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 130, 30));
+        jPanel2.add(PlateNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 130, 30));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel20.setText("DRIVER NAME");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 130, 10));
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 130, 10));
+
+        TripID.setBackground(new java.awt.Color(204, 204, 204));
+        TripID.setEnabled(false);
+        jPanel2.add(TripID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 60, 30));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel22.setText("PLATE NUMBER");
-        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 130, 10));
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 130, 10));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 380, 430));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel24.setText("TRIP ID");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, 10));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 380, 540));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -416,9 +426,7 @@ public class CreateTripsForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -426,11 +434,19 @@ public class CreateTripsForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBActionPerformed
-      if (description.getText().isEmpty() || weight.getText().isEmpty() || 
+     if (description.getText().isEmpty() || weight.getText().isEmpty() || 
     start.getText().isEmpty() || arrival.getText().isEmpty() || 
     distance.getText().isEmpty()) {
 
     JOptionPane.showMessageDialog(null, "All Fields are Required!");
+
+} else if (!isValidDateTime(depart.getText().trim())) {
+    JOptionPane.showMessageDialog(null, "Invalid Departure Date-Time format! Use dd-MM-yyyy HH:mm");
+    depart.requestFocus();
+
+} else if (!isValidDateTime(arrival.getText().trim())) {
+    JOptionPane.showMessageDialog(null, "Invalid Arrival Date-Time format! Use dd-MM-yyyy HH:mm");
+    arrival.requestFocus();
 
 } else {
     try {
@@ -447,13 +463,13 @@ public class CreateTripsForm extends javax.swing.JFrame {
             Session session = Session.getInstance();
             int userIdVal = session.getUid();
             String userFullname = session.getCname();
-            String action = "Admin added a new Trip successfully: " + description.getText();
+            String action = ("Admin added a new Trip successfully");
             Logs.logFunctionCall(userIdVal, userFullname, action);
             // 🔚 End Logging
 
             JOptionPane.showMessageDialog(null, "Trip added successfully!");
 
-            tripForm tf = new tripForm(); // Replace with your actual form
+            tripsForm tf = new tripsForm(); // Replace with your actual form
             tf.setVisible(true);
             this.dispose();
 
@@ -465,11 +481,10 @@ public class CreateTripsForm extends javax.swing.JFrame {
         Logger.getLogger(CreateTripsForm.class.getName()).log(Level.SEVERE, null, ex);
     }
 }
-
     }//GEN-LAST:event_addBActionPerformed
 
     private void CancelbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelbuttonActionPerformed
-        usersForm uf =new usersForm();
+        tripsForm uf =new tripsForm();
         uf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CancelbuttonActionPerformed
@@ -515,7 +530,7 @@ public class CreateTripsForm extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteBActionPerformed
 
     private void UpdateBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateBMouseEntered
-        // TODO add your handling code here:
+  
     }//GEN-LAST:event_UpdateBMouseEntered
 
     private void UpdateBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateBMouseExited
@@ -523,7 +538,43 @@ public class CreateTripsForm extends javax.swing.JFrame {
     }//GEN-LAST:event_UpdateBMouseExited
 
     private void UpdateBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBActionPerformed
-        
+         if (description.getText().isEmpty() || weight.getText().isEmpty() ||
+    start.getText().isEmpty() || end.getText().isEmpty() ||
+    depart.getText().isEmpty() || arrival.getText().isEmpty() ||
+    distance.getText().isEmpty()) {
+
+    JOptionPane.showMessageDialog(null, "All Fields are Required!");
+
+} else {
+
+    dbConnector dbc = new dbConnector();
+    dbc.updateData(
+        "UPDATE tbl_trip SET " +
+        "driver_id = '" + driverComboBox3.getSelectedItem() + "', " +
+        "truck_id = '" + TruckID.getSelectedItem() + "', " +
+        "u_id = '" + userComboBox1.getSelectedItem() + "', " +
+        "description = '" + description.getText() + "', " +
+        "weight = '" + weight.getText() + "', " +
+        "start_location = '" + start.getText() + "', " +
+        "end_location = '" + end.getText() + "', " +
+        "departure_date = '" + depart.getText() + "', " +
+        "arrival_date = '" + arrival.getText() + "', " +
+        "distance = '" + distance.getText() + "', " +
+        "status = '" + TripStatus.getSelectedItem() + "' " +
+        "WHERE trip_id = '" + TripID.getText() + "'"
+    );
+
+    // Log and close form
+    Session session = Session.getInstance();
+    int userId = session.getUid();
+    String userFullname = session.getCname();
+    String action = "Admin Updated a Trip successfully:: " + description.getText();
+    Logs.logFunctionCall(userId, userFullname, action);
+
+    tripsForm tf = new tripsForm();
+    tf.setVisible(true);
+    this.dispose();
+}
     }//GEN-LAST:event_UpdateBActionPerformed
 
     private void RefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RefreshMouseEntered
@@ -584,19 +635,20 @@ public class CreateTripsForm extends javax.swing.JFrame {
     private javax.swing.JButton Cancelbutton;
     private javax.swing.JButton Clearb;
     private javax.swing.JButton DeleteB;
-    private javax.swing.JTextField DriverName;
-    private javax.swing.JTextField PlateNum;
+    public javax.swing.JTextField DriverName;
+    public javax.swing.JTextField PlateNum;
     private javax.swing.JButton Refresh;
-    private javax.swing.JComboBox<String> TripStatus;
-    private javax.swing.JComboBox<String> TruckID;
+    public javax.swing.JTextField TripID;
+    public javax.swing.JComboBox<String> TripStatus;
+    public javax.swing.JComboBox<String> TruckID;
     public javax.swing.JButton UpdateB;
     public javax.swing.JButton addB;
-    private javax.swing.JTextField arrival;
-    private javax.swing.JTextField depart;
-    private javax.swing.JTextField description;
-    private javax.swing.JTextField distance;
-    private javax.swing.JComboBox<String> driverComboBox3;
-    private javax.swing.JTextField end;
+    public javax.swing.JTextField arrival;
+    public javax.swing.JTextField depart;
+    public javax.swing.JTextField description;
+    public javax.swing.JTextField distance;
+    public javax.swing.JComboBox<String> driverComboBox3;
+    public javax.swing.JTextField end;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -612,6 +664,7 @@ public class CreateTripsForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -619,8 +672,8 @@ public class CreateTripsForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField start;
-    private javax.swing.JComboBox<String> userComboBox1;
-    private javax.swing.JTextField weight;
+    public javax.swing.JTextField start;
+    public javax.swing.JComboBox<String> userComboBox1;
+    public javax.swing.JTextField weight;
     // End of variables declaration//GEN-END:variables
 }

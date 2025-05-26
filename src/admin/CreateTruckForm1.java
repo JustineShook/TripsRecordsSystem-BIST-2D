@@ -228,9 +228,7 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
         TruckID = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         Clearb = new javax.swing.JButton();
-        DeleteB = new javax.swing.JButton();
         UpdateB = new javax.swing.JButton();
-        Refresh = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
         remove = new javax.swing.JButton();
@@ -263,7 +261,7 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Model");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 90, 10));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 90, 10));
 
         addB.setBackground(new java.awt.Color(198, 20, 17));
         addB.setForeground(new java.awt.Color(255, 255, 255));
@@ -281,31 +279,31 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
                 addBActionPerformed(evt);
             }
         });
-        jPanel2.add(addB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, -1));
+        jPanel2.add(addB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 80, -1));
 
         Capacity.setBackground(new java.awt.Color(215, 215, 215));
-        jPanel2.add(Capacity, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 140, 30));
+        jPanel2.add(Capacity, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 140, 30));
 
         Pnum.setBackground(new java.awt.Color(215, 215, 215));
-        jPanel2.add(Pnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 140, 30));
+        jPanel2.add(Pnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
 
         Model.setBackground(new java.awt.Color(215, 215, 215));
-        jPanel2.add(Model, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 140, 30));
+        jPanel2.add(Model, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Plate Number");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 10));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 130, 10));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Capacity");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 10));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 90, 10));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Truck Status");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, 10));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, 10));
 
         jLabel8.setBackground(new java.awt.Color(255, 102, 102));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/123.jpg"))); // NOI18N
@@ -349,21 +347,24 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
                 truck_statusActionPerformed(evt);
             }
         });
-        jPanel2.add(truck_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 140, 30));
+        jPanel2.add(truck_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 140, 30));
 
         TruckID.setBackground(new java.awt.Color(215, 215, 215));
         TruckID.setEnabled(false);
-        jPanel2.add(TruckID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 50, 20));
+        jPanel2.add(TruckID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 20));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("ID");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 10, 10));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 10, 10));
 
         Clearb.setBackground(new java.awt.Color(198, 20, 17));
         Clearb.setForeground(new java.awt.Color(255, 255, 255));
         Clearb.setText("Clear");
         Clearb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ClearbMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ClearbMouseEntered(evt);
             }
@@ -376,25 +377,7 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
                 ClearbActionPerformed(evt);
             }
         });
-        jPanel2.add(Clearb, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 80, -1));
-
-        DeleteB.setBackground(new java.awt.Color(198, 20, 17));
-        DeleteB.setForeground(new java.awt.Color(255, 255, 255));
-        DeleteB.setText("Delete");
-        DeleteB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                DeleteBMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                DeleteBMouseExited(evt);
-            }
-        });
-        DeleteB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteBActionPerformed(evt);
-            }
-        });
-        jPanel2.add(DeleteB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 80, -1));
+        jPanel2.add(Clearb, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 80, -1));
 
         UpdateB.setBackground(new java.awt.Color(198, 20, 17));
         UpdateB.setForeground(new java.awt.Color(255, 255, 255));
@@ -413,25 +396,7 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
                 UpdateBActionPerformed(evt);
             }
         });
-        jPanel2.add(UpdateB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, -1));
-
-        Refresh.setBackground(new java.awt.Color(198, 20, 17));
-        Refresh.setForeground(new java.awt.Color(255, 255, 255));
-        Refresh.setText("Refresh");
-        Refresh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RefreshMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                RefreshMouseExited(evt);
-            }
-        });
-        Refresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RefreshActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 80, -1));
+        jPanel2.add(UpdateB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 80, -1));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 240));
@@ -585,18 +550,6 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ClearbActionPerformed
 
-    private void DeleteBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteBMouseEntered
-
-    private void DeleteBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteBMouseExited
-
-    private void DeleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteBActionPerformed
-
     private void UpdateBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateBMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_UpdateBMouseEntered
@@ -654,18 +607,6 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_UpdateBActionPerformed
 
-    private void RefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RefreshMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RefreshMouseEntered
-
-    private void RefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RefreshMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RefreshMouseExited
-
-    private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RefreshActionPerformed
-
     private void removeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_removeMouseEntered
@@ -716,6 +657,29 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
                 }
     }//GEN-LAST:event_selectActionPerformed
 
+    private void ClearbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClearbMouseClicked
+      Model.setText("");
+Pnum.setText("");
+Capacity.setText("");
+TruckID.setText("");
+
+// Clear truck image and reset paths
+image.setIcon(null);
+destination = "";
+oldpath = "";
+path = "";
+selectedFile = null;
+
+// Reset truck status dropdown
+truck_status.setSelectedIndex(0);
+
+// Reset buttons
+addB.setEnabled(true);
+UpdateB.setEnabled(false);
+select.setEnabled(true);
+remove.setEnabled(false);
+    }//GEN-LAST:event_ClearbMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -762,10 +726,8 @@ public class CreateTruckForm1 extends javax.swing.JFrame {
     private javax.swing.JButton Cancelbutton;
     public javax.swing.JTextField Capacity;
     private javax.swing.JButton Clearb;
-    private javax.swing.JButton DeleteB;
     public javax.swing.JTextField Model;
     public javax.swing.JTextField Pnum;
-    private javax.swing.JButton Refresh;
     public javax.swing.JTextField TruckID;
     public javax.swing.JButton UpdateB;
     public javax.swing.JButton addB;

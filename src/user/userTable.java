@@ -202,7 +202,7 @@ public class userTable extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel13MouseExited
 
     private void jPanel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel13MouseClicked
-        tripForm tf = new tripForm(); 
+        tripsForm tf = new tripsForm(); 
         tf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel13MouseClicked
@@ -212,7 +212,7 @@ public class userTable extends javax.swing.JFrame {
     }//GEN-LAST:event_userTableMouseClicked
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        tripForm tf = new tripForm(); 
+        tripsForm tf = new tripsForm(); 
         tf.setVisible(true); 
         this.dispose();
         

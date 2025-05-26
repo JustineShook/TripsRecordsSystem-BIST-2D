@@ -66,14 +66,15 @@ public class usersForm extends javax.swing.JFrame {
         p_add = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         UserID = new javax.swing.JLabel();
-        PrintButton = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
         DELETE = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         p_edit = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         usersTable = new javax.swing.JTable();
@@ -146,36 +147,13 @@ public class usersForm extends javax.swing.JFrame {
         p_add.add(jLabel11);
         jLabel11.setBounds(0, 10, 120, 17);
 
-        jPanel2.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 120, 40));
+        jPanel2.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 120, 40));
 
         UserID.setBackground(new java.awt.Color(0, 0, 0));
         UserID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         UserID.setForeground(new java.awt.Color(153, 153, 153));
         UserID.setText("ID");
-        jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 30, -1));
-
-        PrintButton.setBackground(new java.awt.Color(160, 3, 0));
-        PrintButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseExited(evt);
-            }
-        });
-        PrintButton.setLayout(null);
-
-        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("PRINT");
-        PrintButton.add(jLabel12);
-        jLabel12.setBounds(0, 10, 120, 17);
-
-        jPanel2.add(PrintButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 120, 40));
+        jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 30, -1));
 
         DELETE.setBackground(new java.awt.Color(160, 3, 0));
         DELETE.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,7 +176,7 @@ public class usersForm extends javax.swing.JFrame {
         DELETE.add(jLabel9);
         jLabel9.setBounds(0, 10, 120, 17);
 
-        jPanel2.add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, 40));
+        jPanel2.add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 120, 40));
 
         p_edit.setBackground(new java.awt.Color(160, 3, 0));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,29 +199,42 @@ public class usersForm extends javax.swing.JFrame {
         p_edit.add(jLabel10);
         jLabel10.setBounds(0, 10, 120, 17);
 
-        jPanel2.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 120, 40));
+        jPanel2.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 120, 40));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("Current User :");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 70, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 70, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("USERS");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, -1));
+        jPanel4.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 120, 90));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("USER");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 120, -1));
+
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, -1));
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 140, 130));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 400));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 380));
 
         jScrollPane1.setViewportView(usersTable);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 820, 360));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 820, 340));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 990, 400));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 990, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -350,46 +341,6 @@ public class usersForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BackPanelMouseClicked
 
-    private void PrintButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseClicked
-        int rowIndex = usersTable.getSelectedRow();
-        
-        if(rowIndex<0){
-            JOptionPane.showMessageDialog(null, "Please select Item!");
-        }else{
-          
-            
-            try{
-            dbConnector dbc = new dbConnector();
-            TableModel tbl = usersTable.getModel();
-            ResultSet rs = dbc.getData("SELECT*FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
-            if(rs.next()){
-                IndividualPrinting ip = new IndividualPrinting();
-                ip.UserID.setText(""+rs.getInt("u_id"));
-                ip.completename1.setText(""+rs.getString("u_name"));
-                ip.un.setText(""+rs.getString("u_username"));
-                ip.email.setText(""+rs.getString("u_email"));
-                ip.cnum.setText(""+rs.getString("u_number"));
-                ip.ustatus.setText(""+rs.getString("u_status"));
-                ip.utype.setText(""+rs.getString("u_type"));
-                ip.setVisible(true);   
-                this.dispose();
-            }
-            }catch(SQLException ex){  
-              System.out.println(""+ex);
-            }
-        
-        }
-    
-    }//GEN-LAST:event_PrintButtonMouseClicked
-
-    private void PrintButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseEntered
-        PrintButton.setBackground(redd);
-    }//GEN-LAST:event_PrintButtonMouseEntered
-
-    private void PrintButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseExited
-        PrintButton.setBackground(shok);
-    }//GEN-LAST:event_PrintButtonMouseExited
-
     private void DELETEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETEMouseClicked
       int rowIndex = usersTable.getSelectedRow();
 
@@ -484,19 +435,20 @@ if (rowIndex < 0) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackPanel;
     private javax.swing.JPanel DELETE;
-    private javax.swing.JPanel PrintButton;
     private javax.swing.JLabel UserID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel p_add;
     private javax.swing.JPanel p_edit;

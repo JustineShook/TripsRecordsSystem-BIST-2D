@@ -67,7 +67,6 @@ public class truckForm extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         UserID = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         p_edit = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         p_add = new javax.swing.JPanel();
@@ -76,6 +75,10 @@ public class truckForm extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         DELETE = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -140,12 +143,6 @@ public class truckForm extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("Current User :");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 70, -1));
-
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("TRUCKS");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, -1));
 
         p_edit.setBackground(new java.awt.Color(160, 3, 0));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,6 +235,23 @@ public class truckForm extends javax.swing.JFrame {
         jLabel9.setBounds(0, 10, 120, 17);
 
         jPanel2.add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, 40));
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fast-delivery (1).png"))); // NOI18N
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 10, 160, 90));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("TRUCKS");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 90, 160, -1));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 110));
+
+        jPanel4.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 130));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -412,13 +426,13 @@ public class truckForm extends javax.swing.JFrame {
                 ResultSet rs = dbc.getData("SELECT*FROM tbl_truck WHERE truck_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
                 if(rs.next()){
                     IndividualPrinting ip = new IndividualPrinting();
-                    ip.UserID.setText(""+rs.getInt("u_id"));
-                    ip.completename1.setText(""+rs.getString("u_name"));
-                    ip.un.setText(""+rs.getString("u_username"));
-                    ip.email.setText(""+rs.getString("u_email"));
-                    ip.cnum.setText(""+rs.getString("u_number"));
-                    ip.ustatus.setText(""+rs.getString("u_status"));
-                    ip.utype.setText(""+rs.getString("u_type"));
+                    ip.TripID.setText(""+rs.getInt("u_id"));
+                    ip.TruckID.setText(""+rs.getString("u_name"));
+                    ip.driverComboBox3.setText(""+rs.getString("u_username"));
+                    ip.DriverName.setText(""+rs.getString("u_email"));
+                    ip.PlateNum.setText(""+rs.getString("u_number"));
+                    ip.end.setText(""+rs.getString("u_status"));
+                    ip.start.setText(""+rs.getString("u_type"));
                     ip.setVisible(true);
                     this.dispose();
                 }
@@ -489,9 +503,12 @@ public class truckForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel p_add;
     private javax.swing.JPanel p_edit;

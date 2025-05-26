@@ -69,12 +69,13 @@ public class tripsForm extends javax.swing.JFrame {
         UserID = new javax.swing.JLabel();
         PrintButton = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        DELETE = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         p_edit = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tripTable = new javax.swing.JTable();
@@ -118,8 +119,8 @@ public class tripsForm extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("USERS FORM");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 10));
+        jLabel6.setText("TRIPS REPORT");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 10));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 30));
 
@@ -147,13 +148,13 @@ public class tripsForm extends javax.swing.JFrame {
         p_add.add(jLabel11);
         jLabel11.setBounds(0, 10, 120, 17);
 
-        jPanel2.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 120, 40));
+        jPanel2.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 120, 40));
 
         UserID.setBackground(new java.awt.Color(0, 0, 0));
         UserID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         UserID.setForeground(new java.awt.Color(153, 153, 153));
         UserID.setText("ID");
-        jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 30, -1));
+        jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 30, -1));
 
         PrintButton.setBackground(new java.awt.Color(160, 3, 0));
         PrintButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -176,30 +177,7 @@ public class tripsForm extends javax.swing.JFrame {
         PrintButton.add(jLabel12);
         jLabel12.setBounds(0, 10, 120, 17);
 
-        jPanel2.add(PrintButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 120, 40));
-
-        DELETE.setBackground(new java.awt.Color(160, 3, 0));
-        DELETE.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DELETEMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                DELETEMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                DELETEMouseExited(evt);
-            }
-        });
-        DELETE.setLayout(null);
-
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("DELETE");
-        DELETE.add(jLabel9);
-        jLabel9.setBounds(0, 10, 120, 17);
-
-        jPanel2.add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, 40));
+        jPanel2.add(PrintButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 120, 40));
 
         p_edit.setBackground(new java.awt.Color(160, 3, 0));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,29 +200,42 @@ public class tripsForm extends javax.swing.JFrame {
         p_edit.add(jLabel10);
         jLabel10.setBounds(0, 10, 120, 17);
 
-        jPanel2.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 120, 40));
+        jPanel2.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 120, 40));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("Current User :");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 70, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 70, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("TRIPS");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, -1));
+        jPanel4.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fast-delivery (1).png"))); // NOI18N
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 120, 90));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("TRIPS");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 120, -1));
+
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, -1));
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 140, 130));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 400));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 380));
 
         jScrollPane1.setViewportView(tripTable);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 990, 360));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 990, 340));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1170, 400));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1170, 380));
 
         pack();
         setLocationRelativeTo(null);
@@ -298,36 +289,29 @@ public class tripsForm extends javax.swing.JFrame {
             try{
             dbConnector dbc = new dbConnector();
             TableModel tbl = tripTable.getModel();
-            ResultSet rs = dbc.getData("SELECT*FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
+            ResultSet rs = dbc.getData("SELECT*FROM tbl_trip WHERE trip_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
             if(rs.next()){
-                CreateUserForm crf = new CreateUserForm();
-                crf.uID.setText(""+rs.getInt("u_id"));
-                crf.CompleteName.setText(""+rs.getString("u_name"));
-                crf.uname.setText(""+rs.getString("u_username"));
-                crf.pword.setText(""+rs.getString("u_password"));
-                crf.pword1.setText(""+rs.getString("u_password"));
-                crf.email.setText(""+rs.getString("u_email"));
-                crf.cnumber.setText(""+rs.getString("u_number"));
-                crf.jUserStatus.setSelectedItem(""+rs.getString("u_status"));
-                crf.jUserType.setSelectedItem(""+rs.getString("u_type"));
-                crf.image.setIcon(crf.ResizeImage(rs.getString("u_image"), null, crf.image));
-                crf.oldpath = rs.getString("u_image");
-                crf.path = rs.getString("u_image");
-                crf.destination = rs.getString("u_image");
-                crf.addB.setEnabled(false);
-                crf.UpdateB.setEnabled(true);
-                crf.setVisible(true);
-                
-                if(rs.getString("u_image").isEmpty()){
-                 crf.select.setEnabled(true);
-                 crf.remove.setEnabled(false);
-                }else{
-                 crf.select.setEnabled(false);
-                 crf.remove.setEnabled(true);
-                }
-                
+                CreateTripsForm ctf = new CreateTripsForm();
+        ctf.driverComboBox3.setSelectedItem(""+rs.getString("driver_id"));
+        ctf.TruckID.setSelectedItem(""+rs.getString("truck_id"));
+        ctf.userComboBox1.setSelectedItem(""+rs.getString("u_id"));
+        ctf.description.setText(""+rs.getString("description"));
+        ctf.weight.setText(""+rs.getString("weight"));
+        ctf.start.setText(""+rs.getString("start_location"));
+        ctf.end.setText(""+rs.getString("end_location"));
+        ctf.depart.setText(""+rs.getString("departure_date"));
+        ctf.arrival.setText(""+rs.getString("arrival_date"));
+        ctf.distance.setText(""+rs.getString("distance"));
+        ctf.TripStatus.setSelectedItem(""+rs.getString("status"));
+        ctf.setVisible(true);
+        ctf.TruckID.setEnabled(false);
+        ctf.userComboBox1.setEnabled(false);
+        ctf.driverComboBox3.setEnabled(false);
                 this.dispose();
+               
+               
             }
+            
             }catch(SQLException ex){  
               System.out.println(""+ex);
             }
@@ -352,35 +336,59 @@ public class tripsForm extends javax.swing.JFrame {
     }//GEN-LAST:event_BackPanelMouseClicked
 
     private void PrintButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseClicked
-        int rowIndex = tripTable.getSelectedRow();
-        
-        if(rowIndex<0){
-            JOptionPane.showMessageDialog(null, "Please select Item!");
-        }else{
-          
-            
-            try{
-            dbConnector dbc = new dbConnector();
-            TableModel tbl = tripTable.getModel();
-            ResultSet rs = dbc.getData("SELECT*FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
-            if(rs.next()){
-                IndividualPrinting ip = new IndividualPrinting();
-                ip.UserID.setText(""+rs.getInt("u_id"));
-                ip.completename1.setText(""+rs.getString("u_name"));
-                ip.un.setText(""+rs.getString("u_username"));
-                ip.email.setText(""+rs.getString("u_email"));
-                ip.cnum.setText(""+rs.getString("u_number"));
-                ip.ustatus.setText(""+rs.getString("u_status"));
-                ip.utype.setText(""+rs.getString("u_type"));
-                ip.setVisible(true);   
-                this.dispose();
-            }
-            }catch(SQLException ex){  
-              System.out.println(""+ex);
-            }
-        
+      int rowIndex = tripTable.getSelectedRow();
+
+if (rowIndex < 0) {
+    JOptionPane.showMessageDialog(null, "Please select Item!");
+} else {
+    try {
+        dbConnector dbc = new dbConnector();
+        TableModel tbl = tripTable.getModel();
+        String tripId = tbl.getValueAt(rowIndex, 0).toString();
+
+        String sql = "SELECT t.*, d.full_name, tr.plate_number " +
+                     "FROM tbl_trip t " +
+                     "JOIN tbl_driver d ON t.driver_id = d.driver_id " +
+                     "JOIN tbl_truck tr ON t.truck_id = tr.truck_id " +
+                     "WHERE t.trip_id = ?";
+
+        PreparedStatement pst = dbc.getConnection().prepareStatement(sql);
+        pst.setString(1, tripId);
+
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            IndividualPrinting ip = new IndividualPrinting();
+            ip.TripID.setText(rs.getString("trip_id"));
+            ip.driverComboBox3.setText(rs.getString("driver_id"));
+            ip.DriverName.setText(rs.getString("full_name"));
+            ip.TruckID.setText(rs.getString("truck_id"));
+            ip.PlateNum.setText(rs.getString("plate_number"));
+            ip.description.setText(rs.getString("description"));
+            ip.weight.setText(rs.getString("weight"));
+            ip.start.setText(rs.getString("start_location"));
+            ip.end.setText(rs.getString("end_location"));
+            ip.depart.setText(rs.getString("departure_date"));
+            ip.arrival.setText(rs.getString("arrival_date"));
+            ip.distance.setText(rs.getString("distance"));
+            ip.TripStatus.setText(rs.getString("status"));
+            ip.Date.setText(rs.getString("timestamp"));
+
+            ip.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Trip ID not found!");
         }
-    
+
+        rs.close();
+        pst.close();
+        dbc.close(); // Make sure your dbConnector class has a close method to close connection
+
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Database error: " + ex.getMessage());
+    }
+}
+
     }//GEN-LAST:event_PrintButtonMouseClicked
 
     private void PrintButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseEntered
@@ -390,61 +398,6 @@ public class tripsForm extends javax.swing.JFrame {
     private void PrintButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseExited
         PrintButton.setBackground(shok);
     }//GEN-LAST:event_PrintButtonMouseExited
-
-    private void DELETEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETEMouseClicked
-      int rowIndex = tripTable.getSelectedRow();
-
-if (rowIndex < 0) {
-    JOptionPane.showMessageDialog(null, "Please select a user to delete!");
-} else {
-    int confirm = JOptionPane.showConfirmDialog(null, 
-        "Are you sure you want to delete this user?", 
-        "Confirm Delete", 
-        JOptionPane.YES_NO_OPTION);
-
-    if (confirm == JOptionPane.YES_OPTION) {
-        TableModel tbl = tripTable.getModel();
-        String userId = tbl.getValueAt(rowIndex, 0).toString();   // Assuming u_id is column 0
-        String userName = tbl.getValueAt(rowIndex, 1).toString(); // Assuming u_name is column 1
-
-        try {
-            dbConnector dbc = new dbConnector();
-            String sql = "DELETE FROM tbl_user WHERE u_id = ?";
-            PreparedStatement pst = dbc.getConnection().prepareStatement(sql);
-            pst.setString(1, userId);
-
-            int result = pst.executeUpdate();
-
-            if (result > 0) {
-                JOptionPane.showMessageDialog(null, "User deleted successfully.");
-
-                // Remove from table model to update UI
-               ((DefaultTableModel) tripTable.getModel()).removeRow(rowIndex);
-                // Logging
-                Session session = Session.getInstance();
-                int currentUserId = session.getUid();
-                String currentUserName = session.getCname();
-                String action = ("Admin Deleted a User Account successfully");
-                Logs.logFunctionCall(currentUserId, currentUserName, action);
-
-            } else {
-                JOptionPane.showMessageDialog(null, "User not found or could not be deleted.");
-            }
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error deleting user: " + ex.getMessage());
-        }
-    }
-}
-    }//GEN-LAST:event_DELETEMouseClicked
-
-    private void DELETEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETEMouseEntered
-          DELETE.setBackground(redd);
-    }//GEN-LAST:event_DELETEMouseEntered
-
-    private void DELETEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETEMouseExited
-         DELETE.setBackground(shok);
-    }//GEN-LAST:event_DELETEMouseExited
      
     /**
      * @param args the command line arguments
@@ -486,7 +439,6 @@ if (rowIndex < 0) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackPanel;
-    private javax.swing.JPanel DELETE;
     private javax.swing.JPanel PrintButton;
     private javax.swing.JLabel UserID;
     private javax.swing.JLabel jLabel1;
@@ -494,12 +446,14 @@ if (rowIndex < 0) {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel p_add;
     private javax.swing.JPanel p_edit;

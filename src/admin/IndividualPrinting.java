@@ -12,6 +12,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import user.tripsForm;
 
 /**
  *
@@ -62,23 +63,41 @@ public class IndividualPrinting extends javax.swing.JFrame {
         page = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        UserID = new javax.swing.JLabel();
+        TripID = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        completename1 = new javax.swing.JLabel();
+        TruckID = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        email = new javax.swing.JLabel();
+        DriverName = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        cnum = new javax.swing.JLabel();
+        PlateNum = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        utype = new javax.swing.JLabel();
+        start = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        ustatus = new javax.swing.JLabel();
-        un = new javax.swing.JLabel();
+        end = new javax.swing.JLabel();
+        driverComboBox3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        description = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        weight = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        arrival = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        distance = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        TripStatus = new javax.swing.JLabel();
+        depart = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        Date = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         pPrint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,84 +142,294 @@ public class IndividualPrinting extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 30));
 
         page.setBackground(new java.awt.Color(255, 255, 255));
-        page.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("SHOOK TRUCKING CORP.");
-        page.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 18, 410, 25));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Bulacao, Talisay City, Cebu");
-        page.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 49, 390, 18));
 
-        UserID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        UserID.setText(" ");
-        page.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 140, -1));
+        TripID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        TripID.setText(" ");
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jLabel5.setText("User ID                 :");
-        page.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        jLabel5.setText("Trip ID                  :");
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jLabel7.setText("Complete Name   :");
-        page.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, -1));
+        jLabel7.setText("Truck ID              :");
 
-        completename1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        completename1.setText(" ");
-        page.add(completename1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 140, -1));
+        TruckID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        TruckID.setText(" ");
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jLabel9.setText("Email                   :");
-        page.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, -1));
+        jLabel9.setText("Driver name        :");
 
-        email.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        email.setText(" ");
-        page.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 140, -1));
+        DriverName.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        DriverName.setText(" ");
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jLabel11.setText("Cell Number        :");
-        page.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 90, -1));
+        jLabel11.setText("Plate Number      :");
 
-        cnum.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        cnum.setText(" ");
-        page.add(cnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 140, -1));
+        PlateNum.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        PlateNum.setText(" ");
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jLabel13.setText("User Type            :");
-        page.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 90, -1));
+        jLabel13.setText("Start Location     :");
 
-        utype.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        utype.setText(" ");
-        page.add(utype, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 140, -1));
+        start.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        start.setText(" ");
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jLabel15.setText("Status                 :");
-        page.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, -1));
+        jLabel15.setText("End Location       :");
 
-        ustatus.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        ustatus.setText(" ");
-        page.add(ustatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 140, -1));
+        end.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        end.setText(" ");
 
-        un.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        un.setText(" ");
-        page.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 140, -1));
+        driverComboBox3.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        driverComboBox3.setText(" ");
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jLabel8.setText("User Name          :");
-        page.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, -1));
+        jLabel8.setText("Driver ID             :");
 
         jLabel10.setBackground(new java.awt.Color(255, 102, 102));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/123.jpg"))); // NOI18N
-        page.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 60, 30));
 
         jLabel12.setBackground(new java.awt.Color(255, 102, 102));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/123.jpg"))); // NOI18N
-        page.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 60, 30));
-        page.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 340, 12));
 
-        jPanel1.add(page, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 410, 570));
+        description.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        description.setText(" ");
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel14.setText("Descripton          :");
+
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel16.setText("Weight                 :");
+
+        weight.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        weight.setText(" ");
+
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel17.setText("Arrival Date         :");
+
+        arrival.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        arrival.setText(" ");
+
+        jLabel18.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel18.setText("Distance              :");
+
+        distance.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        distance.setText(" ");
+
+        jLabel19.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel19.setText("Status                  :");
+
+        TripStatus.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        TripStatus.setText(" ");
+
+        depart.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        depart.setText(" ");
+
+        jLabel21.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel21.setText("Departure Date    :");
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel22.setText("Date                     :");
+
+        Date.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        Date.setText(" ");
+
+        jLabel20.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel20.setText("Signature: ______________________  ");
+
+        jLabel23.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel23.setText("Prepared by: ____________________");
+
+        javax.swing.GroupLayout pageLayout = new javax.swing.GroupLayout(page);
+        page.setLayout(pageLayout);
+        pageLayout.setHorizontalGroup(
+            pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel5)
+                .addGap(12, 12, 12)
+                .addComponent(TripID, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel22)
+                .addGap(12, 12, 12)
+                .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(TruckID, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(driverComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(DriverName, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(PlateNum, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(end, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(weight, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(depart, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(arrival, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(distance, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(TripStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pageLayout.setVerticalGroup(
+            pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pageLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pageLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pageLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pageLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(TripID))
+                .addGap(7, 7, 7)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel22)
+                    .addComponent(Date))
+                .addGap(17, 17, 17)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(TruckID))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(driverComboBox3))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(DriverName))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(PlateNum))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addComponent(start))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(end))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(description))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addComponent(weight))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21)
+                    .addComponent(depart))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(arrival))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18)
+                    .addComponent(distance))
+                .addGap(17, 17, 17)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addComponent(TripStatus))
+                .addGap(17, 17, 17)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel20)))
+        );
+
+        jPanel1.add(page, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 410, 620));
 
         pPrint.setBackground(new java.awt.Color(160, 3, 0));
         pPrint.setForeground(new java.awt.Color(204, 204, 204));
@@ -217,7 +446,7 @@ public class IndividualPrinting extends javax.swing.JFrame {
         });
         jPanel1.add(pPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 90, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 680));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -229,7 +458,7 @@ public class IndividualPrinting extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void BackPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackPanelMouseClicked
-        usersForm uf=new usersForm();
+        tripsForm uf=new tripsForm();
         uf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackPanelMouseClicked
@@ -289,17 +518,34 @@ public class IndividualPrinting extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackPanel;
-    public javax.swing.JLabel UserID;
-    public javax.swing.JLabel cnum;
-    public javax.swing.JLabel completename1;
-    public javax.swing.JLabel email;
+    public javax.swing.JLabel Date;
+    public javax.swing.JLabel DriverName;
+    public javax.swing.JLabel PlateNum;
+    public javax.swing.JLabel TripID;
+    public javax.swing.JLabel TripStatus;
+    public javax.swing.JLabel TruckID;
+    public javax.swing.JLabel arrival;
+    public javax.swing.JLabel depart;
+    public javax.swing.JLabel description;
+    public javax.swing.JLabel distance;
+    public javax.swing.JLabel driverComboBox3;
+    public javax.swing.JLabel end;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -309,10 +555,11 @@ public class IndividualPrinting extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JButton pPrint;
     private javax.swing.JPanel page;
-    public javax.swing.JLabel un;
-    public javax.swing.JLabel ustatus;
-    public javax.swing.JLabel utype;
+    public javax.swing.JLabel start;
+    public javax.swing.JLabel weight;
     // End of variables declaration//GEN-END:variables
 }

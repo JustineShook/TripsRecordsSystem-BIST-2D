@@ -202,7 +202,7 @@ public class driversTable extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel13MouseExited
 
     private void jPanel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel13MouseClicked
-        tripForm tf = new tripForm(); 
+        tripsForm tf = new tripsForm(); 
         tf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel13MouseClicked

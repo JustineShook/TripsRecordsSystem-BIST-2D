@@ -514,7 +514,7 @@ public class CreateDriverForm extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Inserted Successfully");
 
-            usersForm uf = new usersForm();
+            DriverForm uf = new DriverForm();
             uf.setVisible(true);
             this.dispose();
 

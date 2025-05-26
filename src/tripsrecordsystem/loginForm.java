@@ -6,6 +6,7 @@
 package tripsrecordsystem;
 
 import admin.adminDashboard;
+import config.Logs;
 import config.Session;
 import config.dbConnector;
 import config.passwordHasher;
@@ -239,6 +240,13 @@ public class loginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Login Success");
             
             dbConnector db = new dbConnector();
+            
+            Session session = Session.getInstance();
+        int userId = session.getUid();                 // get user ID from session
+        String userFullname = session.getCname();      // get full name from session
+        String action = "User Log in successfully: " + userFullname;
+        Logs.logFunctionCall(userId, userFullname, action);
+            
             if(type.equals("ADMIN")){
                 adminDashboard ads=new adminDashboard();
                 ads.setVisible(true);

@@ -700,12 +700,14 @@ public class CreateUserForm extends javax.swing.JFrame {
         try{
             
         String pass = passwordHasher.hashPassword(pword.getText());
-        dbc.updateData("UPDATE tbl_user SET u_name = '"+CompleteName.getText()+"',"
-                + "u_email ='"+email.getText()+"',"
-                + "u_number = '"+cnumber.getText()+"', "
-                + "u_password = '"+ pass +"',"
-                + "u_status = '"+jUserStatus.getSelectedItem()+"',"
-                + "u_type = '"+jUserType.getSelectedItem()+"'u_image = '"+destination+"'WHERE u_id = '"+uID.getText()+"'");
+dbc.updateData("UPDATE tbl_user SET u_name = '"+CompleteName.getText()+"',"
+        + "u_email ='"+email.getText()+"',"
+        + "u_number = '"+cnumber.getText()+"', "
+        + "u_password = '"+ pass +"',"
+        + "u_status = '"+jUserStatus.getSelectedItem()+"',"
+        + "u_type = '"+jUserType.getSelectedItem()+"',"
+        + "u_image = '"+destination+"' " // ← removed comma here
+        + "WHERE u_id = '"+uID.getText()+"'");
         
         if(destination.isEmpty()){
             File existingFile = new File(oldpath);

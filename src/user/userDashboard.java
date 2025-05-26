@@ -361,7 +361,7 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-       tripForm tf = new tripForm();
+       tripsForm tf = new tripsForm();
         tf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked

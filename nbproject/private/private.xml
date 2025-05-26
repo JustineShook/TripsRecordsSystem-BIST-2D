@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mypc/Desktop/TripsRecordsSystem-BIST-2D/src/admin/DriverForm.java</file>
-            <file>file:/C:/Users/mypc/Desktop/TripsRecordsSystem-BIST-2D/src/admin/usersForm.java</file>
-            <file>file:/C:/Users/mypc/Desktop/TripsRecordsSystem-BIST-2D/src/admin/CreateDriverForm.java</file>
+            <file>file:/C:/Users/mypc/Desktop/TripsRecordsSystem-BIST-2D/src/config/dbConnector.java</file>
+            <file>file:/C:/Users/mypc/Desktop/TripsRecordsSystem-BIST-2D/src/user/driversTable.java</file>
             <file>file:/C:/Users/mypc/Desktop/TripsRecordsSystem-BIST-2D/src/config/Logs.java</file>
-            <file>file:/C:/Users/mypc/Desktop/TripsRecordsSystem-BIST-2D/src/admin/CreateUserForm.java</file>
+            <file>file:/C:/Users/mypc/Desktop/TripsRecordsSystem-BIST-2D/src/user/CreateTripsForm.java</file>
+            <file>file:/C:/Users/mypc/Desktop/TripsRecordsSystem-BIST-2D/src/user/userTable.java</file>
+            <file>file:/C:/Users/mypc/Desktop/TripsRecordsSystem-BIST-2D/src/user/truckTable.java</file>
         </group>
     </open-files>
 </project-private>

@@ -90,6 +90,16 @@ public class dbConnector {
         return false;
     }
 }
+         public void close() {
+    try {
+        if (connect != null && !connect.isClosed()) {
+            connect.close();
+        }
+    } catch (SQLException ex) {
+        System.out.println("Error closing connection: " + ex.getMessage());
+    }
+}
+         
 
 
    
