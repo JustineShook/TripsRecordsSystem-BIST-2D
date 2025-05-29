@@ -25,6 +25,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import tripsrecordsystem.loginForm;
 import static tripsrecordsystem.regForm.dbemail;
 
 
@@ -248,6 +249,11 @@ public class CreateDriverForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 29, 29));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -702,6 +708,16 @@ public class CreateDriverForm extends javax.swing.JFrame {
                     }
                 }
     }//GEN-LAST:event_selectActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+      Session sess = Session.getInstance();
+        if(sess.getUid()==0){ 
+            JOptionPane.showMessageDialog(null, "No Account, Login First");
+            loginForm lgf = new loginForm();
+            lgf.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

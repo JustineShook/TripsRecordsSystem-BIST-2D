@@ -161,8 +161,9 @@ public class accountDetails extends javax.swing.JFrame {
         UserCompleteName.setBackground(new java.awt.Color(255, 255, 255));
         UserCompleteName.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         UserCompleteName.setForeground(new java.awt.Color(255, 255, 255));
+        UserCompleteName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         UserCompleteName.setText("USER");
-        jPanel3.add(UserCompleteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 110, 10));
+        jPanel3.add(UserCompleteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 10));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -179,15 +180,19 @@ public class accountDetails extends javax.swing.JFrame {
         jPanel12.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 90, 10));
 
         uname.setBackground(new java.awt.Color(215, 215, 215));
+        uname.setEnabled(false);
         jPanel12.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 140, 30));
 
         cnumber.setBackground(new java.awt.Color(215, 215, 215));
+        cnumber.setEnabled(false);
         jPanel12.add(cnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 140, 30));
 
         email1.setBackground(new java.awt.Color(215, 215, 215));
+        email1.setEnabled(false);
         jPanel12.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 140, 30));
 
         CompleteName.setBackground(new java.awt.Color(215, 215, 215));
+        CompleteName.setEnabled(false);
         jPanel12.add(CompleteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
@@ -212,13 +217,19 @@ public class accountDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        Session sess = Session.getInstance();
+         Session sess = Session.getInstance();
+        if(sess.getUid()==0){ 
+            JOptionPane.showMessageDialog(null, "No Account, Login First");
+            loginForm lgf = new loginForm();
+            lgf.setVisible(true);
+            this.dispose();
+        }else{
           CompleteName.setText(""+sess.getCname());
           UserID.setText(""+sess.getUid());
           uname.setText(""+sess.getUsername());
           email1.setText(""+sess.getEmail());
           cnumber.setText(""+sess.getUcnumber());
-        
+        }
     }//GEN-LAST:event_formWindowActivated
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked

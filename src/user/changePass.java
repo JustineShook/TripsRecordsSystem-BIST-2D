@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package user;
 
 import config.Session;
@@ -45,8 +41,6 @@ public class changePass extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         UserID = new javax.swing.JLabel();
         UserCompleteName = new javax.swing.JLabel();
@@ -129,25 +123,6 @@ public class changePass extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 20, 280));
 
-        jPanel1.setBackground(new java.awt.Color(160, 3, 0));
-
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel11.setText("    CHANGE PASS");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 40));
-
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,8 +138,9 @@ public class changePass extends javax.swing.JFrame {
         UserCompleteName.setBackground(new java.awt.Color(255, 255, 255));
         UserCompleteName.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         UserCompleteName.setForeground(new java.awt.Color(255, 255, 255));
+        UserCompleteName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         UserCompleteName.setText("USER");
-        jPanel3.add(UserCompleteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 110, 10));
+        jPanel3.add(UserCompleteName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 150, 10));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -205,6 +181,11 @@ public class changePass extends javax.swing.JFrame {
         UserCompleteName3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         UserCompleteName3.setForeground(new java.awt.Color(255, 255, 255));
         UserCompleteName3.setText("      BACK");
+        UserCompleteName3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UserCompleteName3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -312,6 +293,12 @@ public class changePass extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SavePassMouseClicked
 
+    private void UserCompleteName3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserCompleteName3MouseClicked
+        accountDetails ad = new accountDetails();
+        ad.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_UserCompleteName3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -356,14 +343,12 @@ public class changePass extends javax.swing.JFrame {
     private javax.swing.JLabel UserCompleteName3;
     private javax.swing.JLabel UserID;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;

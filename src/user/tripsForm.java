@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
+import tripsrecordsystem.loginForm;
 
 
 public class tripsForm extends javax.swing.JFrame {
@@ -248,8 +249,16 @@ public class tripsForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        Session sess = Session.getInstance();
-        UserID.setText(""+sess.getUid());
+         Session sess = Session.getInstance();
+        if(sess.getUid()==0){ 
+            JOptionPane.showMessageDialog(null, "No Account, Login First");
+            loginForm lgf = new loginForm();
+            lgf.setVisible(true);
+            this.dispose();
+        }else{
+            UserID.setText(""+sess.getUid());
+    
+        }
         
     }//GEN-LAST:event_formWindowActivated
 

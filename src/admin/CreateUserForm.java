@@ -24,6 +24,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import tripsrecordsystem.loginForm;
 import static tripsrecordsystem.regForm.dbemail;
 import static tripsrecordsystem.regForm.dbusername;
 
@@ -275,6 +276,11 @@ public class CreateUserForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 29, 29));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -797,6 +803,16 @@ dbc.updateData("UPDATE tbl_user SET u_name = '"+CompleteName.getText()+"',"
                     }
                 }
     }//GEN-LAST:event_selectActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       Session sess = Session.getInstance();
+        if(sess.getUid()==0){ 
+            JOptionPane.showMessageDialog(null, "No Account, Login First");
+            loginForm lgf = new loginForm();
+            lgf.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

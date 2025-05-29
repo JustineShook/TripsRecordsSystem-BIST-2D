@@ -17,15 +17,17 @@ import user.CreateTripsForm;
  * @author mypc
  */
 public class adminDashboard extends javax.swing.JFrame {
-
+    Color redd = new Color(198,20,17);
+    Color shok = new Color(160,3,0);
     /**
      * Creates new form adminDashboard
      */
     public adminDashboard() {
         initComponents();
+        
+        
     }
-    Color redd = new Color(198,20,17);
-    Color shok = new Color(160,3,0);
+   
     
 
     /**
@@ -47,6 +49,9 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -75,7 +80,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel14 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        image = new javax.swing.JLabel();
         AdminName = new javax.swing.JLabel();
         AdminName1 = new javax.swing.JLabel();
 
@@ -158,11 +163,31 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 270));
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 6)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Partner with us today and experience logistics done right!");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 160, 10));
+
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("Century Schoolbook", 1, 10)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("TRUCKING CORP..");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 160, 10));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Century Schoolbook", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("SHOOK");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 160, 30));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login-background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 450));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 450));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 150, 450));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 450));
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -362,9 +387,9 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel12.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 590, 10));
 
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel14.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
+        jPanel14.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 90));
 
-        jPanel12.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 90, 90));
+        jPanel12.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 100, 110));
 
         AdminName.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         AdminName.setForeground(new java.awt.Color(102, 102, 102));
@@ -516,13 +541,14 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel AdminName;
     private javax.swing.JLabel AdminName1;
     private javax.swing.JPanel LOGpannel;
+    public javax.swing.JLabel image;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JColorChooser jColorChooser2;
     private javax.swing.JColorChooser jColorChooser3;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -535,6 +561,8 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -555,4 +583,6 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
+   
 }
