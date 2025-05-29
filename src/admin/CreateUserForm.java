@@ -542,7 +542,7 @@ public class CreateUserForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CREATE/ADD USER FORM");
+        jLabel1.setText(" USER FORM");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -140,7 +140,7 @@ public class adminDashboard extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 562, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 572, Short.MAX_VALUE)
                 .addComponent(LOGpannel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -154,7 +154,7 @@ public class adminDashboard extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 30));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 30));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -386,11 +386,11 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel12.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 590, 10));
 
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel14.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 90));
+        jPanel14.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 70));
 
-        jPanel12.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 100, 110));
+        jPanel12.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 100, 90));
 
-        AdminName.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        AdminName.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         AdminName.setForeground(new java.awt.Color(102, 102, 102));
         AdminName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AdminName.setText("ADMIN");
@@ -402,7 +402,7 @@ public class adminDashboard extends javax.swing.JFrame {
         AdminName1.setText("ADMIN");
         jPanel12.add(AdminName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 110, -1));
 
-        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 640, 450));
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 640, 450));
 
         pack();
         setLocationRelativeTo(null);

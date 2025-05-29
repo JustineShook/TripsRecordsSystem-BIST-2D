@@ -178,17 +178,19 @@ public class CreateTripsForm1 extends javax.swing.JFrame {
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setFont(new java.awt.Font("Century Schoolbook", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText(" TRUCKING CORP...");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 130, 10));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 10));
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Century Schoolbook", 1, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("SHOOK ");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 160, 30));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 200, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rdm3_1.jpg"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 200, 610));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 200, 470));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -213,13 +215,13 @@ public class CreateTripsForm1 extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(255, 102, 102));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/123.jpg"))); // NOI18N
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 60, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 60, 30));
 
         jLabel9.setBackground(new java.awt.Color(115, 5, 5));
         jLabel9.setFont(new java.awt.Font("Stencil", 3, 10)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(128, 0, 0));
         jLabel9.setText("SHOOK TRUCKING");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Century Schoolbook", 1, 18)); // NOI18N
@@ -243,7 +245,7 @@ public class CreateTripsForm1 extends javax.swing.JFrame {
                 CancelbuttonActionPerformed(evt);
             }
         });
-        jPanel2.add(Cancelbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 80, -1));
+        jPanel2.add(Cancelbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 80, -1));
 
         Clearb.setBackground(new java.awt.Color(198, 20, 17));
         Clearb.setForeground(new java.awt.Color(255, 255, 255));
@@ -319,111 +321,111 @@ public class CreateTripsForm1 extends javax.swing.JFrame {
         jPanel2.add(Refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 80, -1));
 
         description.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.add(description, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 130, 30));
+        jPanel2.add(description, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 130, 30));
 
         weight.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.add(weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 130, 30));
+        jPanel2.add(weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 130, 30));
 
         start.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 200, 30));
+        jPanel2.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 200, 30));
 
         end.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.add(end, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 200, 30));
+        jPanel2.add(end, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 200, 30));
 
         depart.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.add(depart, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 130, 30));
+        jPanel2.add(depart, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 130, 30));
 
         arrival.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.add(arrival, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 130, 30));
+        jPanel2.add(arrival, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 130, 30));
 
         distance.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.add(distance, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 130, 30));
+        jPanel2.add(distance, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 130, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel3.setText("STATUS");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 130, 10));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 130, 10));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel6.setText("DESCRIPTION ");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 10));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, 10));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel7.setText("WEIGHT ");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 130, 10));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 130, 10));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel10.setText("START LOCATION");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 150, 10));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 150, 10));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel15.setText("END LOCATION ");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 140, 10));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 140, 10));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel17.setText("DEPARTURE DATE ");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 160, 10));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 160, 10));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel18.setText("ARRIVAL DATE ");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 130, 10));
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 130, 10));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel19.setText("DISTANCE");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 130, 10));
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 130, 10));
 
         TripStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SUCCESSFUL", "PENDING" }));
-        jPanel2.add(TripStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 130, 30));
+        jPanel2.add(TripStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 130, 30));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel21.setText("TRUCK ID");
-        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 220, 10));
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 220, 10));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel16.setText("DRIVER ID");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 220, 10));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 220, 10));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel23.setText("USER'S ID ");
-        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 220, 10));
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 220, 10));
 
         userComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
-        jPanel2.add(userComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 130, 30));
+        jPanel2.add(userComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 130, 30));
 
         driverComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
-        jPanel2.add(driverComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 130, 30));
+        jPanel2.add(driverComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 130, 30));
 
         TruckID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
-        jPanel2.add(TruckID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 30));
+        jPanel2.add(TruckID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 130, 30));
 
         DriverName.setBackground(new java.awt.Color(204, 204, 204));
         DriverName.setEnabled(false);
-        jPanel2.add(DriverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 130, 30));
+        jPanel2.add(DriverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 130, 30));
 
         PlateNum.setBackground(new java.awt.Color(204, 204, 204));
         PlateNum.setEnabled(false);
-        jPanel2.add(PlateNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 130, 30));
+        jPanel2.add(PlateNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 130, 30));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel20.setText("DRIVER NAME");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 130, 10));
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 130, 10));
 
         TripID.setBackground(new java.awt.Color(204, 204, 204));
         TripID.setEnabled(false);
-        jPanel2.add(TripID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 60, 30));
+        jPanel2.add(TripID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 60, 30));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel22.setText("PLATE NUMBER");
-        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 130, 10));
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 130, 10));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel24.setText("TRIP ID");
-        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, 10));
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 130, 10));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 380, 540));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 380, 470));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ADMIN CREATE/ADD DRIVER FORM");
+        jLabel1.setText("TRIP FORM");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -434,7 +436,9 @@ public class CreateTripsForm1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         pack();
