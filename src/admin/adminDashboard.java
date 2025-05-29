@@ -9,7 +9,6 @@ import config.Session;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import tripsrecordsystem.loginForm;
-import user.CreateTripsForm;
 
 
 /**
@@ -432,8 +431,8 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel6MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-      CreateTripsForm usf = new CreateTripsForm();
-        usf.setVisible(true);
+      tripsForm tf = new tripsForm();
+        tf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
 

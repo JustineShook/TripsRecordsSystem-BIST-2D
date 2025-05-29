@@ -85,13 +85,14 @@ public class accountDetails extends javax.swing.JFrame {
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("LOG OUT");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("BACK");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel13.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 10));
+        jPanel13.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 10, 70, 10));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -210,7 +211,7 @@ public class accountDetails extends javax.swing.JFrame {
         jLabel7.setText("Username");
         jPanel12.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, 10));
 
-        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 360, 210));
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 360, 190));
 
         pack();
         setLocationRelativeTo(null);
@@ -233,10 +234,9 @@ public class accountDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-         loginForm lgf = new loginForm();
-         JOptionPane.showMessageDialog(null, "Logged out!!");
-         lgf.setVisible(true);
-         this.dispose();
+         userDashboard lgf = new userDashboard();
+        lgf.setVisible(true);
+        this.dispose();
          
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -249,8 +249,7 @@ public class accountDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel13MouseExited
 
     private void jPanel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel13MouseClicked
-        loginForm lgf = new loginForm();
-        JOptionPane.showMessageDialog(null, "Logged out!!");
+        userDashboard lgf = new userDashboard();
         lgf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel13MouseClicked
