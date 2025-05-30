@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2025 at 05:14 PM
+-- Generation Time: May 30, 2025 at 11:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -62,18 +62,19 @@ CREATE TABLE `tbl_trip` (
   `departure_date` varchar(50) NOT NULL,
   `arrival_date` varchar(50) NOT NULL,
   `distance` varchar(12) NOT NULL,
-  `status` varchar(50) NOT NULL
+  `status` varchar(50) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_trip`
 --
 
-INSERT INTO `tbl_trip` (`trip_id`, `driver_id`, `truck_id`, `u_id`, `description`, `weight`, `start_location`, `end_location`, `departure_date`, `arrival_date`, `distance`, `status`) VALUES
-(1, 1002, 1001, 80, '', '3,000kg', 'Bulacao, Talisay City, Cebu', 'Inayagan, City of Naga, Cebu', '2025-05-09', '2025-05-09', 'basta layo', 'SUCCESSFUL'),
-(5, 0, 0, 0, 'adad', 'ad', 'dad', 'adad', 'ada', 'da', 'dada', 'SUCCESSFUL'),
-(6, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', 'dad', 'ada', 'dada', 'SUCCESSFUL'),
-(7, 1002, 1002, 80, 'sdadas', 'das', 'asd', 'asdasd', 'dasd', 'asdasd', 'asdasd', 'SUCCESSFUL');
+INSERT INTO `tbl_trip` (`trip_id`, `driver_id`, `truck_id`, `u_id`, `description`, `weight`, `start_location`, `end_location`, `departure_date`, `arrival_date`, `distance`, `status`, `timestamp`) VALUES
+(1, 1002, 1001, 80, '', '3,000kg', 'Bulacao, Talisay City, Cebu', 'Inayagan, City of Naga, Cebu', '2025-05-09', '2025-05-09', 'basta layo', 'SUCCESSFUL', '2025-05-30 09:17:05'),
+(5, 0, 0, 0, 'adad', 'ad', 'dad', 'adad', 'ada', 'da', 'dada', 'SUCCESSFUL', '2025-05-30 09:17:05'),
+(6, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', 'dad', 'ada', 'dada', 'SUCCESSFUL', '2025-05-30 09:17:05'),
+(7, 1002, 1002, 80, 'sdadas', 'das', 'asd', 'asdasd', 'dasd', 'asdasd', 'asdasd', 'SUCCESSFUL', '2025-05-30 09:17:05');
 
 -- --------------------------------------------------------
 
@@ -165,7 +166,8 @@ INSERT INTO `user_action_logs` (`log_id`, `timestamp`, `u_id`, `user_fullname`, 
 (19, '2025-05-25 12:08:14', 80, 'justinejustine', 'Updated Truck: GDN 9056'),
 (20, '2025-05-25 12:11:32', 80, 'justinejustine', 'Updated Truck: GAM 8080'),
 (21, '2025-05-25 12:21:14', 80, 'justinejustine', 'Updated Truck: GAM 8080'),
-(22, '2025-05-25 12:24:55', 80, 'justinejustine', 'Admin Updated a Truck successfully:: GAM 8080');
+(22, '2025-05-25 12:24:55', 80, 'justinejustine', 'Admin Updated a Truck successfully:: GAM 8080'),
+(23, '2025-05-30 17:12:46', 80, 'justinejustine', 'User Log in successfully: justinejustine');
 
 --
 -- Indexes for dumped tables
@@ -239,25 +241,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `user_action_logs`
 --
 ALTER TABLE `user_action_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `tbl_trip`
---
-ALTER TABLE `tbl_trip`
-  ADD CONSTRAINT `driverid` FOREIGN KEY (`driver_id`) REFERENCES `tbl_driver` (`driver_id`),
-  ADD CONSTRAINT `truckid` FOREIGN KEY (`truck_id`) REFERENCES `tbl_truck` (`truck_id`),
-  ADD CONSTRAINT `uid` FOREIGN KEY (`u_id`) REFERENCES `tbl_user` (`u_id`);
-
---
--- Constraints for table `user_action_logs`
---
-ALTER TABLE `user_action_logs`
-  ADD CONSTRAINT `u_id` FOREIGN KEY (`u_id`) REFERENCES `tbl_user` (`u_id`);
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
