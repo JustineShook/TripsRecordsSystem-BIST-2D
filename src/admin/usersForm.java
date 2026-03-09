@@ -288,52 +288,55 @@ public class usersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_p_addMouseClicked
 
     private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
-        int rowIndex = usersTable.getSelectedRow();
+       int rowIndex = usersTable.getSelectedRow();
+
+if(rowIndex < 0){
+    JOptionPane.showMessageDialog(null, "Please select Item!");
+}else{
+    try{
+        dbConnector dbc = new dbConnector();
+        TableModel tbl = usersTable.getModel();
+        ResultSet rs = dbc.getData("SELECT * FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
         
-        if(rowIndex<0){
-            JOptionPane.showMessageDialog(null, "Please select Item!");
-        }else{
-          
+        if(rs.next()){
+            CreateUserForm crf = new CreateUserForm();
+            crf.uID.setText(""+rs.getInt("u_id"));
+            crf.CompleteName.setText(""+rs.getString("u_name"));
+            crf.uname.setText(""+rs.getString("u_username"));
+            crf.pword.setText(""+rs.getString("u_password"));
+            crf.pword1.setText(""+rs.getString("u_password"));
+            crf.email.setText(""+rs.getString("u_email"));
+            crf.cnumber.setText(""+rs.getString("u_number"));
+            crf.jUserStatus.setSelectedItem(""+rs.getString("u_status"));
+            crf.jUserType.setSelectedItem(""+rs.getString("u_type"));
             
-            try{
-            dbConnector dbc = new dbConnector();
-            TableModel tbl = usersTable.getModel();
-            ResultSet rs = dbc.getData("SELECT*FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
-            if(rs.next()){
-                CreateUserForm crf = new CreateUserForm();
-                crf.uID.setText(""+rs.getInt("u_id"));
-                crf.CompleteName.setText(""+rs.getString("u_name"));
-                crf.uname.setText(""+rs.getString("u_username"));
-                crf.pword.setText(""+rs.getString("u_password"));
-                crf.pword1.setText(""+rs.getString("u_password"));
-                crf.email.setText(""+rs.getString("u_email"));
-                crf.cnumber.setText(""+rs.getString("u_number"));
-                crf.jUserStatus.setSelectedItem(""+rs.getString("u_status"));
-                crf.jUserType.setSelectedItem(""+rs.getString("u_type"));
-                crf.image.setIcon(crf.ResizeImage(rs.getString("u_image"), null, crf.image));
-                crf.oldpath = rs.getString("u_image");
-                crf.path = rs.getString("u_image");
-                crf.destination = rs.getString("u_image");
-                crf.addB.setEnabled(false);
-                crf.UpdateB.setEnabled(true);
-                crf.setVisible(true);
-                
-                if(rs.getString("u_image").isEmpty()){
-                 crf.select.setEnabled(true);
-                 crf.remove.setEnabled(false);
-                }else{
-                 crf.select.setEnabled(false);
-                 crf.remove.setEnabled(true);
-                }
-                
-                this.dispose();
+            String imagePath = rs.getString("u_image");
+            
+            if(imagePath != null && !imagePath.isEmpty()){
+                crf.image.setIcon(crf.ResizeImage(imagePath, null, crf.image));
+                crf.oldpath = imagePath;
+                crf.path = imagePath;
+                crf.destination = imagePath;
+                crf.select.setEnabled(false);
+                crf.remove.setEnabled(true);
+            } else {
+                crf.image.setIcon(null);
+                crf.oldpath = "";
+                crf.path = "";
+                crf.destination = "";
+                crf.select.setEnabled(true);
+                crf.remove.setEnabled(false);
             }
-            }catch(SQLException ex){  
-              System.out.println(""+ex);
-            }
-        
+            
+            crf.addB.setEnabled(false);
+            crf.UpdateB.setEnabled(true);
+            crf.setVisible(true);
+            this.dispose();
         }
-    
+    } catch(SQLException ex){  
+        System.out.println(""+ex);
+    }
+}    
         
     }//GEN-LAST:event_p_editMouseClicked
 

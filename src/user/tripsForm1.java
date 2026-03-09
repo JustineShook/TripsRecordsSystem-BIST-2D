@@ -70,8 +70,6 @@ public class tripsForm1 extends javax.swing.JFrame {
         p_add = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         UserID = new javax.swing.JLabel();
-        PrintButton = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
         p_edit = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -158,29 +156,6 @@ public class tripsForm1 extends javax.swing.JFrame {
         UserID.setForeground(new java.awt.Color(153, 153, 153));
         UserID.setText("ID");
         jPanel2.add(UserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 30, -1));
-
-        PrintButton.setBackground(new java.awt.Color(160, 3, 0));
-        PrintButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                PrintButtonMouseExited(evt);
-            }
-        });
-        PrintButton.setLayout(null);
-
-        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("PRINT");
-        PrintButton.add(jLabel12);
-        jLabel12.setBounds(0, 10, 120, 17);
-
-        jPanel2.add(PrintButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 120, 40));
 
         p_edit.setBackground(new java.awt.Color(160, 3, 0));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -282,10 +257,8 @@ public class tripsForm1 extends javax.swing.JFrame {
     }//GEN-LAST:event_BackPanelMouseExited
 
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
-       CreateUserForm cuf =new CreateUserForm();
-        cuf.setVisible(true);
-        cuf.remove.setEnabled(false);
-        cuf.select.setEnabled(true);
+       CreateTripsForm1 ctf =new CreateTripsForm1();
+        ctf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_p_addMouseClicked
 
@@ -345,70 +318,6 @@ public class tripsForm1 extends javax.swing.JFrame {
         ads.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackPanelMouseClicked
-
-    private void PrintButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseClicked
-      int rowIndex = tripTable.getSelectedRow();
-
-if (rowIndex < 0) {
-    JOptionPane.showMessageDialog(null, "Please select Item!");
-} else {
-    try {
-        dbConnector dbc = new dbConnector();
-        TableModel tbl = tripTable.getModel();
-        String tripId = tbl.getValueAt(rowIndex, 0).toString();
-
-        String sql = "SELECT t.*, d.full_name, tr.plate_number " +
-                     "FROM tbl_trip t " +
-                     "JOIN tbl_driver d ON t.driver_id = d.driver_id " +
-                     "JOIN tbl_truck tr ON t.truck_id = tr.truck_id " +
-                     "WHERE t.trip_id = ?";
-
-        PreparedStatement pst = dbc.getConnection().prepareStatement(sql);
-        pst.setString(1, tripId);
-
-        ResultSet rs = pst.executeQuery();
-
-        if (rs.next()) {
-            IndividualPrinting ip = new IndividualPrinting();
-            ip.TripID.setText(rs.getString("trip_id"));
-            ip.driverComboBox3.setText(rs.getString("driver_id"));
-            ip.DriverName.setText(rs.getString("full_name"));
-            ip.TruckID.setText(rs.getString("truck_id"));
-            ip.PlateNum.setText(rs.getString("plate_number"));
-            ip.description.setText(rs.getString("description"));
-            ip.weight.setText(rs.getString("weight"));
-            ip.start.setText(rs.getString("start_location"));
-            ip.end.setText(rs.getString("end_location"));
-            ip.depart.setText(rs.getString("departure_date"));
-            ip.arrival.setText(rs.getString("arrival_date"));
-            ip.distance.setText(rs.getString("distance"));
-            ip.TripStatus.setText(rs.getString("status"));
-            ip.Date.setText(rs.getString("timestamp"));
-
-            ip.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Trip ID not found!");
-        }
-
-        rs.close();
-        pst.close();
-        dbc.close(); // Make sure your dbConnector class has a close method to close connection
-
-    } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null, "Database error: " + ex.getMessage());
-    }
-}
-
-    }//GEN-LAST:event_PrintButtonMouseClicked
-
-    private void PrintButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseEntered
-        PrintButton.setBackground(redd);
-    }//GEN-LAST:event_PrintButtonMouseEntered
-
-    private void PrintButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintButtonMouseExited
-        PrintButton.setBackground(shok);
-    }//GEN-LAST:event_PrintButtonMouseExited
      
     /**
      * @param args the command line arguments
@@ -454,12 +363,10 @@ if (rowIndex < 0) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackPanel;
-    private javax.swing.JPanel PrintButton;
     private javax.swing.JLabel UserID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -11,7 +11,15 @@ import config.Session;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import tripsrecordsystem.loginForm;
-
+import javax.swing.ImageIcon;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import java.awt.Image;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import config.dbConnector;
+import java.sql.SQLException;
 /**
  *
  * @author mypc
@@ -23,6 +31,37 @@ public class userDashboard extends javax.swing.JFrame {
 
     public userDashboard() {
         initComponents();
+        try {
+
+    Session sess = Session.getInstance();
+    int id = sess.getUid();
+
+    dbConnector dbc = new dbConnector();
+    String sql = "SELECT u_image FROM tbl_user WHERE u_id = '"+id+"'";
+    ResultSet rs = dbc.getData(sql);
+
+    if(rs.next()){
+
+        String imgPath = rs.getString("u_image");
+
+        if(imgPath != null){
+
+            ImageIcon icon = new ImageIcon(imgPath);
+            java.awt.Image img = icon.getImage().getScaledInstance(
+                    image.getWidth(),
+                    image.getHeight(),
+                    java.awt.Image.SCALE_SMOOTH
+            );
+
+            image.setIcon(new ImageIcon(img));
+        }
+
+    }
+
+}catch(Exception e){
+    e.printStackTrace();
+}
+        
     }
   
     
@@ -330,7 +369,7 @@ public class userDashboard extends javax.swing.JFrame {
         jPanel12.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 590, 10));
 
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel14.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
+        jPanel14.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
 
         jPanel12.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 90, 90));
 
@@ -338,13 +377,13 @@ public class userDashboard extends javax.swing.JFrame {
         AdminName.setForeground(new java.awt.Color(102, 102, 102));
         AdminName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AdminName.setText("USER");
-        jPanel12.add(AdminName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 110, 20));
+        jPanel12.add(AdminName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 110, 20));
 
         AdminName1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         AdminName1.setForeground(new java.awt.Color(102, 102, 102));
         AdminName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AdminName1.setText("USER");
-        jPanel12.add(AdminName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 110, -1));
+        jPanel12.add(AdminName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 110, -1));
 
         getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 640, 300));
 
@@ -396,9 +435,38 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_LOGpannelMouseClicked
 
     private void AccountdetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AccountdetMouseClicked
-        accountDetails ad = new accountDetails();
-        ad.setVisible(true);
-        this.dispose();
+        try {
+        Session session = Session.getInstance();
+        dbConnector dbc = new dbConnector();
+        String sql = "SELECT * FROM tbl_user WHERE u_id = ?";
+        PreparedStatement pst = dbc.getConnection().prepareStatement(sql);
+        pst.setInt(1, session.getUid());
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            AccountDetails_1 ad = new AccountDetails_1();
+            ad.setAccountDetails(
+                rs.getString("u_name"),
+                rs.getString("u_email"),
+                rs.getString("u_number"),
+                rs.getString("u_username"),
+                rs.getString("u_type"),
+                rs.getString("u_status"),
+                rs.getString("u_image")
+            );
+            ad.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "User not found!");
+        }
+
+        rs.close();
+        pst.close();
+        dbc.close();
+
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Database error: " + ex.getMessage());
+    }
     }//GEN-LAST:event_AccountdetMouseClicked
 
     private void AccountdetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AccountdetMouseEntered

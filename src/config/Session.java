@@ -12,7 +12,7 @@ package config;
 public class Session {
     
     private static Session instance;
-    private int uid;
+    public int uid;
     private String cname;
     private String ucnumber;
     private String email;

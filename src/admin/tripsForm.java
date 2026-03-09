@@ -65,8 +65,6 @@ public class tripsForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        p_add = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
         UserID = new javax.swing.JLabel();
         PrintButton = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -128,29 +126,6 @@ public class tripsForm extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        p_add.setBackground(new java.awt.Color(160, 3, 0));
-        p_add.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                p_addMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                p_addMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                p_addMouseExited(evt);
-            }
-        });
-        p_add.setLayout(null);
-
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("ADD");
-        p_add.add(jLabel11);
-        jLabel11.setBounds(0, 10, 120, 17);
-
-        jPanel2.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 120, 40));
-
         UserID.setBackground(new java.awt.Color(0, 0, 0));
         UserID.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         UserID.setForeground(new java.awt.Color(153, 153, 153));
@@ -178,7 +153,7 @@ public class tripsForm extends javax.swing.JFrame {
         PrintButton.add(jLabel12);
         jLabel12.setBounds(0, 10, 120, 17);
 
-        jPanel2.add(PrintButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 120, 40));
+        jPanel2.add(PrintButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 120, 40));
 
         p_edit.setBackground(new java.awt.Color(160, 3, 0));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -201,7 +176,7 @@ public class tripsForm extends javax.swing.JFrame {
         p_edit.add(jLabel10);
         jLabel10.setBounds(0, 10, 120, 17);
 
-        jPanel2.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 120, 40));
+        jPanel2.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 120, 40));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
@@ -262,15 +237,6 @@ public class tripsForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowActivated
 
-    private void p_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseEntered
-        p_add.setBackground(redd);   
-    }//GEN-LAST:event_p_addMouseEntered
-
-    private void p_addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseExited
-     
-        p_add.setBackground(shok);
-    }//GEN-LAST:event_p_addMouseExited
-
     private void BackPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackPanelMouseEntered
         BackPanel.setBackground(redd);
     }//GEN-LAST:event_BackPanelMouseEntered
@@ -278,14 +244,6 @@ public class tripsForm extends javax.swing.JFrame {
     private void BackPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackPanelMouseExited
         BackPanel.setBackground(shok);
     }//GEN-LAST:event_BackPanelMouseExited
-
-    private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
-       CreateUserForm cuf =new CreateUserForm();
-        cuf.setVisible(true);
-        cuf.remove.setEnabled(false);
-        cuf.select.setEnabled(true);
-        this.dispose();
-    }//GEN-LAST:event_p_addMouseClicked
 
     private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
         int rowIndex = tripTable.getSelectedRow();
@@ -452,7 +410,6 @@ if (rowIndex < 0) {
     private javax.swing.JLabel UserID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -464,7 +421,6 @@ if (rowIndex < 0) {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel p_add;
     private javax.swing.JPanel p_edit;
     private javax.swing.JTable tripTable;
     // End of variables declaration//GEN-END:variables

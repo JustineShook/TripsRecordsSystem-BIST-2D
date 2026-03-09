@@ -159,14 +159,14 @@ public class truckForm1 extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 340));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 400));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 340));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-         adminDashboard ads=new adminDashboard();
+         userDashboard ads=new userDashboard();
             ads.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_jLabel1MouseClicked

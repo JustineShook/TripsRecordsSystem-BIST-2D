@@ -471,9 +471,9 @@ public class IndividualPrinting extends javax.swing.JFrame {
     }//GEN-LAST:event_BackPanelMouseExited
 
     private void pPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pPrintActionPerformed
-       JPanel myPanel = new JPanel();
-       PanelPrinter pPrint = new PanelPrinter(page);
-       pPrint.printPanel();
+        JPanel myPanel = new JPanel();
+        PanelPrinter pPrint = new PanelPrinter(page);
+        pPrint.printPanel();
     }//GEN-LAST:event_pPrintActionPerformed
 
     private void pPrintMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pPrintMouseClicked

@@ -46,6 +46,7 @@ public class CreateUserForm extends javax.swing.JFrame {
     public String oldpath;
     public String path;
     
+    
     public int FileExistenceChecker(String path){
         File file = new File(path);
         String fileName = file.getName();
