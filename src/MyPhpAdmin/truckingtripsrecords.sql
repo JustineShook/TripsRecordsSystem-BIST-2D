@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2026 at 10:12 AM
+-- Generation Time: Mar 15, 2026 at 01:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -76,7 +76,10 @@ INSERT INTO `tbl_trip` (`trip_id`, `driver_id`, `truck_id`, `u_id`, `description
 (6, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', 'dad', 'ada', 'dada', 'SUCCESSFUL', '2025-05-30 09:17:05'),
 (7, 1002, 1002, 80, 'sdadas', 'das', 'asd', 'asdasd', 'dasd', 'asdasd', 'asdasd', 'SUCCESSFUL', '2025-05-30 09:17:05'),
 (8, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', '08-03-2026 14:30', '08-03-2026 14:30', 'dada', 'SUCCESSFUL', '2026-03-09 08:58:08'),
-(9, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', '08-03-2026 14:30', '08-03-2026 23:30', 'dada', 'SUCCESSFUL', '2026-03-09 08:58:46');
+(9, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', '08-03-2026 14:30', '08-03-2026 23:30', 'dada', 'SUCCESSFUL', '2026-03-09 08:58:46'),
+(10, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', '08-03-2026 14:30', '08-03-2026 23:30', 'dada', 'SUCCESSFUL', '2026-03-11 00:43:33'),
+(11, 1018, 1002, 80, 'dadaana', 'adada', 'ada', 'dada', '08-03-2026 14:30', '08-03-2026 23:30', 'dada', 'SUCCESSFUL', '2026-03-11 00:46:06'),
+(12, 1018, 1002, 80, 'dad', 'adada', 'adaaa', 'dada', '08-03-2026 14:30', '08-03-2026 23:30', 'dada', 'SUCCESSFUL', '2026-03-11 00:49:50');
 
 -- --------------------------------------------------------
 
@@ -291,7 +294,25 @@ INSERT INTO `user_action_logs` (`log_id`, `timestamp`, `u_id`, `user_fullname`, 
 (140, '2026-03-09 16:53:20', 88, 'shok', 'User Log in successfully: shok'),
 (141, '2026-03-09 16:56:05', 88, 'shok', 'User Log in successfully: shok'),
 (142, '2026-03-09 16:58:08', 88, 'shok', 'Admin added a new Trip successfully'),
-(143, '2026-03-09 16:58:46', 88, 'shok', 'Admin added a new Trip successfully');
+(143, '2026-03-09 16:58:46', 88, 'shok', 'Admin added a new Trip successfully'),
+(144, '2026-03-11 08:40:42', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(145, '2026-03-11 08:41:53', 88, 'shok', 'User Log in successfully: shok'),
+(146, '2026-03-11 08:42:40', 88, 'shok', 'User Log in successfully: shok'),
+(147, '2026-03-11 08:43:33', 88, 'shok', 'Admin added a new Trip successfully'),
+(148, '2026-03-11 08:45:46', 88, 'shok', 'User Log in successfully: shok'),
+(149, '2026-03-11 08:46:06', 88, 'shok', 'Admin added a new Trip successfully'),
+(150, '2026-03-11 08:47:56', 88, 'shok', 'User Log in successfully: shok'),
+(151, '2026-03-11 08:49:50', 88, 'shok', 'Admin added a new Trip successfully'),
+(152, '2026-03-15 19:54:33', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(153, '2026-03-15 19:55:28', 88, 'shok', 'User Log in successfully: shok'),
+(154, '2026-03-15 19:55:58', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(155, '2026-03-15 19:58:04', 87, 'Shane Plaicte Libios', 'Admin Updated a Truck successfully:: GAM 8080'),
+(156, '2026-03-15 20:09:35', 88, 'shok', 'User Log in successfully: shok'),
+(157, '2026-03-15 20:11:22', 88, 'shok', 'User Log in successfully: shok'),
+(158, '2026-03-15 20:12:14', 85, 'adadadsadasd', 'User Log in successfully: adadadsadasd'),
+(159, '2026-03-15 20:13:10', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(160, '2026-03-15 20:14:33', 87, 'Shane Plaicte Libios', 'Admin Update a Driver successfully: Ashley Palicte'),
+(161, '2026-03-15 20:15:03', 87, 'Shane Plaicte Libios', 'Admin Update a Driver successfully: Ashley Palicte');
 
 --
 -- Indexes for dumped tables
@@ -347,7 +368,7 @@ ALTER TABLE `tbl_driver`
 -- AUTO_INCREMENT for table `tbl_trip`
 --
 ALTER TABLE `tbl_trip`
-  MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_truck`
@@ -365,7 +386,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `user_action_logs`
 --
 ALTER TABLE `user_action_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

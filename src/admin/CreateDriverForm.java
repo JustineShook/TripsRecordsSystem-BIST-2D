@@ -619,20 +619,25 @@ public class CreateDriverForm extends javax.swing.JFrame {
         
         
         dbConnector dbc = new dbConnector();
-        dbc.updateData("UPDATE tbl_driver SET full_name = '"+CompleteName.getText()+"',"
-                + "license_number ='"+Lnum.getText()+"',"
-                        + "contact_number = '"+cnumber.getText()+"', "
-                                + "driver_status = '"+jDriverStatus.getSelectedItem()+"',"
-                                        + "'driver_image = '"+destination+"' WHERE driver_id  = '"+DriverID.getText()+"'");
-        if(destination.isEmpty()){
-            File existingFile = new File(oldpath);
-            if(existingFile.exists()){
-                existingFile.delete();
+        String updateQuery;
+            if(destination.isEmpty()){
+                updateQuery = "UPDATE tbl_driver SET full_name = '"+CompleteName.getText()+"',"
+                    + "license_number = '"+Lnum.getText()+"',"
+                    + "contact_number = '"+cnumber.getText()+"',"
+                    + "driver_status = '"+jDriverStatus.getSelectedItem()+"'"
+                    + " WHERE driver_id = '"+DriverID.getText()+"'";
+            } else {
+                updateQuery = "UPDATE tbl_driver SET full_name = '"+CompleteName.getText()+"',"
+                    + "license_number = '"+Lnum.getText()+"',"
+                    + "contact_number = '"+cnumber.getText()+"',"
+                    + "driver_status = '"+jDriverStatus.getSelectedItem()+"',"
+                    + "driver_image = '"+destination+"'"
+                    + " WHERE driver_id = '"+DriverID.getText()+"'";
+                if(!(oldpath.equals(path))){
+                    imageUpdater(oldpath, path);
+                }
             }
-        }else{
-            if(!(oldpath.equals(path))){
-                imageUpdater(oldpath, path);
-            }
+            dbc.updateData(updateQuery);
         }
          Session session = Session.getInstance();
             int userId = session.getUid();
@@ -644,7 +649,7 @@ public class CreateDriverForm extends javax.swing.JFrame {
         uf.setVisible(true);
         this.dispose(); 
         
-        }
+        
     }//GEN-LAST:event_UpdateBActionPerformed
 
     private void RefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RefreshMouseEntered

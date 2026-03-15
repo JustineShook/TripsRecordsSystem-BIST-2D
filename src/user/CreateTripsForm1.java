@@ -481,7 +481,7 @@ public class CreateTripsForm1 extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Trip added successfully!");
 
-            tripsForm tf = new tripsForm(); // Replace with your actual form
+            tripsForm1 tf = new tripsForm1(); // Replace with your actual form
             tf.setVisible(true);
             this.dispose();
 

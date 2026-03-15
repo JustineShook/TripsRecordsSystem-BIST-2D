@@ -259,6 +259,7 @@ public class tripsForm extends javax.swing.JFrame {
             ResultSet rs = dbc.getData("SELECT*FROM tbl_trip WHERE trip_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
             if(rs.next()){
                 CreateTripsForm ctf = new CreateTripsForm();
+        ctf.TripID.setText(""+rs.getString("trip_id"));
         ctf.driverComboBox3.setSelectedItem(""+rs.getString("driver_id"));
         ctf.TruckID.setSelectedItem(""+rs.getString("truck_id"));
         ctf.userComboBox1.setSelectedItem(""+rs.getString("u_id"));
@@ -274,6 +275,8 @@ public class tripsForm extends javax.swing.JFrame {
         ctf.TruckID.setEnabled(false);
         ctf.userComboBox1.setEnabled(false);
         ctf.driverComboBox3.setEnabled(false);
+        ctf.UpdateB.setEnabled(true);
+        ctf.addB.setEnabled(false);
                 this.dispose();
                
                

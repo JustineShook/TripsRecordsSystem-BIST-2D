@@ -275,10 +275,11 @@ public class tripsForm1 extends javax.swing.JFrame {
             TableModel tbl = tripTable.getModel();
             ResultSet rs = dbc.getData("SELECT*FROM tbl_trip WHERE trip_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
             if(rs.next()){
-                CreateTripsForm ctf = new CreateTripsForm();
-        ctf.driverComboBox3.setSelectedItem(""+rs.getString("driver_id"));
-        ctf.TruckID.setSelectedItem(""+rs.getString("truck_id"));
-        ctf.userComboBox1.setSelectedItem(""+rs.getString("u_id"));
+                CreateTripsForm1 ctf = new CreateTripsForm1();
+        ctf.TripID.setText(""+rs.getString("trip_id"));
+        ctf.driverComboBox3.setSelectedItem(rs.getString("driver_id"));  // ADD HERE
+        ctf.TruckID.setSelectedItem(rs.getString("truck_id"));            // ADD HERE
+        ctf.userComboBox1.setSelectedItem(rs.getString("u_id"));
         ctf.description.setText(""+rs.getString("description"));
         ctf.weight.setText(""+rs.getString("weight"));
         ctf.start.setText(""+rs.getString("start_location"));
@@ -291,6 +292,8 @@ public class tripsForm1 extends javax.swing.JFrame {
         ctf.TruckID.setEnabled(false);
         ctf.userComboBox1.setEnabled(false);
         ctf.driverComboBox3.setEnabled(false);
+        ctf.UpdateB.setEnabled(true);
+        ctf.addB.setEnabled(false);
                 this.dispose();
                
                

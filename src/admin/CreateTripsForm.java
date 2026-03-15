@@ -549,42 +549,50 @@ public class CreateTripsForm extends javax.swing.JFrame {
     }//GEN-LAST:event_UpdateBMouseExited
 
     private void UpdateBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBActionPerformed
-         if (description.getText().isEmpty() || weight.getText().isEmpty() ||
+       if (description.getText().isEmpty() || weight.getText().isEmpty() ||
     start.getText().isEmpty() || end.getText().isEmpty() ||
     depart.getText().isEmpty() || arrival.getText().isEmpty() ||
     distance.getText().isEmpty()) {
-
     JOptionPane.showMessageDialog(null, "All Fields are Required!");
-
 } else {
+    try {
+        // Comboboxes already contain IDs — use directly
+        String driverId = (String) driverComboBox3.getSelectedItem();
+        String truckId  = (String) TruckID.getSelectedItem();
+        String userId2  = (String) userComboBox1.getSelectedItem();
 
-    dbConnector dbc = new dbConnector();
-    dbc.updateData(
-        "UPDATE tbl_trip SET " +
-        "driver_id = '" + driverComboBox3.getSelectedItem() + "', " +
-        "truck_id = '" + TruckID.getSelectedItem() + "', " +
-        "u_id = '" + userComboBox1.getSelectedItem() + "', " +
-        "description = '" + description.getText() + "', " +
-        "weight = '" + weight.getText() + "', " +
-        "start_location = '" + start.getText() + "', " +
-        "end_location = '" + end.getText() + "', " +
-        "departure_date = '" + depart.getText() + "', " +
-        "arrival_date = '" + arrival.getText() + "', " +
-        "distance = '" + distance.getText() + "', " +
-        "status = '" + TripStatus.getSelectedItem() + "' " +
-        "WHERE trip_id = '" + TripID.getText() + "'"
-    );
+        dbConnector dbc = new dbConnector();
+        dbc.updateData(
+            "UPDATE tbl_trip SET " +
+            "driver_id = '" + driverId + "', " +
+            "truck_id = '" + truckId + "', " +
+            "u_id = '" + userId2 + "', " +
+            "description = '" + description.getText() + "', " +
+            "weight = '" + weight.getText() + "', " +
+            "start_location = '" + start.getText() + "', " +
+            "end_location = '" + end.getText() + "', " +
+            "departure_date = '" + depart.getText() + "', " +
+            "arrival_date = '" + arrival.getText() + "', " +
+            "distance = '" + distance.getText() + "', " +
+            "status = '" + TripStatus.getSelectedItem() + "' " +
+            "WHERE trip_id = '" + TripID.getText() + "'"
+        );
 
-    // Log and close form
-    Session session = Session.getInstance();
-    int userId = session.getUid();
-    String userFullname = session.getCname();
-    String action = "Admin Updated a Trip successfully:: " + description.getText();
-    Logs.logFunctionCall(userId, userFullname, action);
+        Session session = Session.getInstance();
+        int userId = session.getUid();
+        String userFullname = session.getCname();
+        String action = "Admin Updated a Trip successfully:: " + description.getText();
+        Logs.logFunctionCall(userId, userFullname, action);
 
-    tripsForm tf = new tripsForm();
-    tf.setVisible(true);
-    this.dispose();
+        JOptionPane.showMessageDialog(null, "Trip Updated Successfully!");
+        tripsForm tf = new tripsForm();
+        tf.setVisible(true);
+        this.dispose();
+
+    } catch (Exception ex) {
+    System.out.println("" + ex);
+    JOptionPane.showMessageDialog(null, "Update Failed: " + ex.getMessage());
+}
 }
     }//GEN-LAST:event_UpdateBActionPerformed
 
