@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2026 at 01:18 PM
+-- Generation Time: Mar 15, 2026 at 02:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,8 +41,8 @@ CREATE TABLE `tbl_driver` (
 --
 
 INSERT INTO `tbl_driver` (`driver_id`, `full_name`, `license_number`, `contact_number`, `driver_image`, `driver_status`) VALUES
-(1002, 'Kawi Dora', '09278635733', 'A0-33-253978', '', 'ACTIVE'),
-(1018, 'Ashley Palicte', 'A0-55-789456', '09244238091', 'src/driverimage/T.png', 'ACTIVE');
+(1002, 'Kawi Dora', 'A0-33-253978', '09278635744', 'src/driverimage/Annotation 2026-03-15 200450.png', 'ACTIVE'),
+(1018, 'Ashley Palicte', 'A0-55-789456', '09244238091', 'src/driverimage/Annotation 2026-03-15 200419.png', 'ACTIVE');
 
 -- --------------------------------------------------------
 
@@ -73,13 +73,14 @@ CREATE TABLE `tbl_trip` (
 INSERT INTO `tbl_trip` (`trip_id`, `driver_id`, `truck_id`, `u_id`, `description`, `weight`, `start_location`, `end_location`, `departure_date`, `arrival_date`, `distance`, `status`, `timestamp`) VALUES
 (1, 1002, 1001, 80, '', '3,000kg', 'Bulacao, Talisay City, Cebu', 'Inayagan, City of Naga, Cebu', '2025-05-09', '2025-05-09', 'basta layo', 'SUCCESSFUL', '2025-05-30 09:17:05'),
 (5, 0, 0, 0, 'adad', 'ad', 'dad', 'adad', 'ada', 'da', 'dada', 'SUCCESSFUL', '2025-05-30 09:17:05'),
-(6, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', 'dad', 'ada', 'dada', 'SUCCESSFUL', '2025-05-30 09:17:05'),
-(7, 1002, 1002, 80, 'sdadas', 'das', 'asd', 'asdasd', 'dasd', 'asdasd', 'asdasd', 'SUCCESSFUL', '2025-05-30 09:17:05'),
+(6, 1018, 1002, 80, 'dad', 'adada', 'pardo', 'bato', '08-03-2026 14:30', '08-03-2026 14:30', 'dada', 'SUCCESSFUL', '2025-05-30 09:17:05'),
+(7, 1002, 1002, 80, 'yehey', 'das', 'naga', 'bulacao', '08-03-2026 14:30', '08-03-2026 14:30', 'asdasd', 'SUCCESSFUL', '2025-05-30 09:17:05'),
 (8, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', '08-03-2026 14:30', '08-03-2026 14:30', 'dada', 'SUCCESSFUL', '2026-03-09 08:58:08'),
 (9, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', '08-03-2026 14:30', '08-03-2026 23:30', 'dada', 'SUCCESSFUL', '2026-03-09 08:58:46'),
 (10, 1018, 1002, 80, 'dad', 'adada', 'ada', 'dada', '08-03-2026 14:30', '08-03-2026 23:30', 'dada', 'SUCCESSFUL', '2026-03-11 00:43:33'),
 (11, 1018, 1002, 80, 'dadaana', 'adada', 'ada', 'dada', '08-03-2026 14:30', '08-03-2026 23:30', 'dada', 'SUCCESSFUL', '2026-03-11 00:46:06'),
-(12, 1018, 1002, 80, 'dad', 'adada', 'adaaa', 'dada', '08-03-2026 14:30', '08-03-2026 23:30', 'dada', 'SUCCESSFUL', '2026-03-11 00:49:50');
+(12, 1018, 1002, 80, 'dad', 'adada', 'adaaa', 'dada', '08-03-2026 14:30', '08-03-2026 23:30', 'dada', 'SUCCESSFUL', '2026-03-11 00:49:50'),
+(13, 1002, 1003, 85, 'sabon', '31kg', 'mingla', 'tabunok', '08-03-2026 14:30', '08-03-2026 14:30', '30', 'PENDING', '2026-03-15 13:35:32');
 
 -- --------------------------------------------------------
 
@@ -101,9 +102,9 @@ CREATE TABLE `tbl_truck` (
 --
 
 INSERT INTO `tbl_truck` (`truck_id`, `plate_number`, `model`, `capacity`, `truck_image`, `truck_status`) VALUES
-(1001, 'GDN 9052', 'ELF', '8,000 kg', 'src/truckimage/666.jpg', 'ACTIVE'),
-(1002, 'GAM 1780', 'ELF', '4,800 kg', '', 'ACTIVE'),
-(1003, 'GAM 8080', 'FORWARD', '10,500 kg', 'src/truckimage/55.jpg', 'ACTIVE'),
+(1001, 'GDN 9052', 'ELF', '8,000 kg', 'src/truckimage/Annotation 2026-03-15 200733.png', 'ACTIVE'),
+(1002, 'GAM 1780', 'ELF', '4,800 kg', 'src/truckimage/Annotation 2026-03-15 200813.png', 'ACTIVE'),
+(1003, 'GAM 8080', 'FORWARD', '10,500 kg', 'src/truckimage/Annotation 2026-03-15 200841.png', 'ACTIVE'),
 (1006, 'GAM 1231', 'L300', '1,000 kg', 'src/truckimage/123123.jpg', 'ACTIVE');
 
 -- --------------------------------------------------------
@@ -312,7 +313,51 @@ INSERT INTO `user_action_logs` (`log_id`, `timestamp`, `u_id`, `user_fullname`, 
 (158, '2026-03-15 20:12:14', 85, 'adadadsadasd', 'User Log in successfully: adadadsadasd'),
 (159, '2026-03-15 20:13:10', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
 (160, '2026-03-15 20:14:33', 87, 'Shane Plaicte Libios', 'Admin Update a Driver successfully: Ashley Palicte'),
-(161, '2026-03-15 20:15:03', 87, 'Shane Plaicte Libios', 'Admin Update a Driver successfully: Ashley Palicte');
+(161, '2026-03-15 20:15:03', 87, 'Shane Plaicte Libios', 'Admin Update a Driver successfully: Ashley Palicte'),
+(162, '2026-03-15 20:21:42', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(163, '2026-03-15 20:22:06', 87, 'Shane Plaicte Libios', 'Admin Update a Driver successfully: Kawi Dora'),
+(164, '2026-03-15 20:22:51', 87, 'Shane Plaicte Libios', 'Admin Update a Driver successfully: Kawi Dora'),
+(165, '2026-03-15 20:23:24', 87, 'Shane Plaicte Libios', 'Admin Update a Driver successfully: Kawi Dora'),
+(166, '2026-03-15 20:23:43', 87, 'Shane Plaicte Libios', 'Admin Update a Driver successfully: Ashley Palicte'),
+(167, '2026-03-15 20:24:35', 87, 'Shane Plaicte Libios', 'Admin Updated a Truck successfully:: GDN 9052'),
+(168, '2026-03-15 20:24:57', 87, 'Shane Plaicte Libios', 'Admin Updated a Truck successfully:: GAM 1780'),
+(169, '2026-03-15 20:25:29', 87, 'Shane Plaicte Libios', 'Admin Updated a Truck successfully:: GAM 8080'),
+(170, '2026-03-15 20:36:34', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(171, '2026-03-15 20:39:51', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(172, '2026-03-15 20:41:47', 88, 'shok', 'User Log in successfully: shok'),
+(173, '2026-03-15 20:42:37', 88, 'shok', 'User Log in successfully: shok'),
+(174, '2026-03-15 20:43:01', 88, 'shok', 'Admin Updated a Trip successfully:: dadaaaaaa'),
+(175, '2026-03-15 20:43:17', 88, 'shok', 'Admin Updated a Trip successfully:: wakalog'),
+(176, '2026-03-15 20:43:35', 88, 'shok', 'Admin Updated a Trip successfully:: dad'),
+(177, '2026-03-15 20:43:58', 88, 'shok', 'Admin Updated a Trip successfully:: sdadas'),
+(178, '2026-03-15 20:44:18', 88, 'shok', 'Admin Updated a Trip successfully:: wakalog'),
+(179, '2026-03-15 20:48:02', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(180, '2026-03-15 20:48:44', 87, 'Shane Plaicte Libios', 'Admin Updated a Trip successfully:: wkalog'),
+(181, '2026-03-15 20:49:33', 87, 'Shane Plaicte Libios', 'Admin Updated a Trip successfully:: skiringki'),
+(182, '2026-03-15 20:50:29', 87, 'Shane Plaicte Libios', 'Admin Updated a Trip successfully:: sdadasaaaa'),
+(183, '2026-03-15 20:50:52', 87, 'Shane Plaicte Libios', 'Admin Updated a Trip successfully:: dad'),
+(184, '2026-03-15 20:51:54', 87, 'Shane Plaicte Libios', 'Admin Update a Driver successfully: Kawi Dora'),
+(185, '2026-03-15 20:52:53', 87, 'Shane Plaicte Libios', 'Admin Updated a Trip successfully:: kamang brad'),
+(186, '2026-03-15 21:07:50', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(187, '2026-03-15 21:08:37', 87, 'Shane Plaicte Libios', 'Admin Updated a Trip successfully:: hahay'),
+(188, '2026-03-15 21:16:01', 88, 'shok', 'User Log in successfully: shok'),
+(189, '2026-03-15 21:16:21', 88, 'shok', 'Admin Updated a Trip successfully:: sdadas'),
+(190, '2026-03-15 21:18:12', 88, 'shok', 'User Log in successfully: shok'),
+(191, '2026-03-15 21:19:10', 88, 'shok', 'Admin Updated a Trip successfully:: sdadas'),
+(192, '2026-03-15 21:20:40', 88, 'shok', 'User Log in successfully: shok'),
+(193, '2026-03-15 21:21:20', 88, 'shok', 'Admin Updated a Trip successfully:: sdadas'),
+(194, '2026-03-15 21:22:52', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(195, '2026-03-15 21:23:08', 87, 'Shane Plaicte Libios', 'Admin Updated a Trip successfully:: sdadas'),
+(196, '2026-03-15 21:27:03', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(197, '2026-03-15 21:27:33', 87, 'Shane Plaicte Libios', 'Admin Updated a Trip successfully:: sdadas'),
+(198, '2026-03-15 21:27:56', 87, 'Shane Plaicte Libios', 'Admin Updated a Trip successfully:: sdadas'),
+(199, '2026-03-15 21:30:06', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios'),
+(200, '2026-03-15 21:30:52', 87, 'Shane Plaicte Libios', 'Admin Updated a Trip successfully:: yehey'),
+(201, '2026-03-15 21:32:15', 88, 'shok', 'User Log in successfully: shok'),
+(202, '2026-03-15 21:33:30', 88, 'shok', 'Admin Updated a Trip successfully:: dad'),
+(203, '2026-03-15 21:34:15', 88, 'shok', 'User Log in successfully: shok'),
+(204, '2026-03-15 21:35:32', 88, 'shok', 'Admin added a new Trip successfully'),
+(205, '2026-03-15 21:36:23', 87, 'Shane Plaicte Libios', 'User Log in successfully: Shane Plaicte Libios');
 
 --
 -- Indexes for dumped tables
@@ -368,7 +413,7 @@ ALTER TABLE `tbl_driver`
 -- AUTO_INCREMENT for table `tbl_trip`
 --
 ALTER TABLE `tbl_trip`
-  MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_truck`
@@ -386,7 +431,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `user_action_logs`
 --
 ALTER TABLE `user_action_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
